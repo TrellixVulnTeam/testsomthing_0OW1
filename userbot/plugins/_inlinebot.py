@@ -18,7 +18,7 @@ REBEL_emoji = Config.EMOJI_IN_HELP
 # thats how a lazy guy imports
 # REBELBOT
 
-DEFAULTUSER = ALIVE_NAME or "REBEL User"
+DEFAULTUSER = ALIVE_NAME or "ᖇᗴᗷᗴᒪ ᗰᗩՏTᗴᖇ"
 
 USERID = bot.uid
 
