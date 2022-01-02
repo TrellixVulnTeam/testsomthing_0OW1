@@ -75,7 +75,7 @@ async def amireallyalive(alive):
             alive,
             f"**{CUSTOM_ALIVE_TEXT}**\n\n"
             f"≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ \n"
-            f"__**ʙᴏᴛ sᴛᴀᴛᴜs**__\n\n"
+            f"     __**ʙᴏᴛ sᴛᴀᴛᴜs**__\n\n"
             f"**➪ ᴛᴇʟᴇᴛʜᴏɴ :** `1.24.0`\n"
             f"**➪ ʀᴇʙᴇʟʙᴏᴛ :** `3.0`\n"
             f"**➪ ᴜᴘᴛɪᴍᴇ      :** `{uptime}\n`"
