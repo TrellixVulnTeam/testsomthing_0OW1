@@ -711,3 +711,31 @@ async def sud_users(event):
     # else:
     #    await event.answer("You can't use this bot.", alert=True)
 
+# ------------------------- alive name ----------------------- #
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pm_data")))
+async def sud_users(event):
+    if event.sender_id == bot.uid:
+        await event.delete()
+        REBEL10="ALIVE_NAME"
+        if Var.HEROKU_APP_NAME is not None:
+            app=Heroku.app(Var.HEROKU_APP_NAME)
+        else:
+            mssg="`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
+            return
+        async with event.client.conversation(bot.uid) as conv:
+            await conv.send_message("Send the name  which you want to added you alive name .\nUse /cancel to cancel the operation.")
+            response=conv.wait_event(events.NewMessage(chats=bot.uid))
+            response=await response
+            themssg=response.message.message
+            if themssg == None:
+                await conv.send_message("Error!")
+                return
+            if themssg == "/cancel":
+                return await conv.send_message("Cancelled!!")
+            heroku_var=app.config()
+            heroku_var[REBEL10]=f"{themssg}"
+            xx = await tgbot.send_message(event.chat_id, "successfull set you alive name\n alive name  `{themssg}`\nafter 5 min do ping|alive check your bot working or not")  
+    # else:
+    #    await event.answer("You can't use this bot.", alert=True)
+
