@@ -11,7 +11,7 @@ from telethon.tl import functions, types
 from userbot import ALIVE_NAME
 from userbot.cmdhelp import CmdHelp
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "REBEL User"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "ᖇᗴᗷᗴᒪ ᗰᗩՏTᗴᖇ"
 
 REBEL = bot.uid
 
