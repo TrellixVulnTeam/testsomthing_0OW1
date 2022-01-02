@@ -114,6 +114,7 @@ async def alivessrr(event):
         buttons=[
             [custom.Button.inline("ᴀʟɪᴠᴇ ᴘɪᴄ", data="alv_pic"),
              custom.Button.inline("ᴀʟɪᴠᴇ ᴛᴇxᴛ", data="alv_txt")],
+            [custom.Button.inline("ᴀʟɪᴠᴇ ɴᴀᴍᴇ", data="alv_pic")],
             [custom.Button.inline("ʙᴀᴄᴋ", data="setting")],
         ],
     )
@@ -686,7 +687,7 @@ async def sud_users(event):
 # ------------------------------ pm data ------------------- #
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pm_data")))
-async def sud_users(event):
+async def pm_data(event):
     if event.sender_id == bot.uid:
         await event.delete()
         REBEL9="PM_DATA"
@@ -713,8 +714,8 @@ async def sud_users(event):
 
 # ------------------------- alive name ----------------------- #
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pm_data")))
-async def sud_users(event):
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"alv_name")))
+async def alv_name(event):
     if event.sender_id == bot.uid:
         await event.delete()
         REBEL10="ALIVE_NAME"
