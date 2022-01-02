@@ -7,7 +7,7 @@ from ..utils import admin_cmd, edit_or_reply, sudo_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "REBEL User"
 h1m4n5hu0p = borg.uid
-REBEL_IMG = Config.ALIVE_PIC
+REBEL_IMG = "https://telegra.ph/file/05fd1961624ffbe038d12.jpg"
 
 # PIC ADDED BY MAFIA OWNER
 
