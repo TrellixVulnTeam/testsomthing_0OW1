@@ -112,9 +112,10 @@ async def alivessrr(event):
     await event.edit(
         "Browse through the available options:",
         buttons=[
-            [custom.Button.inline("Aʟɪᴠᴇ ᴍᴇᴅɪᴀ", data="alv_pic"),
+            [custom.Button.inline("Aʟɪᴠᴇ ɴᴀᴍᴇ", data="alv_name"),
              custom.Button.inline("Aʟɪᴠᴇ Tᴇxᴛ", data="alv_txt")],
-            [custom.Button.inline("Aʟɪᴠᴇ Nᴀᴍᴇ", data="alv_name")],
+            [custom.Button.inline("Aʟɪᴠᴇ ᴍᴇᴅɪᴀ", data="alv_pic")
+            custom.Button.inline("ᴘɪɴɢ Mᴇᴅɪᴀ", data="ping_pic")],
             [custom.Button.inline("ʙᴀᴄᴋ", data="setting")],
         ],
     )
@@ -722,6 +723,45 @@ async def inline_pic(event):
         heroku_var=app.config()
         heroku_var[REBEL11]=f"{url}"
         mssg=f"Successfully changed your inline pic. Please wait for a minute.\n"
+        await xx.edit(mssg)
+    else:
+        await event.answer("You can't use this bot.", alert=True)
+
+# -------------------------------------- ping pic ------------------------------ #
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"ping_pic"))
+           )  # pylint: disable=C0321
+async def ping_pic(event):
+    if event.sender_id == bot.uid:
+        await event.delete()
+        await tgbot.send_message(event.chat_id, "Send me a pic so as to set it as your inline pic.")
+        async with event.client.conversation(bot.uid) as conv:
+            await conv.send_message("Send /cancel to cancel the operation!")
+            response = await conv.get_response()
+            try:
+                themssg=response.message.message
+                if themssg == "/cancel":
+                    await conv.send_message("Operation cancelled!!")
+                    return
+            except:
+                pass
+            media=await event.client.download_media(response, "PING_PIC")
+            try:
+                x = upload_file(media)
+                url = f"https://telegra.ph/{x[0]}"
+                os.remove(media)
+            except BaseException:
+                return await conv.send_message("Error!")
+        REBEL12="PING_PIC"
+        if Var.HEROKU_APP_NAME is not None:
+            app=Heroku.app(Var.HEROKU_APP_NAME)
+        else:
+            mssg="`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
+            return
+        xx = await tgbot.send_message(event.chat_id, "successful Changing your ping Pic, please wait for a minute")
+        heroku_var=app.config()
+        heroku_var[REBEL12]=f"{url}"
+        mssg=f"Successfully changed your ping pic. Please wait for a minute.\n"
         await xx.edit(mssg)
     else:
         await event.answer("You can't use this bot.", alert=True)
