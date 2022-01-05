@@ -1,13 +1,13 @@
 import asyncio
 from datetime import datetime
 
-from .. import ALIVE_NAME
+from .. import ALIVE_NAME, PING_PIC
 from ..cmdhelp import CmdHelp
 from ..utils import admin_cmd, edit_or_reply, sudo_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "ᖇᗴᗷᗴᒪ ᗰᗩՏTᗴᖇ"
 h1m4n5hu0p = borg.uid
-REBEL_IMG = "https://telegra.ph/file/05fd1961624ffbe038d12.jpg"
+REBEL_IMG = PING_PIC else "https://telegra.ph/file/05fd1961624ffbe038d12.jpg"
 
 # PIC ADDED BY MAFIA OWNER
 
