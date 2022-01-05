@@ -154,6 +154,8 @@ if ENV:
         ALIVE_MSG = os.environ.get("ALIVE_MSG", "⚔️ 𝙍𝙀𝘽𝙀𝙇𝘽𝙊𝙏 𝙄𝙎 𝘼𝙇𝙄𝙑𝙀 ⚔️")
         HELP_PIC = os.environ.get("HELP_PIC", None)
         BOT_PIC = os.environ.get("BOT_PIC", None)
+        PING_PIC = os.environ.get("PING_PIC", None)
+
         # auto bio
         BIO_MSG = os.environ.get("BIO_MSG", "🔰𝐋𝐄𝐆𝐄𝐍𝐃 𝐒𝐀𝐘 𝐑𝐄𝐁𝐄𝐋𝐁𝐎𝐓🔰")
         # Lydia API
