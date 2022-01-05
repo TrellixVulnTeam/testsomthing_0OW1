@@ -114,7 +114,7 @@ async def alivessrr(event):
         buttons=[
             [custom.Button.inline("Aʟɪᴠᴇ ɴᴀᴍᴇ", data="alv_name"),
              custom.Button.inline("Aʟɪᴠᴇ Tᴇxᴛ", data="alv_txt")],
-            [custom.Button.inline("Aʟɪᴠᴇ ᴍᴇᴅɪᴀ", data="alv_pic")
+            [custom.Button.inline("Aʟɪᴠᴇ ᴍᴇᴅɪᴀ", data="alv_pic"),
             custom.Button.inline("ᴘɪɴɢ Mᴇᴅɪᴀ", data="ping_pic")],
             [custom.Button.inline("ʙᴀᴄᴋ", data="setting")],
         ],
