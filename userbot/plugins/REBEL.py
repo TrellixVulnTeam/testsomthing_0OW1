@@ -63,7 +63,7 @@ async def amireallyalive(alive):
         REBEL_caption += "≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈\n"
         REBEL_caption += "__**ʙᴏᴛ sᴛᴀᴛᴜs**__\n\n"
         REBEL_caption += "**➪ ᴛᴇʟᴇᴛʜᴏɴ :** `1.24.0`\n"
-        REBEL_caption += f"**➪ ʀᴇʙᴇʟʙᴏᴛ :**`3.0`\n"
+        REBEL_caption += f"**➪ ʀᴇʙᴇʟʙᴏᴛ :**`3.2`\n"
         REBEL_caption += f"**➪ ᴜᴘᴛɪᴍᴇ   :** `{uptime}\n`"
         REBEL_caption += f"**➪ ᴍᴀsᴛᴇʀ    :** {mention}\n"
         await alive.client.send_file(
@@ -77,7 +77,7 @@ async def amireallyalive(alive):
             f"≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈ \n"
             f"     __**ʙᴏᴛ sᴛᴀᴛᴜs**__\n\n"
             f"**➪ ᴛᴇʟᴇᴛʜᴏɴ :** `1.24.0`\n"
-            f"**➪ ʀᴇʙᴇʟʙᴏᴛ :** `3.0`\n"
+            f"**➪ ʀᴇʙᴇʟʙᴏᴛ :** `3.2`\n"
             f"**➪ ᴜᴘᴛɪᴍᴇ      :** `{uptime}\n`"
             f"**➪ ᴍᴀsᴛᴇʀ        :** {mention}\n",
         )
