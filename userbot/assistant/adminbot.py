@@ -1,3 +1,6 @@
+# REBEL USERBOT -  Userbots
+# © 2021 - 2022 - TEAMREBELS
+
 from telethon import events
 from telethon.errors import BadRequestError
 from telethon.tl.functions.channels import EditAdminRequest, EditBannedRequest
