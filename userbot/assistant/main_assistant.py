@@ -1,3 +1,6 @@
+# REBEL USERBOT -  Userbots
+# © 2021 - 2022 - TEAMREBELS
+
 import asyncio
 import io
 import re
