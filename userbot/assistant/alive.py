@@ -1,3 +1,6 @@
+# REBEL USERBOT -  Userbots
+# © 2021 - 2022 - TEAMREBELS
+
 from telethon import events
 
 from userbot import ALIVE_NAME, bot
