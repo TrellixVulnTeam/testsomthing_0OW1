@@ -2,7 +2,7 @@ import time
 
 from REBELBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
 
-from userbot import ALIVE_NAME, REBELversion, StartTime
+from userbot import ALIVE_NAME, StartTime
 
 
 async def reply_id(event):

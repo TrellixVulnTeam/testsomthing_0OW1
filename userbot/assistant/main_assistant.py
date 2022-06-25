@@ -3,18 +3,17 @@
 
 import asyncio
 import io
-import re
 import os
-import heroku3
-import requests
+import re
 from datetime import datetime
+
+import heroku3
 from telegraph import Telegraph, upload_file
 from telethon import Button, custom, events
 from telethon.tl.functions.users import GetFullUserRequest
 
-from var import Var
-from userbot.Config import Config
 from userbot import bot
+from userbot.Config import Config
 from userbot.plugins.sql_helper.blacklist_assistant import (
     add_nibba_in_db,
     is_he_added,
@@ -26,12 +25,7 @@ from userbot.plugins.sql_helper.idadder_sql import (
     already_added,
     get_all_users,
 )
-
-from userbot.plugins.sql_helper.userbase_sql import (
-    add_to_userbase,
-    full_userbase,
-    present_in_userbase,
-)
+from var import Var
 
 REBEL_ID = "config.REBELBOT_ID"
 
@@ -65,7 +59,7 @@ async def start(event):
                 ],
                 [
                     custom.Button.inline("⚙️ sᴇᴛᴛɪɴɢ️", data="setting"),
-                    custom.Button.inline("ʙʀᴏᴀᴅᴄᴀsᴛ",  data="rebelbrod"),
+                    custom.Button.inline("ʙʀᴏᴀᴅᴄᴀsᴛ", data="rebelbrod"),
                 ],
                 [
                     Button.url(
@@ -89,7 +83,9 @@ async def start(event):
             ],
         )
 
+
 # Data's
+
 
 @tgbot.on(
     events.callbackquery.CallbackQuery(data=re.compile(b"setting"))
@@ -98,15 +94,21 @@ async def setting(event):
     await event.edit(
         "Browse through the available options:",
         buttons=[
-            [custom.Button.inline("ᴀʟɪᴠᴇ", data="alivessrr"),
-             custom.Button.inline("ɴʟɪɴᴇ", data="inlineaa")],
-             [custom.Button.inline("ᴘᴍ sᴇᴛᴛɪɴɢ", data="pmsetting"),
-             custom.Button.inline("sᴜᴅᴏ sᴇᴛᴛɪɴɢ", data="sudosetting")],
+            [
+                custom.Button.inline("ᴀʟɪᴠᴇ", data="alivessrr"),
+                custom.Button.inline("ɴʟɪɴᴇ", data="inlineaa"),
+            ],
+            [
+                custom.Button.inline("ᴘᴍ sᴇᴛᴛɪɴɢ", data="pmsetting"),
+                custom.Button.inline("sᴜᴅᴏ sᴇᴛᴛɪɴɢ", data="sudosetting"),
+            ],
             [custom.Button.inline("ʙᴀᴄᴋ", data="home")],
         ],
     )
 
+
 # -------------------------- bottom --------------- #
+
 
 @tgbot.on(
     events.callbackquery.CallbackQuery(data=re.compile(b"alivessrr"))
@@ -115,15 +117,21 @@ async def alivessrr(event):
     await event.edit(
         "Browse through the available options:",
         buttons=[
-            [custom.Button.inline("Aʟɪᴠᴇ ɴᴀᴍᴇ", data="alv_name"),
-             custom.Button.inline("Aʟɪᴠᴇ Tᴇxᴛ", data="alv_txt")],
-            [custom.Button.inline("Aʟɪᴠᴇ ᴍᴇᴅɪᴀ", data="alv_pic"),
-            custom.Button.inline("ᴘɪɴɢ Mᴇᴅɪᴀ", data="ping_pic")],
+            [
+                custom.Button.inline("Aʟɪᴠᴇ ɴᴀᴍᴇ", data="alv_name"),
+                custom.Button.inline("Aʟɪᴠᴇ Tᴇxᴛ", data="alv_txt"),
+            ],
+            [
+                custom.Button.inline("Aʟɪᴠᴇ ᴍᴇᴅɪᴀ", data="alv_pic"),
+                custom.Button.inline("ᴘɪɴɢ Mᴇᴅɪᴀ", data="ping_pic"),
+            ],
             [custom.Button.inline("ʙᴀᴄᴋ", data="setting")],
         ],
     )
 
+
 # ------------------- button2 ------------------#
+
 
 @tgbot.on(
     events.callbackquery.CallbackQuery(data=re.compile(b"inlineaa"))
@@ -132,13 +140,17 @@ async def inlineaa(event):
     await event.edit(
         "Browse through the available options:",
         buttons=[
-            [custom.Button.inline("Iɴʟɪɴᴇ Pɪᴄ", data="inline_pic"),
-             custom.Button.inline("Eᴍᴏᴊɪ ɪɴ Hᴇʟᴘ", data="inl_emj")],
+            [
+                custom.Button.inline("Iɴʟɪɴᴇ Pɪᴄ", data="inline_pic"),
+                custom.Button.inline("Eᴍᴏᴊɪ ɪɴ Hᴇʟᴘ", data="inl_emj"),
+            ],
             [custom.Button.inline("ʙᴀᴄᴋ", data="setting")],
         ],
     )
 
+
 # ---------------------- button 3 ------------- #
+
 
 @tgbot.on(
     events.callbackquery.CallbackQuery(data=re.compile(b"pmsetting"))
@@ -147,13 +159,18 @@ async def pmsetting(event):
     await event.edit(
         "Browse through the available options:",
         buttons=[
-            [custom.Button.inline("ᴘᴍ ᴛᴇxᴛ", data="pm_txt"),
-             custom.Button.inline("ᴘᴍ ᴘɪᴄ", data="pm_pic")],
+            [
+                custom.Button.inline("ᴘᴍ ᴛᴇxᴛ", data="pm_txt"),
+                custom.Button.inline("ᴘᴍ ᴘɪᴄ", data="pm_pic"),
+            ],
             [custom.Button.inline("ᴀᴘᴘʀᴏᴠᴇᴅ", data="pm_data")],
             [custom.Button.inline("ʙᴀᴄᴋ", data="setting")],
         ],
     )
+
+
 # --------------------- sudo ----------------- #
+
 
 @tgbot.on(
     events.callbackquery.CallbackQuery(data=re.compile(b"sudosetting"))
@@ -162,12 +179,13 @@ async def sudosetting(event):
     await event.edit(
         "Browse through the available options:",
         buttons=[
-            [custom.Button.inline("ᴀᴅᴅ sᴜᴅᴏ ᴜsᴇʀs", data="sud_users"),
-             custom.Button.inline("sᴜᴅᴏ ᴄᴏᴍᴍᴀɴᴅ", data="sud_cmmd")],
+            [
+                custom.Button.inline("ᴀᴅᴅ sᴜᴅᴏ ᴜsᴇʀs", data="sud_users"),
+                custom.Button.inline("sᴜᴅᴏ ᴄᴏᴍᴍᴀɴᴅ", data="sud_cmmd"),
+            ],
             [custom.Button.inline("ʙᴀᴄᴋ", data="setting")],
         ],
     )
-
 
 
 # ------------------------ back ----------------#
@@ -178,22 +196,26 @@ async def sudosetting(event):
 )  # pylint: disable=oof
 async def home(event):
     await event.edit(
-            "𝙷𝙸 𝙼𝙰𝚂𝚃𝙴𝚁, 𝙸𝚃𝚂 𝙼𝙴 {bot_id}, 𝚈𝙾𝚄𝚁 𝙰𝚂𝚂𝙸𝚂𝚃𝙰𝙽𝚃! \n\n 𝚆𝙷𝙰𝚃 𝚈𝙾𝚄 𝚆𝙰𝙽𝙽𝙰 𝙳𝙾 𝚃𝙾𝙳𝙰𝚈 ?",
-            buttons=[
-                [
-                    custom.Button.inline("📊 sᴛᴀᴛs", data="users"),
-                    custom.Button.inline("ᴀssɪsᴛᴀɴᴛ ᴄᴏᴍᴍᴀɴᴅ", data="gibcmd"),
-                ],
-                [
-                    custom.Button.inline("⚙️ sᴇᴛᴛɪɴɢ️", data="setting"),
-                    custom.Button.inline("ʙʀᴏᴀᴅᴄᴀsᴛ",  data="rebelbrod"),
-                ],
-                [Button.url("ʀᴇʙᴇʟ ᴜᴘᴅᴀᴛᴇ", f"t.me/REBELBOT_SUPPORT"),
-                 Button.url("ʀᴇʙᴇʟ sᴜᴘᴘᴏʀᴛ", f"t.me/REBEL_BOT_CHATING")],
+        "𝙷𝙸 𝙼𝙰𝚂𝚃𝙴𝚁, 𝙸𝚃𝚂 𝙼𝙴 {bot_id}, 𝚈𝙾𝚄𝚁 𝙰𝚂𝚂𝙸𝚂𝚃𝙰𝙽𝚃! \n\n 𝚆𝙷𝙰𝚃 𝚈𝙾𝚄 𝚆𝙰𝙽𝙽𝙰 𝙳𝙾 𝚃𝙾𝙳𝙰𝚈 ?",
+        buttons=[
+            [
+                custom.Button.inline("📊 sᴛᴀᴛs", data="users"),
+                custom.Button.inline("ᴀssɪsᴛᴀɴᴛ ᴄᴏᴍᴍᴀɴᴅ", data="gibcmd"),
             ],
-          )
+            [
+                custom.Button.inline("⚙️ sᴇᴛᴛɪɴɢ️", data="setting"),
+                custom.Button.inline("ʙʀᴏᴀᴅᴄᴀsᴛ", data="rebelbrod"),
+            ],
+            [
+                Button.url("ʀᴇʙᴇʟ ᴜᴘᴅᴀᴛᴇ", f"t.me/REBELBOT_SUPPORT"),
+                Button.url("ʀᴇʙᴇʟ sᴜᴘᴘᴏʀᴛ", f"t.me/REBEL_BOT_CHATING"),
+            ],
+        ],
+    )
+
 
 # ------------------ deploy ---------------- #
+
 
 @tgbot.on(
     events.callbackquery.CallbackQuery(data=re.compile(b"deploy"))
@@ -213,7 +235,6 @@ async def deploy(event):
             [custom.Button.url("sᴜᴘᴘᴏʀᴛ", url="https://t.me/REBEL_BOT_CHATING")],
         ],
     )
-
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"users")))
@@ -414,357 +435,433 @@ async def starkisnoob(event):
             user_id, "Congo! You Have Been Unblacklisted By My Master."
         )
 
+
 # -------------------------alive_pic---------------------- #
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"alv_pic"))
-           )  # pylint: disable=C0321
+
+@tgbot.on(
+    events.callbackquery.CallbackQuery(data=re.compile(b"alv_pic"))
+)  # pylint: disable=C0321
 async def alv_pic(event):
     if event.sender_id == bot.uid:
         await event.delete()
-        await tgbot.send_message(event.chat_id, "Send me a pic so as to set it as your alive pic.")
+        await tgbot.send_message(
+            event.chat_id, "Send me a pic so as to set it as your alive pic."
+        )
         async with event.client.conversation(bot.uid) as conv:
             await conv.send_message("Send /cancel to cancel the operation!")
             response = await conv.get_response()
             try:
-                themssg=response.message.message
+                themssg = response.message.message
                 if themssg == "/cancel":
                     await conv.send_message("Operation cancelled!!")
                     return
             except:
                 pass
-            media=await event.client.download_media(response, "Alive_Pic")
+            media = await event.client.download_media(response, "Alive_Pic")
             try:
                 x = upload_file(media)
                 url = f"https://telegra.ph/{x[0]}"
                 os.remove(media)
             except BaseException:
                 return await conv.send_message("Error!")
-        REBEL1="ALIVE_PIC"
+        REBEL1 = "ALIVE_PIC"
         if Var.HEROKU_APP_NAME is not None:
-            app=Heroku.app(Var.HEROKU_APP_NAME)
+            app = Heroku.app(Var.HEROKU_APP_NAME)
         else:
-            mssg="`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
+            mssg = "`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
             return
-        xx = await tgbot.send_message(event.chat_id, "Changing your Alive Pic, please wait for a minute")
-        heroku_var=app.config()
-        heroku_var[REBEL1]=f"{url}"
-        mssg=f"Successfully changed your alive pic. New alive pic {url} \nafter 1 min do ping|alive check your bot working or not"
+        xx = await tgbot.send_message(
+            event.chat_id, "Changing your Alive Pic, please wait for a minute"
+        )
+        heroku_var = app.config()
+        heroku_var[REBEL1] = f"{url}"
+        mssg = f"Successfully changed your alive pic. New alive pic {url} \nafter 1 min do ping|alive check your bot working or not"
         await xx.edit(mssg)
     else:
         await event.answer("You can't use this bot.", alert=True)
 
+
 # -------------------- alive text ------------------- #
+
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"alv_txt")))
 async def alv_txt(event):
     if event.sender_id == bot.uid:
         await event.delete()
-        REBEL2="ALIVE_MSG"
+        REBEL2 = "ALIVE_MSG"
         if Var.HEROKU_APP_NAME is not None:
-            app=Heroku.app(Var.HEROKU_APP_NAME)
+            app = Heroku.app(Var.HEROKU_APP_NAME)
         else:
-            mssg="`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
+            mssg = "`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
             return
         async with event.client.conversation(bot.uid) as conv:
-            await conv.send_message("Send the text which you want as your alive text.\nUse /cancel to cancel the operation.")
-            response=conv.wait_event(events.NewMessage(chats=bot.uid))
-            response=await response
-            themssg=response.message.message
+            await conv.send_message(
+                "Send the text which you want as your alive text.\nUse /cancel to cancel the operation."
+            )
+            response = conv.wait_event(events.NewMessage(chats=bot.uid))
+            response = await response
+            themssg = response.message.message
             if themssg == None:
                 await conv.send_message("Error!")
                 return
             if themssg == "/cancel":
                 return await conv.send_message("Cancelled!!")
-            heroku_var=app.config()
-            xx = await tgbot.send_message(event.chat_id, "Changing your Alive Message, please wait for a minute")
-            heroku_var[REBEL2]=f"{themssg}"
-            mssg=f"successful Changed your alive text \n after 1 min do ping|alive check your bot working or not"
+            heroku_var = app.config()
+            xx = await tgbot.send_message(
+                event.chat_id, "Changing your Alive Message, please wait for a minute"
+            )
+            heroku_var[REBEL2] = f"{themssg}"
+            mssg = f"successful Changed your alive text \n after 1 min do ping|alive check your bot working or not"
             await xx.edit(mssg)
     else:
         await event.answer("You can't use this bot.", alert=True)
 
+
 # ------------------------ pm massage ------------------------ #
+
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pm_txt")))
 async def pm_txt(event):
     if event.sender_id == bot.uid:
         await event.delete()
-        REBEL3="CUSTOM_PMPERMIT"
+        REBEL3 = "CUSTOM_PMPERMIT"
         if Var.HEROKU_APP_NAME is not None:
-            app=Heroku.app(Var.HEROKU_APP_NAME)
+            app = Heroku.app(Var.HEROKU_APP_NAME)
         else:
-            mssg="`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
+            mssg = "`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
             return
         async with event.client.conversation(bot.uid) as conv:
-            await conv.send_message("Send the text which you want as your PMPermit Message!\nUse /cancel to cancel the operation.")
-            response=conv.wait_event(events.NewMessage(chats=bot.uid))
-            response=await response
-            themssg=response.message.message
+            await conv.send_message(
+                "Send the text which you want as your PMPermit Message!\nUse /cancel to cancel the operation."
+            )
+            response = conv.wait_event(events.NewMessage(chats=bot.uid))
+            response = await response
+            themssg = response.message.message
             if themssg == None:
                 await conv.send_message("Error!")
                 return
             if themssg == "/cancel":
                 await conv.send_message("Cancelled!!")
-            heroku_var=app.config()
-            heroku_var[REBEL3]=f"{themssg}"
-            xx = await tgbot.send_message(event.chat_id, "successful Changed your PMPermit Message from\nafter 1 min do ping|alive check your bot working or not")
+            heroku_var = app.config()
+            heroku_var[REBEL3] = f"{themssg}"
+            xx = await tgbot.send_message(
+                event.chat_id,
+                "successful Changed your PMPermit Message from\nafter 1 min do ping|alive check your bot working or not",
+            )
     else:
         await event.answer("You can't use this bot.", alert=True)
 
+
 # ------------------------- pm pic ------------------#
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pm_pic"))
-           )  # pylint: disable=C0321
+
+@tgbot.on(
+    events.callbackquery.CallbackQuery(data=re.compile(b"pm_pic"))
+)  # pylint: disable=C0321
 async def pm_pic(event):
     if event.sender_id == bot.uid:
         await event.delete()
-        await tgbot.send_message(event.chat_id, "Send me a pic so as to set it as your PMPermit pic.")
+        await tgbot.send_message(
+            event.chat_id, "Send me a pic so as to set it as your PMPermit pic."
+        )
         async with event.client.conversation(bot.uid) as conv:
             await conv.send_message("Send /cancel to cancel the operation!")
             response = await conv.get_response()
             try:
-                themssg=response.message.message
+                themssg = response.message.message
                 if themssg == "/cancel":
                     await conv.send_message("Operation cancelled!!")
                     return
             except:
                 pass
-            media=await event.client.download_media(response, "PM_PIC")
+            media = await event.client.download_media(response, "PM_PIC")
             try:
                 x = upload_file(media)
                 url = f"https://telegra.ph/{x[0]}"
                 os.remove(media)
             except BaseException:
                 return await conv.send_message("Error!")
-        REBEL4="PMPERMIT_PIC"
+        REBEL4 = "PMPERMIT_PIC"
         if Var.HEROKU_APP_NAME is not None:
-            app=Heroku.app(Var.HEROKU_APP_NAME)
+            app = Heroku.app(Var.HEROKU_APP_NAME)
         else:
-            mssg="`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
+            mssg = "`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
             return
-        xx = await tgbot.send_message(event.chat_id, "Changing your PMPermit Pic, please wait for a minute")
-        heroku_var=app.config()
-        heroku_var[REBEL4]=f"{url}"
-        mssg=f"Successfully changed your PMPermit pic. Please wait for a minute.\n"
+        xx = await tgbot.send_message(
+            event.chat_id, "Changing your PMPermit Pic, please wait for a minute"
+        )
+        heroku_var = app.config()
+        heroku_var[REBEL4] = f"{url}"
+        mssg = f"Successfully changed your PMPermit pic. Please wait for a minute.\n"
         await xx.edit(mssg)
     else:
         await event.answer("You can't use this bot.", alert=True)
 
+
 # --------------------- inline emoji -------------- #
+
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"inl_emj")))
 async def inl_emj(event):
     if event.sender_id == bot.uid:
         await event.delete()
-        REBEL5="EMOJI_IN_HELP"
+        REBEL5 = "EMOJI_IN_HELP"
         if Var.HEROKU_APP_NAME is not None:
-            app=Heroku.app(Var.HEROKU_APP_NAME)
+            app = Heroku.app(Var.HEROKU_APP_NAME)
         else:
-            mssg="`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
+            mssg = "`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
             return
         async with event.client.conversation(bot.uid) as conv:
-            await conv.send_message("Send the emoji  which you want as your help emoji.\nUse /cancel to cancel the operation.")
-            response=conv.wait_event(events.NewMessage(chats=bot.uid))
-            response=await response
-            themssg=response.message.message
+            await conv.send_message(
+                "Send the emoji  which you want as your help emoji.\nUse /cancel to cancel the operation."
+            )
+            response = conv.wait_event(events.NewMessage(chats=bot.uid))
+            response = await response
+            themssg = response.message.message
             if themssg == None:
                 await conv.send_message("Error!")
                 return
             if themssg == "/cancel":
                 return await conv.send_message("Cancelled!!")
-            heroku_var=app.config()
-            heroku_var[REBEL5]=f"{themssg}"
-            xx = await tgbot.send_message(event.chat_id, "successful Changed your help emoji \nafter 1 min do ping|alive check your bot working or not")
+            heroku_var = app.config()
+            heroku_var[REBEL5] = f"{themssg}"
+            xx = await tgbot.send_message(
+                event.chat_id,
+                "successful Changed your help emoji \nafter 1 min do ping|alive check your bot working or not",
+            )
     else:
         await event.answer("You can't use this bot.", alert=True)
 
+
 # ------------------------- sudo command ------------------ #
+
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"sud_cmmd")))
 async def sud_users(event):
     if event.sender_id == bot.uid:
         await event.delete()
-        REBEL7="SUDO_COMMAND_HAND_LER"
+        REBEL7 = "SUDO_COMMAND_HAND_LER"
         if Var.HEROKU_APP_NAME is not None:
-            app=Heroku.app(Var.HEROKU_APP_NAME)
+            app = Heroku.app(Var.HEROKU_APP_NAME)
         else:
-            mssg="`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
+            mssg = "`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
             return
         async with event.client.conversation(bot.uid) as conv:
-            await conv.send_message("Send the symbol  which you want as your sudo users command.\nUse /cancel to cancel the operation.")
-            response=conv.wait_event(events.NewMessage(chats=bot.uid))
-            response=await response
-            themssg=response.message.message
+            await conv.send_message(
+                "Send the symbol  which you want as your sudo users command.\nUse /cancel to cancel the operation."
+            )
+            response = conv.wait_event(events.NewMessage(chats=bot.uid))
+            response = await response
+            themssg = response.message.message
             if themssg == None:
                 await conv.send_message("Error!")
                 return
             if themssg == "/cancel":
                 return await conv.send_message("Cancelled!!")
-            heroku_var=app.config()
-            heroku_var[REBEL7]=f"{themssg}" 
-            xx = await tgbot.send_message(event.chat_id, "successful change your sudo users command \nafter  min do ping|alive check your bot working or not")
+            heroku_var = app.config()
+            heroku_var[REBEL7] = f"{themssg}"
+            xx = await tgbot.send_message(
+                event.chat_id,
+                "successful change your sudo users command \nafter  min do ping|alive check your bot working or not",
+            )
     else:
         await event.answer("You can't use this bot.", alert=True)
 
+
 # ------------------------------ sudo users------------------- #
+
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"sud_users")))
 async def sud_users(event):
     if event.sender_id == bot.uid:
         await event.delete()
-        REBEL8="SUDO_USERS"
+        REBEL8 = "SUDO_USERS"
         if Var.HEROKU_APP_NAME is not None:
-            app=Heroku.app(Var.HEROKU_APP_NAME)
+            app = Heroku.app(Var.HEROKU_APP_NAME)
         else:
-            mssg="`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
+            mssg = "`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
             return
         async with event.client.conversation(bot.uid) as conv:
-            await conv.send_message("Send the user id  which you want to added you sudo.\nUse /cancel to cancel the operation.")
-            response=conv.wait_event(events.NewMessage(chats=bot.uid))
-            response=await response
-            themssg=response.message.message
+            await conv.send_message(
+                "Send the user id  which you want to added you sudo.\nUse /cancel to cancel the operation."
+            )
+            response = conv.wait_event(events.NewMessage(chats=bot.uid))
+            response = await response
+            themssg = response.message.message
             if themssg == None:
                 await conv.send_message("Error!")
                 return
             if themssg == "/cancel":
                 return await conv.send_message("Cancelled!!")
-            heroku_var=app.config()
-            heroku_var[REBEL8]=f"{themssg}"
-            xx = await tgbot.send_message(event.chat_id, "successfull add your sudo users \n new user id`{themssg}`\nafter 5 min do ping|alive check your bot working or not")
+            heroku_var = app.config()
+            heroku_var[REBEL8] = f"{themssg}"
+            xx = await tgbot.send_message(
+                event.chat_id,
+                "successfull add your sudo users \n new user id`{themssg}`\nafter 5 min do ping|alive check your bot working or not",
+            )
     else:
         await event.answer("You can't use this bot.", alert=True)
 
+
 # ------------------------------ pm data ------------------- #
+
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pm_data")))
 async def pm_data(event):
     if event.sender_id == bot.uid:
         await event.delete()
-        REBEL9="PM_DATA"
+        REBEL9 = "PM_DATA"
         if Var.HEROKU_APP_NAME is not None:
-            app=Heroku.app(Var.HEROKU_APP_NAME)
+            app = Heroku.app(Var.HEROKU_APP_NAME)
         else:
-            mssg="`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
+            mssg = "`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
             return
         async with event.client.conversation(bot.uid) as conv:
-            await conv.send_message("Send `ENABLE` OR `DESABLE`  set you pm data .\nUse /cancel to cancel the operation.")
-            response=conv.wait_event(events.NewMessage(chats=bot.uid))
-            response=await response
-            themssg=response.message.message
+            await conv.send_message(
+                "Send `ENABLE` OR `DESABLE`  set you pm data .\nUse /cancel to cancel the operation."
+            )
+            response = conv.wait_event(events.NewMessage(chats=bot.uid))
+            response = await response
+            themssg = response.message.message
             if themssg == None:
                 await conv.send_message("Error!")
                 return
             if themssg == "/cancel":
                 return await conv.send_message("Cancelled!!")
-            heroku_var=app.config()
-            heroku_var[REBEL9]=f"{themssg}"
-            xx = await tgbot.send_message(event.chat_id, "successfull set you pm data\nafter  min do ping|alive check your bot working or not")  
+            heroku_var = app.config()
+            heroku_var[REBEL9] = f"{themssg}"
+            xx = await tgbot.send_message(
+                event.chat_id,
+                "successfull set you pm data\nafter  min do ping|alive check your bot working or not",
+            )
     # else:
     #    await event.answer("You can't use this bot.", alert=True)
 
+
 # ------------------------- alive name ----------------------- #
+
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"alv_name")))
 async def alv_name(event):
     if event.sender_id == bot.uid:
         await event.delete()
-        REBEL10="ALIVE_NAME"
+        REBEL10 = "ALIVE_NAME"
         if Var.HEROKU_APP_NAME is not None:
-            app=Heroku.app(Var.HEROKU_APP_NAME)
+            app = Heroku.app(Var.HEROKU_APP_NAME)
         else:
-            mssg="`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
+            mssg = "`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
             return
         async with event.client.conversation(bot.uid) as conv:
-            await conv.send_message("Send the name  which you want to added you alive name .\nUse /cancel to cancel the operation.")
-            response=conv.wait_event(events.NewMessage(chats=bot.uid))
-            response=await response
-            themssg=response.message.message
+            await conv.send_message(
+                "Send the name  which you want to added you alive name .\nUse /cancel to cancel the operation."
+            )
+            response = conv.wait_event(events.NewMessage(chats=bot.uid))
+            response = await response
+            themssg = response.message.message
             if themssg == None:
                 await conv.send_message("Error!")
                 return
             if themssg == "/cancel":
                 return await conv.send_message("Cancelled!!")
-            heroku_var=app.config()
-            heroku_var[REBEL10]=f"{themssg}"
-            xx = await tgbot.send_message(event.chat_id, "successfull set you alive name\nafter 1 min do ping|alive check your bot working or not")  
+            heroku_var = app.config()
+            heroku_var[REBEL10] = f"{themssg}"
+            xx = await tgbot.send_message(
+                event.chat_id,
+                "successfull set you alive name\nafter 1 min do ping|alive check your bot working or not",
+            )
     # else:
     #    await event.answer("You can't use this bot.", alert=True)
 
 
 # -_--------------------- inline pic ------------------- #
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"inline_pic"))
-           )  # pylint: disable=C0321
+
+@tgbot.on(
+    events.callbackquery.CallbackQuery(data=re.compile(b"inline_pic"))
+)  # pylint: disable=C0321
 async def inline_pic(event):
     if event.sender_id == bot.uid:
         await event.delete()
-        await tgbot.send_message(event.chat_id, "Send me a pic so as to set it as your inline pic.")
+        await tgbot.send_message(
+            event.chat_id, "Send me a pic so as to set it as your inline pic."
+        )
         async with event.client.conversation(bot.uid) as conv:
             await conv.send_message("Send /cancel to cancel the operation!")
             response = await conv.get_response()
             try:
-                themssg=response.message.message
+                themssg = response.message.message
                 if themssg == "/cancel":
                     await conv.send_message("Operation cancelled!!")
                     return
             except:
                 pass
-            media=await event.client.download_media(response, "HELP_PIC")
+            media = await event.client.download_media(response, "HELP_PIC")
             try:
                 x = upload_file(media)
                 url = f"https://telegra.ph/{x[0]}"
                 os.remove(media)
             except BaseException:
                 return await conv.send_message("Error!")
-        REBEL11="HELP_PIC"
+        REBEL11 = "HELP_PIC"
         if Var.HEROKU_APP_NAME is not None:
-            app=Heroku.app(Var.HEROKU_APP_NAME)
+            app = Heroku.app(Var.HEROKU_APP_NAME)
         else:
-            mssg="`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
+            mssg = "`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
             return
-        xx = await tgbot.send_message(event.chat_id, "successful Changing your inline Pic, please wait for a minute")
-        heroku_var=app.config()
-        heroku_var[REBEL11]=f"{url}"
-        mssg=f"Successfully changed your inline pic. Please wait for a minute.\n"
+        xx = await tgbot.send_message(
+            event.chat_id,
+            "successful Changing your inline Pic, please wait for a minute",
+        )
+        heroku_var = app.config()
+        heroku_var[REBEL11] = f"{url}"
+        mssg = f"Successfully changed your inline pic. Please wait for a minute.\n"
         await xx.edit(mssg)
     else:
         await event.answer("You can't use this bot.", alert=True)
 
+
 # -------------------------------------- ping pic ------------------------------ #
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"ping_pic"))
-           )  # pylint: disable=C0321
+
+@tgbot.on(
+    events.callbackquery.CallbackQuery(data=re.compile(b"ping_pic"))
+)  # pylint: disable=C0321
 async def ping_pic(event):
     if event.sender_id == bot.uid:
         await event.delete()
-        await tgbot.send_message(event.chat_id, "Send me a pic so as to set it as your inline pic.")
+        await tgbot.send_message(
+            event.chat_id, "Send me a pic so as to set it as your inline pic."
+        )
         async with event.client.conversation(bot.uid) as conv:
             await conv.send_message("Send /cancel to cancel the operation!")
             response = await conv.get_response()
             try:
-                themssg=response.message.message
+                themssg = response.message.message
                 if themssg == "/cancel":
                     await conv.send_message("Operation cancelled!!")
                     return
             except:
                 pass
-            media=await event.client.download_media(response, "PING_PIC")
+            media = await event.client.download_media(response, "PING_PIC")
             try:
                 x = upload_file(media)
                 url = f"https://telegra.ph/{x[0]}"
                 os.remove(media)
             except BaseException:
                 return await conv.send_message("Error!")
-        REBEL12="PING_PIC"
+        REBEL12 = "PING_PIC"
         if Var.HEROKU_APP_NAME is not None:
-            app=Heroku.app(Var.HEROKU_APP_NAME)
+            app = Heroku.app(Var.HEROKU_APP_NAME)
         else:
-            mssg="`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
+            mssg = "`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
             return
-        xx = await tgbot.send_message(event.chat_id, "successful Changing your ping Pic, please wait for a minute")
-        heroku_var=app.config()
-        heroku_var[REBEL12]=f"{url}"
-        mssg=f"Successfully changed your ping pic. Please wait for a minute.\n"
+        xx = await tgbot.send_message(
+            event.chat_id, "successful Changing your ping Pic, please wait for a minute"
+        )
+        heroku_var = app.config()
+        heroku_var[REBEL12] = f"{url}"
+        mssg = f"Successfully changed your ping pic. Please wait for a minute.\n"
         await xx.edit(mssg)
     else:
         await event.answer("You can't use this bot.", alert=True)

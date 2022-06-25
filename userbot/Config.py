@@ -108,7 +108,10 @@ if ENV:
             os.environ.get("NO_OF_COLOUMS_DISPLAYED_IN_H_ME_CMD", 3)
         )
         # pm massage
-        CUSTOM_PMPERMIT = os.environ.get("CUSTOM_PMPERMIT", "PLEASE DO NOT SPAM MY DM, I WILL REPLY YOU AFTER COME BACK ONLINE!")
+        CUSTOM_PMPERMIT = os.environ.get(
+            "CUSTOM_PMPERMIT",
+            "PLEASE DO NOT SPAM MY DM, I WILL REPLY YOU AFTER COME BACK ONLINE!",
+        )
         # emoji to be displayed  in help .help
         EMOJI_IN_HELP = os.environ.get("EMOJI_IN_HELP", "💙")
         # specify command handler that should be used for the plugins

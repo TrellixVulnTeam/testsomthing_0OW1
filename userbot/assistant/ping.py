@@ -4,7 +4,6 @@
 # A Plugin For Assistant Bot
 # x0x
 
-import time
 from datetime import datetime
 
 from telethon import events

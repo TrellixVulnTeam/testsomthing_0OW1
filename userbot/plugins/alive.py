@@ -24,9 +24,7 @@ file2 = "https://telegra.ph/file/b765c0daec4a63c286e34.mp4"
 file3 = "https://telegra.ph/file/956883ad3a92d3f816040.mp4"
 file4 = "https://telegra.ph/file/b765c0daec4a63c286e34.mp4"
 """ =======================CONSTANTS====================== """
-pm_caption = (
-    "  __**🔥🔥𝐑𝐄𝐁𝐄𝐋 𝐁𝐎𝐓  𝐈𝐒 𝐀𝐋𝐈𝐕𝐄🔥🔥**__\n\n" + "**━━━━━━━━━━━━━━━━━━━━━━**\n\n"
-)
+pm_caption = "  __**🔥🔥𝐑𝐄𝐁𝐄𝐋 𝐁𝐎𝐓  𝐈𝐒 𝐀𝐋𝐈𝐕𝐄🔥🔥**__\n\n" + "**━━━━━━━━━━━━━━━━━━━━━━**\n\n"
 
 
 pm_caption += (

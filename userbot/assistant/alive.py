@@ -3,7 +3,7 @@
 
 from telethon import events
 
-from userbot import ALIVE_NAME, bot
+from userbot import ALIVE_NAME
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Unknown"
 PM_IMG = "https://telegra.ph/file/d5a71ebce68e1568b5a74.jpg"

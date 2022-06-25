@@ -5,15 +5,16 @@ from sys import argv
 import telethon.utils
 from telethon import TelegramClient
 
-from userbot import REBELversion, bot, LOGS
+from userbot import LOGS, REBELversion, bot
+from userbot.Config import Config
 from userbot.utils import load_module, start_assistant
 from var import Var
-from userbot.Config import Config
 
 os.system("pip install -U telethon")
 
 LOAD_ASSISTANT = os.environ.get("LOAD_ASSISTANT", True)
 REBEL_PIC = "https://telegra.ph/file/7661ea6e9c4040ca0ba04.jpg"
+
 
 async def add_bot(bot_token):
     await bot.start(bot_token)
@@ -50,7 +51,6 @@ for name in files:
         load_module(shortname.replace(".py", ""))
 
 
-
 if LOAD_ASSISTANT == True:
     path = "userbot/assistant/*.py"
     files = glob.glob(path)
@@ -66,11 +66,10 @@ else:
     print("Assitant is Not Loading As U Have Disabled")
 
 
-
-print(f"""Hello sir i am REBELBOT!! REBELBOT VERSION :- {REBELversion} YOUR REBELBOT IS READY! FOR CHECK YOUR BOT WORKING OR NOT PLEASE TYPE (.alive/.ping) ENJOY YOUR BOT! JOIN FOR MORE FUTURE UPDATES @REBELBOT_SUPPORT ."""
+print(
+    f"""Hello sir i am REBELBOT!! REBELBOT VERSION :- {REBELversion} YOUR REBELBOT IS READY! FOR CHECK YOUR BOT WORKING OR NOT PLEASE TYPE (.alive/.ping) ENJOY YOUR BOT! JOIN FOR MORE FUTURE UPDATES @REBELBOT_SUPPORT ."""
 )
 
-import userbot._core
 
 async def REBEL_is_on():
     try:
@@ -82,6 +81,7 @@ async def REBEL_is_on():
             )
     except Exception as e:
         LOGS.info(str(e))
+
 
 bot.loop.create_task(REBEL_is_on())
 if len(argv) not in (1, 3, 4):
