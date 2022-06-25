@@ -78,7 +78,7 @@ print(
       #          Config.REBELBOT_ID,
        #         REBEL_PIC,
          #       caption=f"༆ʟɛɢɛռɖaʀʏ ᴀғ ʀᴇʙᴇʟʙᴏᴛ༆\n\n**ᴠᴇʀsɪᴏɴ ➪ {REBELversion}**\n\n𝐓𝐲𝐩𝐞 `.ping` or `.alive` ᴛᴏ ᴄʜᴇᴄᴋ! \n\n ᴊᴏɪɴ [ʀᴇʙᴇʟʙᴏᴛ ᴄʜᴀᴛɪɴɢ](t.me/REBEL_BOT_CHATING) ᴛᴏ ǫᴜᴇʀʏ & ᴊᴏɪɴ [ʀᴇʙᴇʟʙᴏᴛ ᴜᴘᴅᴀᴛᴇ](t.me/REBELBOT_SUPPORT) ᴛᴏ ᴋɴᴏᴡ ʀᴇɢʀᴀᴅɪɴɢ ᴜᴘᴅᴀᴛᴇ ᴀɴᴅ ᴀʙᴏᴜᴛ ʀᴇʙᴇʟʙᴏᴛ",
-            )
+      #      )
   #  except Exception as e:
   #      LOGS.info(str(e))
 
