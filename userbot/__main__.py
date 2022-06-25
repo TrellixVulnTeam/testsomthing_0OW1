@@ -5,7 +5,7 @@ from sys import argv
 import telethon.utils
 from telethon import TelegramClient
 
-from userbot import REBELversion, bot, LOGS
+from userbot import REBELversion, bot
 from userbot.utils import load_module, start_assistant
 from var import Var
 from userbot.Config import Config
@@ -71,19 +71,20 @@ print(
 )
 
 
-async def REBEL_is_on():
-    try:
-        if Config.REBELBOT_ID != 0:
-            await bot.send_file(
-                Config.REBELBOT_ID,
-                REBEL_PIC,
-                caption=f"༆ʟɛɢɛռɖaʀʏ ᴀғ ʀᴇʙᴇʟʙᴏᴛ༆\n\n**ᴠᴇʀsɪᴏɴ ➪ {REBELversion}**\n\n𝐓𝐲𝐩𝐞 `.ping` or `.alive` ᴛᴏ ᴄʜᴇᴄᴋ! \n\n ᴊᴏɪɴ [ʀᴇʙᴇʟʙᴏᴛ ᴄʜᴀᴛɪɴɢ](t.me/REBEL_BOT_CHATING) ᴛᴏ ǫᴜᴇʀʏ & ᴊᴏɪɴ [ʀᴇʙᴇʟʙᴏᴛ ᴜᴘᴅᴀᴛᴇ](t.me/REBELBOT_SUPPORT) ᴛᴏ ᴋɴᴏᴡ ʀᴇɢʀᴀᴅɪɴɢ ᴜᴘᴅᴀᴛᴇ ᴀɴᴅ ᴀʙᴏᴜᴛ ʀᴇʙᴇʟʙᴏᴛ",
+# async def REBEL_is_on():
+ #   try:
+   #     if Config.REBELBOT_ID != 0:
+    #        await bot.send_file(
+      #          Config.REBELBOT_ID,
+       #         REBEL_PIC,
+         #       caption=f"༆ʟɛɢɛռɖaʀʏ ᴀғ ʀᴇʙᴇʟʙᴏᴛ༆\n\n**ᴠᴇʀsɪᴏɴ ➪ {REBELversion}**\n\n𝐓𝐲𝐩𝐞 `.ping` or `.alive` ᴛᴏ ᴄʜᴇᴄᴋ! \n\n ᴊᴏɪɴ [ʀᴇʙᴇʟʙᴏᴛ ᴄʜᴀᴛɪɴɢ](t.me/REBEL_BOT_CHATING) ᴛᴏ ǫᴜᴇʀʏ & ᴊᴏɪɴ [ʀᴇʙᴇʟʙᴏᴛ ᴜᴘᴅᴀᴛᴇ](t.me/REBELBOT_SUPPORT) ᴛᴏ ᴋɴᴏᴡ ʀᴇɢʀᴀᴅɪɴɢ ᴜᴘᴅᴀᴛᴇ ᴀɴᴅ ᴀʙᴏᴜᴛ ʀᴇʙᴇʟʙᴏᴛ",
             )
-    except Exception as e:
-        LOGS.info(str(e))
+  #  except Exception as e:
+  #      LOGS.info(str(e))
 
 
-bot.loop.create_task(REBEL_is_on())
+# bot.loop.create_task(REBEL_is_on())
+
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
 else:
