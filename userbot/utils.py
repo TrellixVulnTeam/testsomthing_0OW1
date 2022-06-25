@@ -25,7 +25,7 @@ from userbot.Config import Config
 from userbot.helpers.exceptions import CancelProcess
 from userbot.helpers.tools import media_type
 from var import Var
-
+from userbot import LOGS
 ENV = bool(os.environ.get("ENV", False))
 if ENV:
     from userbot.Config import Config
