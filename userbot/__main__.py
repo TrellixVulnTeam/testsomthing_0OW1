@@ -5,10 +5,10 @@ from sys import argv
 import telethon.utils
 from telethon import TelegramClient
 
-from userbot import LOGS, REBELversion, bot
-from userbot.Config import Config
+from userbot import REBELversion, bot, LOGS
 from userbot.utils import load_module, start_assistant
 from var import Var
+from userbot.Config import Config
 
 os.system("pip install -U telethon")
 
