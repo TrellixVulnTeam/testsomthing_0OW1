@@ -75,9 +75,10 @@ async def parseqr(qr_e):
         "-X",
         "POST",
         "-F",
-        "f=@" + downloaded_file_name + "",
+        f"f=@{downloaded_file_name}",
         "https://zxing.org/w/decode",
     ]
+
     process = await asyncio.create_subprocess_exec(
         *command_to_exec,
         # stdout must a pipe to be accessible as process.stdout
@@ -142,7 +143,7 @@ async def _(event):
         return
     end = datetime.now()
     ms = (end - start).seconds
-    await REBELevent.edit("Created BarCode in {} seconds🤓".format(ms))
+    await REBELevent.edit(f"Created BarCode in {ms} seconds🤓")
     await asyncio.sleep(5)
     await REBELevent.delete()
 
@@ -206,9 +207,8 @@ async def _(event):
         yyyy = input_sgra[0]
         mm = input_sgra[1]
         dd = input_sgra[2]
-        required_url = "https://calendar.kollavarsham.org/api/years/{}/months/{}/days/{}?lang={}".format(
-            yyyy, mm, dd, "en"
-        )
+        required_url = f"https://calendar.kollavarsham.org/api/years/{yyyy}/months/{mm}/days/{dd}?lang=en"
+
         headers = {"Accept": "application/json"}
         response_content = requests.get(required_url, headers=headers).json()
         a = ""
@@ -236,17 +236,15 @@ async def _(event):
             number = float(input_sgra[0])
             currency_from = input_sgra[1].upper()
             currency_to = input_sgra[2].upper()
-            request_url = "https://api.exchangeratesapi.io/latest?base={}".format(
-                currency_from
-            )
+            request_url = f"https://api.exchangeratesapi.io/latest?base={currency_from}"
             current_response = requests.get(request_url).json()
             if currency_to in current_response["rates"]:
                 current_rate = float(current_response["rates"][currency_to])
                 rebmun = round(number * current_rate, 2)
                 await edit_or_reply(
-                    event,
-                    "{} {} = {} {}".format(number, currency_from, rebmun, currency_to),
+                    event, f"{number} {currency_from} = {rebmun} {currency_to}"
                 )
+
             else:
                 await edit_or_reply(
                     event,
@@ -282,7 +280,7 @@ async def _(event):
     if event.fwd_from:
         return
     input_str = event.pattern_match.group(1)
-    url = "https://ifsc.razorpay.com/{}".format(input_str)
+    url = f"https://ifsc.razorpay.com/{input_str}"
     r = requests.get(url)
     if r.status_code == 200:
         b = r.json()
@@ -290,7 +288,7 @@ async def _(event):
         # https://stackoverflow.com/a/9105132/4723940
         await edit_or_reply(event, str(a))
     else:
-        await edit_or_reply(event, "`{}`: {}".format(input_str, r.text))
+        await edit_or_reply(event, f"`{input_str}`: {r.text}")
 
 
 @bot.on(admin_cmd(pattern="color (.*)"))
@@ -349,14 +347,14 @@ async def _(event):
     if xkcd_id is None:
         xkcd_url = "https://xkcd.com/info.0.json"
     else:
-        xkcd_url = "https://xkcd.com/{}/info.0.json".format(xkcd_id)
+        xkcd_url = f"https://xkcd.com/{xkcd_id}/info.0.json"
     r = requests.get(xkcd_url)
     if r.ok:
         data = r.json()
         year = data.get("year")
         month = data["month"].zfill(2)
         day = data["day"].zfill(2)
-        xkcd_link = "https://xkcd.com/{}".format(data.get("num"))
+        xkcd_link = f'https://xkcd.com/{data.get("num")}'
         safe_title = data.get("safe_title")
         data.get("transcript")
         alt = data.get("alt")
@@ -373,7 +371,7 @@ Year: {}""".format(
         )
         await REBELevent.edit(output_str, link_preview=True)
     else:
-        await REBELevent.edit("xkcd n.{} not found!".format(xkcd_id))
+        await REBELevent.edit(f"xkcd n.{xkcd_id} not found!")
 
 
 CmdHelp("tools").add_command(

@@ -278,91 +278,91 @@ INSULT_STRINGS = [
     "`If you’re talking behind my back then you’re in a perfect position to kiss my a**!.`",
 ]
 # ===========================================
-@bot.on(admin_cmd(pattern=f"randi$", outgoing=True))
+@bot.on(admin_cmd(pattern="randi$", outgoing=True))
 @bot.on(sudo_cmd(pattern="randi$", allow_sudo=True))
 async def rendi(e):
     txt = random.choice(RENDISTR)
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"habuse$", outgoing=True))
+@bot.on(admin_cmd(pattern="habuse$", outgoing=True))
 @bot.on(sudo_cmd(pattern="habuse$", allow_sudo=True))
 async def thenus(e):
     txt = random.choice(THANOS_STRINGS)
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"fuk$", outgoing=True))
+@bot.on(admin_cmd(pattern="fuk$", outgoing=True))
 @bot.on(sudo_cmd(pattern="fuk$", allow_sudo=True))
 async def tapatap(e):
     txt = random.choice(FUK_STRINGS)
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"chu$", outgoing=True))
+@bot.on(admin_cmd(pattern="chu$", outgoing=True))
 @bot.on(sudo_cmd(pattern="chu$", allow_sudo=True))
 async def chut(e):
     txt = random.choice(CHU_STRINGS)
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"noob$", outgoing=True))
+@bot.on(admin_cmd(pattern="noob$", outgoing=True))
 @bot.on(sudo_cmd(pattern="noob$", allow_sudo=True))
 async def nub(e):
     txt = random.choice(NOOBSTR)
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"run$", outgoing=True))
+@bot.on(admin_cmd(pattern="run$", outgoing=True))
 @bot.on(sudo_cmd(pattern="run$", allow_sudo=True))
 async def metoo(e):
     txt = random.choice(RUNSREACTS)
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"gali$", outgoing=True))
+@bot.on(admin_cmd(pattern="gali$", outgoing=True))
 @bot.on(sudo_cmd(pattern="gali$", allow_sudo=True))
 async def metoo(e):
     txt = random.choice(GAALI_STR)
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"rape$", outgoing=True))
+@bot.on(admin_cmd(pattern="rape$", outgoing=True))
 @bot.on(sudo_cmd(pattern="rape$", allow_sudo=True))
 async def metoo(e):
     txt = random.choice(RAPE_STRINGS)
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"abuse$", outgoing=True))
+@bot.on(admin_cmd(pattern="abuse$", outgoing=True))
 @bot.on(sudo_cmd(pattern="abuse$", allow_sudo=True))
 async def metoo(e):
     txt = random.choice(ABUSE_STRINGS)
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"gey$", outgoing=True))
+@bot.on(admin_cmd(pattern="gey$", outgoing=True))
 @bot.on(sudo_cmd(pattern="gey$", allow_sudo=True))
 async def metoo(e):
     txt = random.choice(GEY_STRINGS)
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"piro$", outgoing=True))
+@bot.on(admin_cmd(pattern="piro$", outgoing=True))
 @bot.on(sudo_cmd(pattern="piro$", allow_sudo=True))
 async def metoo(e):
     txt = random.choice(PRO_STRINGS)
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"insult$", outgoing=True))
+@bot.on(admin_cmd(pattern="insult$", outgoing=True))
 @bot.on(sudo_cmd(pattern="insult$", allow_sudo=True))
 async def metoo(e):
     txt = random.choice(INSULT_STRINGS)
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"hiabuse$", outgoing=True))
+@bot.on(admin_cmd(pattern="hiabuse$", outgoing=True))
 @bot.on(sudo_cmd(pattern="hiabuse$", allow_sudo=True))
 async def metoo(e):
     txt = random.choice(HIABUSE_STR)

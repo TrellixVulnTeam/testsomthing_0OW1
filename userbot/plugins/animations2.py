@@ -227,7 +227,7 @@ async def _(event):
         await event.edit(animation_chars[i % 12])
 
 
-@bot.on(admin_cmd(pattern=f"hack$", outgoing=True))
+@bot.on(admin_cmd(pattern="hack$", outgoing=True))
 @bot.on(sudo_cmd(pattern="hack$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -339,7 +339,7 @@ async def _(event):
     await event.edit("Wo DeGi TuM eKbAr MaNg KaR tOh DeKhO😄")
 
 
-@bot.on(admin_cmd(pattern=f"nehi$", outgoing=True))
+@bot.on(admin_cmd(pattern="nehi$", outgoing=True))
 @bot.on(sudo_cmd(pattern="nehi$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

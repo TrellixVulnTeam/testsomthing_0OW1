@@ -21,10 +21,10 @@ async def yardim(event):
         await edit_or_reply(event, ["NO_BOT"])
 
         if input_str in CMD_LIST:
-            string = "Commands found in {}:\n".format(input_str)
+            string = f"Commands found in {input_str}:\n"
             for i in CMD_LIST[input_str]:
-                string += "  " + i
+                string += f"  {i}"
                 string += "\n"
             await event.edit(string)
         else:
-            await event.edit(input_str + " is not a valid plugin!")
+            await event.edit(f"{input_str} is not a valid plugin!")

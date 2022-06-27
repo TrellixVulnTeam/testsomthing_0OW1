@@ -52,9 +52,14 @@ def yaml_format(obj, indent=0):
                 formatted = yaml_format(v, indent)
                 if not formatted.strip():
                     continue
-                result.append(" " * (indent if has_multiple_items else 1))
-                result.append(f"{k}: {formatted}")
-                result.append("\n")
+                result.extend(
+                    (
+                        " " * (indent if has_multiple_items else 1),
+                        f"{k}: {formatted}",
+                        "\n",
+                    )
+                )
+
             result.pop()
             indent -= 2
             result.append(" " * indent)
@@ -79,9 +84,7 @@ def yaml_format(obj, indent=0):
         result.append("\n")
         indent += 2
         for x in obj:
-            result.append(" " * indent)
-            result.append(yaml_format(x, indent))
-            result.append("\n")
+            result.extend((" " * indent, yaml_format(x, indent), "\n"))
         result.pop()
         indent -= 2
         result.append(" " * indent)

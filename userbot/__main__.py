@@ -70,7 +70,7 @@ if LOAD_ASSISTANT == True:
 else:
     print("Assitant is Not Loading As U Have Disabled")
 
- 
+
 print(f"""Hello sir i am REBELBOT!! REBELBOT VERSION :- {REBELversion} YOUR REBELBOT IS READY! FOR CHECK YOUR BOT WORKING OR NOT PLEASE TYPE (.alive/.ping) ENJOY YOUR BOT! JOIN FOR MORE FUTURE UPDATES @REBELBOT_SUPPORT .""")
 
 async def REBEL_is_on():
@@ -86,7 +86,8 @@ async def REBEL_is_on():
 
 
 bot.loop.create_task(REBEL_is_on())
-if len(argv) not in (1, 3, 4):
-    bot.disconnect()
-else:
+if len(argv) in {1, 3, 4}:
     bot.run_until_disconnected()
+
+else:
+    bot.disconnect()

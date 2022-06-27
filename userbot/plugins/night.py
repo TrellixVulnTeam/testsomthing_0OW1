@@ -34,14 +34,17 @@ async def set_not_night(event):
                 f"Mine Owner has Gone to Sleep (Pure Din Sota hi Rehta He {DEFAULTUSER} )",
             )
         except Exception as e:  # pylint:disable=C0103,W0703
-            await borg.send_message(  # pylint:disable=E0602
+            await borg.send_message(
                 event.chat_id,
-                "Please set `PLUGIN_CHANNEL` "
-                + "for the proper functioning of night functionality "
-                + "report in [REBELBOT](t.me/REBELBOT_SUPPORT)\n\n `{}`".format(str(e)),
+                (
+                    "Please set `PLUGIN_CHANNEL` "
+                    + "for the proper functioning of night functionality "
+                    + f"report in [REBELBOT](t.me/REBELBOT_SUPPORT)\n\n `{str(e)}`"
+                ),
                 reply_to=event.message.id,
                 silent=True,
             )
+
         USER_night = {}  # pylint:disable=E0602
         night_time = None  # pylint:disable=E0602
 
@@ -120,9 +123,9 @@ async def on_night(event):
             elif hours > 1:
                 night_since = f"`{int(hours)}h{int(minutes)}m` **ago**"
             elif minutes > 0:
-                night_since = f"`{int(minutes)}m{int(seconds)}s` **ago**"
+                night_since = f"`{int(minutes)}m{seconds}s` **ago**"
             else:
-                night_since = f"`{int(seconds)}s` **ago**"
+                night_since = f"`{seconds}s` **ago**"
         msg = None
         message_to_reply = (
             (

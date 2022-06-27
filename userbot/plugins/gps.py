@@ -24,9 +24,7 @@ async def gps(event):
     await edit_or_reply(event, "Finding😁")
 
     geolocator = Nominatim(user_agent="REBELBOT")
-    geoloc = geolocator.geocode(input_str)
-
-    if geoloc:
+    if geoloc := geolocator.geocode(input_str):
         lon = geoloc.longitude
         lat = geoloc.latitude
         await reply_to_id.reply(

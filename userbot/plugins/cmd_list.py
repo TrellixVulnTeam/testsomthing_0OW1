@@ -15,9 +15,7 @@ REBEL_logo = "./REBEL725/REBELBOT_logo.jpg"
 async def install(event):
     if event.fwd_from:
         return
-    reply_to_id = event.message.id
-    if event.reply_to_msg_id:
-        reply_to_id = event.reply_to_msg_id
+    reply_to_id = event.reply_to_msg_id or event.message.id
     cmd = "ls userbot/plugins"
     thumb = REBEL_logo
     process = await asyncio.create_subprocess_shell(

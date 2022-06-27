@@ -345,7 +345,7 @@ async def kick(usr):
         await usr.client.kick_participant(usr.chat_id, user.id)
         await sleep(0.5)
     except Exception as e:
-        await REBELevent.edit(NO_PERM + f"\n{e}")
+        await REBELevent.edit(f"{NO_PERM}\n{e}")
         return
     if reason:
         await REBELevent.edit(
@@ -374,7 +374,7 @@ async def _(event):
         )
         deleted_msg = "Deleted message in this group:"
         for i in a:
-            deleted_msg += "\n👉{}".format(i.old.message)
+            deleted_msg += f"\n👉{i.old.message}"
         await edit_or_reply(event, deleted_msg)
     else:
         await edit_or_reply(

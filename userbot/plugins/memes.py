@@ -449,7 +449,7 @@ async def kek(keks):
         uio = ["/", "\\"]
         for i in range(1, 15):
             time.sleep(0.3)
-            await keks.edit(":" + uio[i % 2])
+            await keks.edit(f":{uio[i % 2]}")
 
 
 @bot.on(admin_cmd(pattern="slap(?: |$)(.*)", outgoing=True))
@@ -516,10 +516,8 @@ async def slap(replied_user, event):
     """Construct a funny slap sentence !!"""
     user_id = replied_user.user.id
     first_name = replied_user.user.first_name
-    username = replied_user.user.username
-
-    if username:
-        slapped = "@{}".format(username)
+    if username := replied_user.user.username:
+        slapped = f"@{username}"
     else:
         slapped = f"[{first_name}](tg://user?id={user_id})"
 
@@ -528,7 +526,7 @@ async def slap(replied_user, event):
     hit = random.choice(HIT)
     throw = random.choice(THROW)
 
-    return "..." + temp.format(victim=slapped, item=item, hits=hit, throws=throw)
+    return f"...{temp.format(victim=slapped, item=item, hits=hit, throws=throw)}"
 
 
 @bot.on(admin_cmd(pattern="-_-$", outgoing=True))
@@ -538,7 +536,7 @@ async def lol(lel):
         """Ok..."""
         okay = "-_-"
         for _ in range(10):
-            okay = okay[:-1] + "_-"
+            okay = f"{okay[:-1]}_-"
             await edit_or_reply(lel, okay)
 
 
@@ -548,7 +546,7 @@ async def fun(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         t = ";__;"
         for _ in range(10):
-            t = t[:-1] + "_;"
+            t = f"{t[:-1]}_;"
             await edit_or_reply(e, t)
 
 
@@ -625,7 +623,7 @@ async def vapor(vpr):
     await edit_or_reply(vpr, "".join(reply_text))
 
 
-@bot.on(admin_cmd(pattern=f"repo", outgoing=True))
+@bot.on(admin_cmd(pattern="repo", outgoing=True))
 @bot.on(sudo_cmd(pattern="repo", allow_sudo=True))
 async def source(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
@@ -639,23 +637,24 @@ async def source(e):
 @bot.on(sudo_cmd(pattern="str(?: |$)(.*)", allow_sudo=True))
 async def stretch(stret):
     """Stretch it."""
-    if not stret.text[0].isalpha() and stret.text[0] not in ("/", "#", "@", "!"):
-        textx = await stret.get_reply_message()
-        message = stret.text
-        message = stret.pattern_match.group(1)
-        if message:
-            pass
-        elif textx:
-            message = textx.text
-        else:
-            await edit_or_reply(stret, "`GiiiiiiiB sooooooomeeeeeee teeeeeeext!`")
-            return
+    if stret.text[0].isalpha() or stret.text[0] in ("/", "#", "@", "!"):
+        return
+    textx = await stret.get_reply_message()
+    message = stret.text
+    message = stret.pattern_match.group(1)
+    if message:
+        pass
+    elif textx:
+        message = textx.text
+    else:
+        await edit_or_reply(stret, "`GiiiiiiiB sooooooomeeeeeee teeeeeeext!`")
+        return
 
-        count = random.randint(3, 10)
-        reply_text = re.sub(
-            r"([aeiouAEIOUａｅｉｏｕＡＥＩＯＵаеиоуюяыэё])", (r"\1" * count), message
-        )
-        await edit_or_reply(stret, reply_text)
+    count = random.randint(3, 10)
+    reply_text = re.sub(
+        r"([aeiouAEIOUａｅｉｏｕＡＥＩＯＵаеиоуюяыэё])", (r"\1" * count), message
+    )
+    await edit_or_reply(stret, reply_text)
 
 
 @bot.on(admin_cmd(pattern="zal(?: |$)(.*)", outgoing=True))
@@ -734,25 +733,26 @@ async def bluetext(bte):
 @bot.on(sudo_cmd(pattern="owo(?: |$)(.*)", allow_sudo=True))
 async def faces(owo):
     """UwU"""
-    if not owo.text[0].isalpha() and owo.text[0] not in ("/", "#", "@", "!"):
-        textx = await owo.get_reply_message()
-        message = owo.pattern_match.group(1)
-        if message:
-            pass
-        elif textx:
-            message = textx.text
-        else:
-            await edit_or_reply(owo, "` UwU no text given! `")
-            return
+    if owo.text[0].isalpha() or owo.text[0] in ("/", "#", "@", "!"):
+        return
+    textx = await owo.get_reply_message()
+    message = owo.pattern_match.group(1)
+    if message:
+        pass
+    elif textx:
+        message = textx.text
+    else:
+        await edit_or_reply(owo, "` UwU no text given! `")
+        return
 
-        reply_text = re.sub(r"(r|l)", "w", message)
-        reply_text = re.sub(r"(R|L)", "W", reply_text)
-        reply_text = re.sub(r"n([aeiou])", r"ny\1", reply_text)
-        reply_text = re.sub(r"N([aeiouAEIOU])", r"Ny\1", reply_text)
-        reply_text = re.sub(r"\!+", " " + random.choice(UWUS), reply_text)
-        reply_text = reply_text.replace("ove", "uv")
-        reply_text += " " + random.choice(UWUS)
-        await edit_or_reply(owo, reply_text)
+    reply_text = re.sub(r"(r|l)", "w", message)
+    reply_text = re.sub(r"(R|L)", "W", reply_text)
+    reply_text = re.sub(r"n([aeiou])", r"ny\1", reply_text)
+    reply_text = re.sub(r"N([aeiouAEIOU])", r"Ny\1", reply_text)
+    reply_text = re.sub(r"\!+", f" {random.choice(UWUS)}", reply_text)
+    reply_text = reply_text.replace("ove", "uv")
+    reply_text += f" {random.choice(UWUS)}"
+    await edit_or_reply(owo, reply_text)
 
 
 @bot.on(admin_cmd(pattern="react$", outgoing=True))
@@ -810,25 +810,26 @@ async def spongemocktext(mock):
 @bot.on(sudo_cmd(pattern="clap(?: |$)(.*)", allow_sudo=True))
 async def claptext(memereview):
     """Praise people!"""
-    if not memereview.text[0].isalpha() and memereview.text[0] not in (
+    if memereview.text[0].isalpha() or memereview.text[0] in (
         "/",
         "#",
         "@",
         "!",
     ):
-        textx = await memereview.get_reply_message()
-        message = memereview.pattern_match.group(1)
-        if message:
-            pass
-        elif textx:
-            message = textx.text
-        else:
-            await edit_or_reply(memereview, "`Hah, I don't clap pointlessly!`")
-            return
-        reply_text = "👏 "
-        reply_text += message.replace(" ", " 👏 ")
-        reply_text += " 👏"
-        await edit_or_reply(memereview, reply_text)
+        return
+    textx = await memereview.get_reply_message()
+    message = memereview.pattern_match.group(1)
+    if message:
+        pass
+    elif textx:
+        message = textx.text
+    else:
+        await edit_or_reply(memereview, "`Hah, I don't clap pointlessly!`")
+        return
+    reply_text = "👏 "
+    reply_text += message.replace(" ", " 👏 ")
+    reply_text += " 👏"
+    await edit_or_reply(memereview, reply_text)
 
 
 @bot.on(admin_cmd(pattern="smk (.*)", outgoing=True))
@@ -843,7 +844,7 @@ async def smrk(smk):
         message = textx
         message = str(message.message)
     if message == "dele":
-        await edit_or_reply(smk, message + "te the REBEL" + "ツ")
+        await edit_or_reply(smk, f"{message}te the REBELツ")
         await edit_or_reply(smk, "ツ")
     else:
         smirk = " ツ"
@@ -870,8 +871,7 @@ async def let_me_google_that_for_you(lmgtfy_q):
     await edit_or_reply(lmgtfy_q, f"[{query}]({r.json()['shorturl']})")
     if BOTLOG:
         await bot.send_message(
-            BOTLOG_CHATID,
-            "LMGTFY query `" + query + "` was executed successfully",
+            BOTLOG_CHATID, f"LMGTFY query `{query}` was executed successfully"
         )
 
 

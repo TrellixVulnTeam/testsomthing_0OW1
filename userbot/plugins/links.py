@@ -10,9 +10,8 @@ async def _(event):
     if event.fwd_from:
         return
     input_str = event.pattern_match.group(1)
-    sample_url = "https://da.gd/dns/{}".format(input_str)
-    response_api = requests.get(sample_url).text
-    if response_api:
+    sample_url = f"https://da.gd/dns/{input_str}"
+    if response_api := requests.get(sample_url).text:
         await edit_or_reply(
             event,
             "DNS records of [This link]({}) are \n{}".format(
@@ -34,9 +33,8 @@ async def _(event):
     if event.fwd_from:
         return
     input_str = event.pattern_match.group(1)
-    sample_url = "https://da.gd/s?url={}".format(input_str)
-    response_api = requests.get(sample_url).text
-    if response_api:
+    sample_url = f"https://da.gd/s?url={input_str}"
+    if response_api := requests.get(sample_url).text:
         await edit_or_reply(
             event,
             "Generated [short link]({}) \nOf [this link]({})".format(
@@ -54,7 +52,7 @@ async def _(event):
         return
     input_str = event.pattern_match.group(1)
     if not input_str.startswith("http"):
-        input_str = "http://" + input_str
+        input_str = f"http://{input_str}"
     r = requests.get(input_str, allow_redirects=False)
     if str(r.status_code).startswith("3"):
         await edit_or_reply(
@@ -66,9 +64,7 @@ async def _(event):
     else:
         await edit_or_reply(
             event,
-            "Input URL [short link]({}) returned status_code {}".format(
-                input_str, r.status_code
-            ),
+            f"Input URL [short link]({input_str}) returned status_code {r.status_code}",
         )
 
 

@@ -245,20 +245,8 @@ async def payf(event):
     if event.fwd_from:
         return
     paytext = event.pattern_match.group(1)
-    pay = "{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}".format(
-        paytext * 8,
-        paytext * 8,
-        paytext * 2,
-        paytext * 2,
-        paytext * 2,
-        paytext * 6,
-        paytext * 6,
-        paytext * 2,
-        paytext * 2,
-        paytext * 2,
-        paytext * 2,
-        paytext * 2,
-    )
+    pay = f"{paytext * 8}\n{paytext * 8}\n{paytext * 2}\n{paytext * 2}\n{paytext * 2}\n{paytext * 6}\n{paytext * 6}\n{paytext * 2}\n{paytext * 2}\n{paytext * 2}\n{paytext * 2}\n{paytext * 2}"
+
     await edit_or_reply(event, pay)
 
 

@@ -57,16 +57,17 @@ async def set_not_afk(event):
                 + total_afk_time,
             )
         except Exception as e:  # pylint:disable=C0103,W0703
-            await borg.send_message(  # pylint:disable=E0602
+            await borg.send_message(
                 event.chat_id,
-                "Please set `REBELBOT_ID` "
-                + "for the proper functioning of afk functionality "
-                + "Ask in @REBELBOT_Official_Chat to get help setting this value\n\n `{}`".format(
-                    str(e)
+                (
+                    "Please set `REBELBOT_ID` "
+                    + "for the proper functioning of afk functionality "
+                    + f"Ask in @REBELBOT_Official_Chat to get help setting this value\n\n `{str(e)}`"
                 ),
                 reply_to=event.message.id,
                 silent=True,
             )
+
         await asyncio.sleep(5)
         await REBELBOT.delete()
         USER_AFK = {}  # pylint:disable=E0602

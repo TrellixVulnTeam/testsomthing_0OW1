@@ -5,7 +5,7 @@ from REBELBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
 from userbot.cmdhelp import CmdHelp
 
 
-@bot.on(admin_cmd(pattern=f"quickheal$", outgoing=True))
+@bot.on(admin_cmd(pattern="quickheal$", outgoing=True))
 @bot.on(sudo_cmd(pattern="quickheal$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -31,7 +31,7 @@ async def _(event):
         await event.edit(animation_chars[i % 11])
 
 
-@bot.on(admin_cmd(pattern=f"sqh$", outgoing=True))
+@bot.on(admin_cmd(pattern="sqh$", outgoing=True))
 @bot.on(sudo_cmd(pattern="sqh$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -57,7 +57,7 @@ async def _(event):
         await event.edit(animation_chars[i % 11])
 
 
-@bot.on(admin_cmd(pattern=f"vquickheal$", outgoing=True))
+@bot.on(admin_cmd(pattern="vquickheal$", outgoing=True))
 @bot.on(sudo_cmd(pattern="vquickheal$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -83,7 +83,7 @@ async def _(event):
         await event.edit(animation_chars[i % 11])
 
 
-@bot.on(admin_cmd(pattern=f"macos$", outgoing=True))
+@bot.on(admin_cmd(pattern="macos$", outgoing=True))
 @bot.on(sudo_cmd(pattern="macos$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -109,7 +109,7 @@ async def _(event):
         await event.edit(animation_chars[i % 11])
 
 
-@bot.on(admin_cmd(pattern=f"windows$", outgoing=True))
+@bot.on(admin_cmd(pattern="windows$", outgoing=True))
 @bot.on(sudo_cmd(pattern="windows$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -135,7 +135,7 @@ async def _(event):
         await event.edit(animation_chars[i % 11])
 
 
-@bot.on(admin_cmd(pattern=f"linux$", outgoing=True))
+@bot.on(admin_cmd(pattern="linux$", outgoing=True))
 @bot.on(sudo_cmd(pattern="linux$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -161,7 +161,7 @@ async def _(event):
         await event.edit(animation_chars[i % 11])
 
 
-@bot.on(admin_cmd(pattern=f"stock$", outgoing=True))
+@bot.on(admin_cmd(pattern="stock$", outgoing=True))
 @bot.on(sudo_cmd(pattern="stock$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -187,7 +187,7 @@ async def _(event):
         await event.edit(animation_chars[i % 11])
 
 
-@bot.on(admin_cmd(pattern=f"os$", outgoing=True))
+@bot.on(admin_cmd(pattern="os$", outgoing=True))
 @bot.on(sudo_cmd(pattern="os$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

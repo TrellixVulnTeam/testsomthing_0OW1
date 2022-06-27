@@ -22,7 +22,7 @@ async def send(event):
     thumb = REBEL_logo
     input_str = event.pattern_match.group(1)
     omk = f"**⍟ Plugin name ≈** `{input_str}`\n**⍟ Uploaded by ≈** {REBEL}\n\n⚡ **[LEGENDARY AF REBELBOT](t.me/REBELBOT_SUPPORT)** ⚡"
-    the_plugin_file = "./userbot/plugins/{}.py".format(input_str)
+    the_plugin_file = f"./userbot/plugins/{input_str}.py"
     if os.path.exists(the_plugin_file):
         lauda = await event.client.send_file(
             event.chat_id,
@@ -61,11 +61,10 @@ async def install(event):
                 shortname = path1.stem
                 load_module(shortname.replace(".py", ""))
                 if shortname in CMD_LIST:
-                    string = "**Commands found in** `{}` (sudo included)\n".format(
-                        (os.path.basename(downloaded_file_name))
-                    )
+                    string = f"**Commands found in** `{os.path.basename(downloaded_file_name)}` (sudo included)\n"
+
                     for i in CMD_LIST[shortname]:
-                        string += "  •  `" + i
+                        string += f"  •  `{i}"
                         string += "`\n"
                         if b == 1:
                             a = "__Installing..__"
@@ -104,7 +103,7 @@ async def uninstall(h1m4n5hu0p):
         os.remove(dir_path)
         await h1m4n5hu0p.edit(f"Uninstalled `{shortname}` successfully")
     except OSError as e:
-        await h1m4n5hu0p.edit("Error: %s : %s" % (dir_path, e.strerror))
+        await h1m4n5hu0p.edit(f"Error: {dir_path} : {e.strerror}")
 
 
 @REBELBOT.on(admin_cmd(pattern=r"unload (?P<shortname>\w+)$"))

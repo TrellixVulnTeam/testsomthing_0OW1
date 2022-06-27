@@ -7,8 +7,7 @@ from userbot import ALIVE_NAME
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Unknown"
 PM_IMG = "https://telegra.ph/file/d5a71ebce68e1568b5a74.jpg"
-pm_caption = "➥ **ᗩՏՏIՏTᗩᑎT :** `ONLINE`\n\n"
-pm_caption += "➥ **ՏYՏTᗴᗰՏ ՏTᗩTՏ**\n"
+pm_caption = "➥ **ᗩՏՏIՏTᗩᑎT :** `ONLINE`\n\n" + "➥ **ՏYՏTᗴᗰՏ ՏTᗩTՏ**\n"
 pm_caption += "➥ **TᗴᒪᗴTᕼOᑎ ᐯᗴᖇՏIOᑎ:** `1.15.0` \n"
 pm_caption += "➥ **ᑭYTᕼOᑎ:** `3.8.6` \n"
 pm_caption += "➥ **ᗪᗩTᗩᗷᗩՏᗴ ՏTᗩTᑌՏ:**  `Functional`\n"

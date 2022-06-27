@@ -80,7 +80,7 @@ async def endecrypt(query):
                 bytes(query.pattern_match.group(2), "utf-8"), validate=True
             )
         )[2:]
-        await query.reply("Decoded: `" + lething[:-1] + "`")
+        await query.reply(f"Decoded: `{lething[:-1]}`")
 
 
 CmdHelp("hash").add_command(

@@ -86,9 +86,7 @@ async def stats(
 
 
 def make_mention(user):
-    if user.username:
-        return f"@{user.username}"
-    return inline_mention(user)
+    return f"@{user.username}" if user.username else inline_mention(user)
 
 
 def inline_mention(user):

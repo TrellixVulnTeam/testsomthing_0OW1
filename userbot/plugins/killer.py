@@ -101,8 +101,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    input_str = event.pattern_match.group(1)
-    if input_str:
+    if input_str := event.pattern_match.group(1):
         logger.info("TODO: Not yet Implemented")
     else:
         if event.is_private:
@@ -116,13 +115,13 @@ async def _(event):
             try:
                 await bot(functions.channels.ditBannedRequest(event.chat_id, i, rights))
             except FloodWaitError as ex:
-                logger.warn("sleeping for {} seconds".format(ex.seconds))
+                logger.warn(f"sleeping for {ex.seconds} seconds")
                 sleep(ex.seconds)
             except Exception as ex:
                 await edit_or_reply(event, str(ex))
             else:
                 p += 1
-        await edit_or_reply(event, "{}: {} unbanned".format(event.chat_id, p))
+        await edit_or_reply(event, f"{event.chat_id}: {p} unbanned")
 
 
 @bot.on(admin_cmd(pattern="ikuck ?(.*)"))

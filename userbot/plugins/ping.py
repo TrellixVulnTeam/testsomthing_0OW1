@@ -12,7 +12,7 @@ REBEL_IMG = Config.PING_PIC or "https://telegra.ph/file/05fd1961624ffbe038d12.jp
 # PIC ADDED BY MAFIA OWNER
 
 
-@bot.on(admin_cmd(pattern=f"hbping$", outgoing=True))
+@bot.on(admin_cmd(pattern="hbping$", outgoing=True))
 @bot.on(sudo_cmd(pattern="hbping$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

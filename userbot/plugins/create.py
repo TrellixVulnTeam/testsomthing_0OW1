@@ -41,10 +41,9 @@ async def _(event):
                 )
             )
             await event.edit(
-                "Group `{}` created successfully. Join {}".format(
-                    group_name, result.link
-                )
+                f"Group `{group_name}` created successfully. Join {result.link}"
             )
+
         except Exception as e:  # pylint:disable=C0103,W0703
             await event.edit(str(e))
     elif type_of_group in ["g", "c"]:
@@ -64,10 +63,9 @@ async def _(event):
                 )
             )
             await event.edit(
-                "Channel `{}` created successfully. Join {}".format(
-                    group_name, result.link
-                )
+                f"Channel `{group_name}` created successfully. Join {result.link}"
             )
+
         except Exception as e:  # pylint:disable=C0103,W0703
             await event.edit(str(e))
     else:

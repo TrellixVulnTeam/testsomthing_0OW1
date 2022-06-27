@@ -374,7 +374,7 @@ os.system("rm -rf *.mp3")
 
 def bruh(name):
 
-    os.system("instantmusic -q -s " + name)
+    os.system(f"instantmusic -q -s {name}")
 
 
 @bot.on(admin_cmd(pattern="getsong(?: |$)(.*)", outgoing=True))
@@ -426,7 +426,7 @@ os.system("rm -rf *.mp3")
 
 def bruh(name):
 
-    os.system("instantmusic -q -s " + name)
+    os.system(f"instantmusic -q -s {name}")
 
 
 @bot.on(admin_cmd(pattern="dwlsong(?: |$)(.*)", outgoing=True))

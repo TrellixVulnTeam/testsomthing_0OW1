@@ -45,9 +45,7 @@ async def download(event):
         end = datetime.now()
         ms = (end - start).seconds
         await event.delete()
-        await REBELBOT.edit(
-            "Downloaded to `{}` in {} seconds.".format(downloaded_file_name, ms)
-        )
+        await REBELBOT.edit(f"Downloaded to `{downloaded_file_name}` in {ms} seconds.")
         await REBELBOT.edit("Committing to Github....")
         await git_commit(downloaded_file_name, REBELBOT)
 
@@ -69,7 +67,7 @@ async def git_commit(file_name, REBELBOT):
         create_file = True
         if i == 'ContentFile(path="' + file_name + '")':
             return await REBELBOT.edit("`File Already Exists`")
-    file_name = "userbot/plugins/" + file_name
+    file_name = f"userbot/plugins/{file_name}"
     if create_file:
         file_name = file_name.replace("./userbot/temp/", "")
         print(file_name)

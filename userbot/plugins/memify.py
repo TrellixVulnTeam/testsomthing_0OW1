@@ -30,7 +30,7 @@ async def handler(event):
     file = await client.download_media(reply_message, Var.TEMP_DOWNLOAD_DIRECTORY)
     await edit_or_reply(event, "```Memifying this image! (」ﾟﾛﾟ)｣ ```")
     text = str(event.pattern_match.group(1)).strip()
-    if len(text) < 1:
+    if not text:
         return await edit_or_reply(event, "You might want to try `.help memify`")
     meme = await drawText(file, text)
     await client.send_file(event.chat_id, file=meme, force_document=False)

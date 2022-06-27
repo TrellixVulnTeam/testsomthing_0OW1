@@ -4,6 +4,7 @@ Available Commands:
 .clearthumbnail
 .getthumbnail"""
 
+
 import os
 import subprocess
 
@@ -14,11 +15,11 @@ from REBELBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 from userbot.cmdhelp import CmdHelp
 
-thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
+thumb_image_path = f"{Config.TMP_DOWNLOAD_DIRECTORY}/thumb_image.jpg"
 
 
 def get_video_thumb(file, output=None, width=320):
-    output = file + ".jpg"
+    output = f"{file}.jpg"
     metadata = extractMetadata(createParser(file))
     p = subprocess.Popen(
         [

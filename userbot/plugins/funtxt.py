@@ -9,23 +9,10 @@ from userbot.cmdhelp import CmdHelp
 async def payf(event):
     if event.fwd_from:
         return
-    input_str = event.pattern_match.group(1)
-    if input_str:
+    if input_str := event.pattern_match.group(1):
         paytext = input_str
-        pay = "{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}".format(
-            paytext * 8,
-            paytext * 8,
-            paytext * 2,
-            paytext * 2,
-            paytext * 2,
-            paytext * 6,
-            paytext * 6,
-            paytext * 2,
-            paytext * 2,
-            paytext * 2,
-            paytext * 2,
-            paytext * 2,
-        )
+        pay = f"{paytext * 8}\n{paytext * 8}\n{paytext * 2}\n{paytext * 2}\n{paytext * 2}\n{paytext * 6}\n{paytext * 6}\n{paytext * 2}\n{paytext * 2}\n{paytext * 2}\n{paytext * 2}\n{paytext * 2}"
+
     else:
         pay = "╭━━━╮\n┃╭━━╯\n┃╰━━╮\n┃╭━━╯\n┃┃\n╰╯\n"
 

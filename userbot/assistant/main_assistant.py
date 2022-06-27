@@ -207,8 +207,8 @@ async def home(event):
                 custom.Button.inline("ʙʀᴏᴀᴅᴄᴀsᴛ", data="rebelbrod"),
             ],
             [
-                Button.url("ʀᴇʙᴇʟ ᴜᴘᴅᴀᴛᴇ", f"t.me/REBELBOT_SUPPORT"),
-                Button.url("ʀᴇʙᴇʟ sᴜᴘᴘᴏʀᴛ", f"t.me/REBEL_BOT_CHATING"),
+                Button.url("ʀᴇʙᴇʟ ᴜᴘᴅᴀᴛᴇ", "t.me/REBELBOT_SUPPORT"),
+                Button.url("ʀᴇʙᴇʟ sᴜᴘᴘᴏʀᴛ", "t.me/REBEL_BOT_CHATING"),
             ],
         ],
     )
@@ -244,7 +244,7 @@ async def users(event):
         total_users = get_all_users()
         users_list = "List Of Total Users In Bot. \n\n"
         for starked in total_users:
-            users_list += ("==> {} \n").format(int(starked.chat_id))
+            users_list += f"==> {int(starked.chat_id)} \n"
         with io.BytesIO(str.encode(users_list)) as tedt_file:
             tedt_file.name = "userlist.txt"
             await tgbot.send_file(
@@ -254,8 +254,6 @@ async def users(event):
                 caption="Total Users In Your Bot.",
                 allow_cache=False,
             )
-    else:
-        pass
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"gibcmd")))
@@ -287,11 +285,8 @@ async def all_messages_catcher(event):
 async def sed(event):
     msg = await event.get_reply_message()
     user_id, reply_message_id = his_userid(msg.id)
-    if event.sender_id == bot.uid:
-        if event.text.startswith("/"):
-            pass
-        else:
-            await tgbot.send_message(user_id, event.message)
+    if event.sender_id == bot.uid and not event.text.startswith("/"):
+        await tgbot.send_message(user_id, event.message)
 
 
 # broadcast
@@ -354,8 +349,9 @@ async def rebelbrod(event):
     err = 0
     success = 0
     lmao = await tgbot.send_message(
-        event.chat_id, "Starting broadcast to {} users.".format(userstobc)
+        event.chat_id, f"Starting broadcast to {userstobc} users."
     )
+
     start = datetime.now()
     for ok in userstobc:
         try:
@@ -502,7 +498,7 @@ async def alv_txt(event):
             response = conv.wait_event(events.NewMessage(chats=bot.uid))
             response = await response
             themssg = response.message.message
-            if themssg == None:
+            if themssg is None:
                 await conv.send_message("Error!")
                 return
             if themssg == "/cancel":
@@ -538,7 +534,7 @@ async def pm_txt(event):
             response = conv.wait_event(events.NewMessage(chats=bot.uid))
             response = await response
             themssg = response.message.message
-            if themssg == None:
+            if themssg is None:
                 await conv.send_message("Error!")
                 return
             if themssg == "/cancel":
@@ -619,7 +615,7 @@ async def inl_emj(event):
             response = conv.wait_event(events.NewMessage(chats=bot.uid))
             response = await response
             themssg = response.message.message
-            if themssg == None:
+            if themssg is None:
                 await conv.send_message("Error!")
                 return
             if themssg == "/cancel":
@@ -654,7 +650,7 @@ async def sud_users(event):
             response = conv.wait_event(events.NewMessage(chats=bot.uid))
             response = await response
             themssg = response.message.message
-            if themssg == None:
+            if themssg is None:
                 await conv.send_message("Error!")
                 return
             if themssg == "/cancel":
@@ -689,7 +685,7 @@ async def sud_users(event):
             response = conv.wait_event(events.NewMessage(chats=bot.uid))
             response = await response
             themssg = response.message.message
-            if themssg == None:
+            if themssg is None:
                 await conv.send_message("Error!")
                 return
             if themssg == "/cancel":
@@ -709,32 +705,33 @@ async def sud_users(event):
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"pm_data")))
 async def pm_data(event):
-    if event.sender_id == bot.uid:
-        await event.delete()
-        REBEL9 = "PM_DATA"
-        if Var.HEROKU_APP_NAME is not None:
-            app = Heroku.app(Var.HEROKU_APP_NAME)
-        else:
-            mssg = "`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
+    if event.sender_id != bot.uid:
+        return
+    await event.delete()
+    REBEL9 = "PM_DATA"
+    if Var.HEROKU_APP_NAME is not None:
+        app = Heroku.app(Var.HEROKU_APP_NAME)
+    else:
+        mssg = "`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
+        return
+    async with event.client.conversation(bot.uid) as conv:
+        await conv.send_message(
+            "Send `ENABLE` OR `DESABLE`  set you pm data .\nUse /cancel to cancel the operation."
+        )
+        response = conv.wait_event(events.NewMessage(chats=bot.uid))
+        response = await response
+        themssg = response.message.message
+        if themssg is None:
+            await conv.send_message("Error!")
             return
-        async with event.client.conversation(bot.uid) as conv:
-            await conv.send_message(
-                "Send `ENABLE` OR `DESABLE`  set you pm data .\nUse /cancel to cancel the operation."
-            )
-            response = conv.wait_event(events.NewMessage(chats=bot.uid))
-            response = await response
-            themssg = response.message.message
-            if themssg == None:
-                await conv.send_message("Error!")
-                return
-            if themssg == "/cancel":
-                return await conv.send_message("Cancelled!!")
-            heroku_var = app.config()
-            heroku_var[REBEL9] = f"{themssg}"
-            xx = await tgbot.send_message(
-                event.chat_id,
-                "successfull set you pm data\nafter  min do ping|alive check your bot working or not",
-            )
+        if themssg == "/cancel":
+            return await conv.send_message("Cancelled!!")
+        heroku_var = app.config()
+        heroku_var[REBEL9] = f"{themssg}"
+        xx = await tgbot.send_message(
+            event.chat_id,
+            "successfull set you pm data\nafter  min do ping|alive check your bot working or not",
+        )
     # else:
     #    await event.answer("You can't use this bot.", alert=True)
 
@@ -744,32 +741,33 @@ async def pm_data(event):
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"alv_name")))
 async def alv_name(event):
-    if event.sender_id == bot.uid:
-        await event.delete()
-        REBEL10 = "ALIVE_NAME"
-        if Var.HEROKU_APP_NAME is not None:
-            app = Heroku.app(Var.HEROKU_APP_NAME)
-        else:
-            mssg = "`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
+    if event.sender_id != bot.uid:
+        return
+    await event.delete()
+    REBEL10 = "ALIVE_NAME"
+    if Var.HEROKU_APP_NAME is not None:
+        app = Heroku.app(Var.HEROKU_APP_NAME)
+    else:
+        mssg = "`**HEROKU**:" "\nPlease setup your` **HEROKU_APP_NAME**"
+        return
+    async with event.client.conversation(bot.uid) as conv:
+        await conv.send_message(
+            "Send the name  which you want to added you alive name .\nUse /cancel to cancel the operation."
+        )
+        response = conv.wait_event(events.NewMessage(chats=bot.uid))
+        response = await response
+        themssg = response.message.message
+        if themssg is None:
+            await conv.send_message("Error!")
             return
-        async with event.client.conversation(bot.uid) as conv:
-            await conv.send_message(
-                "Send the name  which you want to added you alive name .\nUse /cancel to cancel the operation."
-            )
-            response = conv.wait_event(events.NewMessage(chats=bot.uid))
-            response = await response
-            themssg = response.message.message
-            if themssg == None:
-                await conv.send_message("Error!")
-                return
-            if themssg == "/cancel":
-                return await conv.send_message("Cancelled!!")
-            heroku_var = app.config()
-            heroku_var[REBEL10] = f"{themssg}"
-            xx = await tgbot.send_message(
-                event.chat_id,
-                "successfull set you alive name\nafter 1 min do ping|alive check your bot working or not",
-            )
+        if themssg == "/cancel":
+            return await conv.send_message("Cancelled!!")
+        heroku_var = app.config()
+        heroku_var[REBEL10] = f"{themssg}"
+        xx = await tgbot.send_message(
+            event.chat_id,
+            "successfull set you alive name\nafter 1 min do ping|alive check your bot working or not",
+        )
     # else:
     #    await event.answer("You can't use this bot.", alert=True)
 

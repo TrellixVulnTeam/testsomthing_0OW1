@@ -3,7 +3,9 @@ import os
 ENV = bool(os.environ.get("ENV", False))
 
 
-class Var((object)):
+
+
+class Var(object):
     APP_ID = int(os.environ.get("APP_ID", 6))
     # 6 is a placeholder
     API_HASH = os.environ.get("API_HASH", "eb06d4abfb49dc3eeb1aeb98ae0f581e")
@@ -37,7 +39,7 @@ class Var((object)):
     AUTH_TOKEN_DATA = os.environ.get("AUTH_TOKEN_DATA", None)
     if AUTH_TOKEN_DATA != None:
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
-        with open(TEMP_DOWNLOAD_DIRECTORY + "auth_token.txt", "w") as t_file:
+        with open(f"{TEMP_DOWNLOAD_DIRECTORY}auth_token.txt", "w") as t_file:
             t_file.write(AUTH_TOKEN_DATA)
     REBELBOT_ID = os.environ.get("REBELBOT_ID", None)
     if REBELBOT_ID != None:
@@ -47,6 +49,7 @@ class Var((object)):
             raise ValueError(
                 "Invalid Private Group ID. Make sure your ID is starts with -100 and make sure that it is only numbers."
             )
+
 
 
 class Development(Var):

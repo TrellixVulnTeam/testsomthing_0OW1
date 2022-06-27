@@ -23,9 +23,9 @@ async def potocmd(event):
     else:
         photos = await event.client.get_profile_photos(chat)
         u = False
-    if uid.strip() == "":
+    if not uid.strip():
         uid = 1
-        if int(uid) <= (len(photos)):
+        if uid <= (len(photos)):
             send_photos = await event.client.download_media(photos[uid - 1])
             await event.client.send_file(event.chat_id, send_photos)
         else:
@@ -56,7 +56,7 @@ async def potocmd(event):
         except BaseException:
             await edit_or_reply(event, "Are you komedy me ?")
             return
-        if int(uid) <= (len(photos)):
+        if uid <= (len(photos)):
             send_photos = await event.client.download_media(photos[uid - 1])
             await event.client.send_file(event.chat_id, send_photos)
         else:

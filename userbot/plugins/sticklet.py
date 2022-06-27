@@ -52,10 +52,11 @@ async def sticklet(event):
     # finally, reply the sticker
     await event.client.send_message(
         event.chat_id,
-        "{}".format(sticktext),
+        f"{sticktext}",
         file=image_stream,
         reply_to=event.message.reply_to_msg_id,
     )
+
 
     # cleanup
     try:

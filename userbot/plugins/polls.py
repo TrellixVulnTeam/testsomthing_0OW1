@@ -28,13 +28,11 @@ Answers: \n""".format(
         if closed_status:
             results = media.results
             for i, result in enumerate(results.results):
-                edit_caption += "{}> {}    {}\n".format(
-                    result.option, answers[i].text, result.voters
-                )
-            edit_caption += "Total Voters: {}".format(results.total_voters)
+                edit_caption += f"{result.option}> {answers[i].text}    {result.voters}\n"
+            edit_caption += f"Total Voters: {results.total_voters}"
         else:
             for answer in answers:
-                edit_caption += "{}> {}\n".format(answer.option, answer.text)
+                edit_caption += f"{answer.option}> {answer.text}\n"
         await edit_or_reply(event, edit_caption)
 
 

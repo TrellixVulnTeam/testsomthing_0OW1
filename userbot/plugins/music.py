@@ -30,7 +30,7 @@ async def catmusic(cat, QUALITY, hello):
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.binary_location = GOOGLE_CHROME_BIN
     driver = webdriver.Chrome(chrome_options=chrome_options)
-    driver.get("https://www.youtube.com/results?search_query=" + search)
+    driver.get(f"https://www.youtube.com/results?search_query={search}")
     user_data = driver.find_elements_by_xpath('//*[@id="video-title"]')
     for i in user_data:
         video_link = i.get_attribute("href")
@@ -62,9 +62,7 @@ async def catmusic(cat, QUALITY, hello):
 
 @register(outgoing=True, pattern="^.song(?: |$)(.*)")
 async def _(event):
-    reply_to_id = event.message.id
-    if event.reply_to_msg_id:
-        reply_to_id = event.reply_to_msg_id
+    reply_to_id = event.reply_to_msg_id or event.message.id
     reply = await event.get_reply_message()
     if event.pattern_match.group(1):
         query = event.pattern_match.group(1)
@@ -103,9 +101,7 @@ async def _(event):
 
 @register(outgoing=True, pattern="^.song360(?: |$)(.*)")
 async def _(event):
-    reply_to_id = event.message.id
-    if event.reply_to_msg_id:
-        reply_to_id = event.reply_to_msg_id
+    reply_to_id = event.reply_to_msg_id or event.message.id
     reply = await event.get_reply_message()
     if event.pattern_match.group(1):
         query = event.pattern_match.group(1)
@@ -153,7 +149,7 @@ async def getmusicvideo(cat):
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.binary_location = GOOGLE_CHROME_BIN
     driver = webdriver.Chrome(chrome_options=chrome_options)
-    driver.get("https://www.youtube.com/results?search_query=" + search)
+    driver.get(f"https://www.youtube.com/results?search_query={search}")
     user_data = driver.find_elements_by_xpath('//*[@id="video-title"]')
     for i in user_data:
         video_link = i.get_attribute("href")
@@ -164,9 +160,7 @@ async def getmusicvideo(cat):
 
 @register(outgoing=True, pattern=r"^\.vsong(?: |$)(.*)")
 async def _(event):
-    reply_to_id = event.message.id
-    if event.reply_to_msg_id:
-        reply_to_id = event.reply_to_msg_id
+    reply_to_id = event.reply_to_msg_id or event.message.id
     reply = await event.get_reply_message()
     if event.pattern_match.group(1):
         query = event.pattern_match.group(1)

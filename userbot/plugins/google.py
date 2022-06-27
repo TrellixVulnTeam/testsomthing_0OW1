@@ -12,9 +12,7 @@ from userbot.cmdhelp import CmdHelp
 
 def progress(current, total):
     logger.info(
-        "Downloaded {} of {}\nCompleted {}".format(
-            current, total, (current / total) * 100
-        )
+        f"Downloaded {current} of {total}\nCompleted {current / total * 100}"
     )
 
 
@@ -29,7 +27,7 @@ async def _(event):
     input_str = event.pattern_match.group(
         1
     )  # + " -inurl:(htm|html|php|pls|txt) intitle:index.of \"last modified\" (mkv|mp4|avi|epub|pdf|mp3)"
-    input_url = "https://bots.shrimadhavuk.me/search/?q={}".format(input_str)
+    input_url = f"https://bots.shrimadhavuk.me/search/?q={input_str}"
     headers = {"USER-AGENT": "UniBorg"}
     response = requests.get(input_url, headers=headers).json()
     output_str = " "
@@ -38,17 +36,18 @@ async def _(event):
         url = result.get("url")
         result.get("description")
         result.get("image")
-        output_str += " 👉🏻  [{}]({}) \n\n".format(text, url)
+        output_str += f" 👉🏻  [{text}]({url}) \n\n"
     end = datetime.now()
     ms = (end - start).seconds
     await edit_or_reply(
         event,
-        "searched Google for {} in {} seconds. \n{}".format(input_str, ms, output_str),
+        f"searched Google for {input_str} in {ms} seconds. \n{output_str}",
         link_preview=False,
     )
+
     await asyncio.sleep(5)
     await edit_or_reply(
-        event, "Google: {}\n{}".format(input_str, output_str), link_preview=False
+        event, f"Google: {input_str}\n{output_str}", link_preview=False
     )
 
 
@@ -91,9 +90,10 @@ async def _(event):
     ms = (end - start).seconds
     await edit_or_reply(
         event,
-        "Searched Google for {} in {} seconds.".format(input_str, ms),
+        f"Searched Google for {input_str} in {ms} seconds.",
         link_preview=False,
     )
+
     await asyncio.sleep(5)
     await event.delete()
 
@@ -114,7 +114,7 @@ async def _(event):
             downloaded_file_name = await borg.download_media(
                 previous_message, Config.TMP_DOWNLOAD_DIRECTORY
             )
-            SEARCH_URL = "{}/searchbyimage/upload".format(BASE_URL)
+            SEARCH_URL = f"{BASE_URL}/searchbyimage/upload"
             multipart = {
                 "encoded_image": (
                     downloaded_file_name,

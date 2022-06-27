@@ -24,9 +24,7 @@ logging.basicConfig(
 
 def progress(current, total):
     logger.info(
-        "Downloaded {} of {}\nCompleted {}".format(
-            current, total, (current / total) * 100
-        )
+        f"Downloaded {current} of {total}\nCompleted {current / total * 100}"
     )
 
 
@@ -74,14 +72,11 @@ async def _(event):
         nurl = f"https://del.dog/v/{r['key']}"
         await edit_or_reply(
             event,
-            "Pasted to dogbin : [dog]({}) in {} seconds. GoTo Original URL: [link]({})".format(
-                url, ms, nurl
-            ),
+            f"Pasted to dogbin : [dog]({url}) in {ms} seconds. GoTo Original URL: [link]({nurl})",
         )
+
     else:
-        await edit_or_reply(
-            event, "Pasted to dogbin : [dog]({}) in {} seconds".format(url, ms)
-        )
+        await edit_or_reply(event, f"Pasted to dogbin : [dog]({url}) in {ms} seconds")
 
 
 @bot.on(admin_cmd(pattern="getpaste(?: |$)(.*)", outgoing=True))
@@ -118,7 +113,7 @@ async def get_dogbin_content(dog_url):
         )
         return
     except exceptions.Timeout as TimeoutErr:
-        await edit_or_reply(dog_url, "Request timed out." + str(TimeoutErr))
+        await edit_or_reply(dog_url, f"Request timed out.{str(TimeoutErr)}")
         return
     except exceptions.TooManyRedirects as RedirectsErr:
         await edit_or_reply(
@@ -228,12 +223,11 @@ async def _(event):
     if r["isUrl"]:
         nurl = f"https://iffuci.tk/v/{r['key']}"
         await event.edit(
-            "code is pasted to {} in {} seconds. GoTo Original URL: {}".format(
-                url, ms, nurl
-            )
+            f"code is pasted to {url} in {ms} seconds. GoTo Original URL: {nurl}"
         )
+
     else:
-        await edit_or_reply(event, "code is pasted to {} in {} seconds".format(url, ms))
+        await edit_or_reply(event, f"code is pasted to {url} in {ms} seconds")
 
 
 @bot.on(admin_cmd(pattern="paster ?(.*)", outgoing=True))
@@ -273,8 +267,9 @@ async def _(event):
         nurl = f"https://del.dog/v/{r['key']}"
         await edit_or_reply(
             event,
-            "Dogged to {} in {} seconds. GoTo Original URL: {}".format(url, ms, nurl),
+            f"Dogged to {url} in {ms} seconds. GoTo Original URL: {nurl}",
         )
+
     else:
         await edit_or_reply(event, "**Making instant view...**")
         chat = "@chotamreaderbot"

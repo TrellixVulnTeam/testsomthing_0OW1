@@ -97,7 +97,7 @@ async def REBELBOT(REBELmemes):
         response = upload_file(download_location)
         os.remove(download_location)
     except exceptions.TelegraphException as exc:
-        await REBELevent.edit("ERROR: " + str(exc))
+        await REBELevent.edit(f"ERROR: {str(exc)}")
         os.remove(download_location)
         return
     REBEL = f"https://telegra.ph{response[0]}"
@@ -148,7 +148,7 @@ async def REBELBOT(REBELmemes):
         response = upload_file(download_location)
         os.remove(download_location)
     except exceptions.TelegraphException as exc:
-        await REBELevent.edit("ERROR: " + str(exc))
+        await REBELevent.edit(f"ERROR: {str(exc)}")
         os.remove(download_location)
         return
     REBEL = f"https://telegra.ph{response[0]}"
@@ -199,7 +199,7 @@ async def REBELBOT(REBELmemes):
         response = upload_file(download_location)
         os.remove(download_location)
     except exceptions.TelegraphException as exc:
-        await REBELevent.edit("ERROR: " + str(exc))
+        await REBELevent.edit(f"ERROR: {str(exc)}")
         os.remove(download_location)
         return
     REBEL = f"https://telegra.ph{response[0]}"
@@ -250,7 +250,7 @@ async def REBELBOT(REBELmemes):
         response = upload_file(download_location)
         os.remove(download_location)
     except exceptions.TelegraphException as exc:
-        await REBELevent.edit("ERROR: " + str(exc))
+        await REBELevent.edit(f"ERROR: {str(exc)}")
         os.remove(download_location)
         return
     REBEL = f"https://telegra.ph{response[0]}"

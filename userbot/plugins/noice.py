@@ -127,15 +127,8 @@ async def shrugger(shg):
 @bot.on(sudo_cmd(pattern="f (.*)", allow_sudo=True))
 async def payf(e):
     paytext = e.pattern_match.group(1)[0]
-    pay = "{}\n{}\n{}\n{}\n{}\n{}\n{}".format(
-        paytext * 5,
-        paytext * 1,
-        paytext * 1,
-        paytext * 4,
-        paytext * 1,
-        paytext * 1,
-        paytext * 1,
-    )
+    pay = f"{paytext * 5}\n{paytext * 1}\n{paytext * 1}\n{paytext * 4}\n{paytext * 1}\n{paytext * 1}\n{paytext * 1}"
+
     await edit_or_reply(e, pay)
 
 

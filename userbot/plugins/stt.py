@@ -37,11 +37,12 @@ async def _(event):
             }
             data = open(required_file_name, "rb").read()
             response = requests.post(
-                Config.IBM_WATSON_CRED_URL + "/v1/recognize",
+                f"{Config.IBM_WATSON_CRED_URL}/v1/recognize",
                 headers=headers,
                 data=data,
                 auth=("apikey", Config.IBM_WATSON_CRED_PASSWORD),
             )
+
             r = response.json()
             if "results" in r:
                 # process the json to appropriate string format
@@ -57,13 +58,11 @@ async def _(event):
                 end = datetime.now()
                 ms = (end - start).seconds
                 if transcript_response != "":
-                    string_to_show = "**Language : **`{}`\n**Transcript : **`{}`\n**Time Taken : **`{} seconds`\n**Confidence : **`{}`".format(
-                        lan, transcript_response, ms, transcript_confidence
-                    )
+                    string_to_show = f"**Language : **`{lan}`\n**Transcript : **`{transcript_response}`\n**Time Taken : **`{ms} seconds`\n**Confidence : **`{transcript_confidence}`"
+
                 else:
-                    string_to_show = "**Language : **`{}`\n**Time Taken : **`{} seconds`\n**No Results Found**".format(
-                        lan, ms
-                    )
+                    string_to_show = f"**Language : **`{lan}`\n**Time Taken : **`{ms} seconds`\n**No Results Found**"
+
                 await REBELevent.edit(string_to_show)
             else:
                 await REBELevent.edit(r["error"])
