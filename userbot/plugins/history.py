@@ -32,7 +32,7 @@ async def _(REBELevent):
             response3 = conv.wait_event(
                 events.NewMessage(incoming=True, from_users=461843263)
             )
-            await conv.send_message("/search_id {}".format(victim))
+            await conv.send_message(f"/search_id {victim}")
             response1 = await response1
             response2 = await response2
             response3 = await response3
@@ -72,7 +72,7 @@ async def _(REBELevent):
             response3 = conv.wait_event(
                 events.NewMessage(incoming=True, from_users=461843263)
             )
-            await conv.send_message("/search_id {}".format(victim))
+            await conv.send_message(f"/search_id {victim}")
             response1 = await response1
             response2 = await response2
             response3 = await response3

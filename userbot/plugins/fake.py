@@ -58,20 +58,15 @@ async def gbun(event):
                 "`Wait a second, This is my master!`\n**How dare you threaten to ban my master nigger!**\n\n__Your account has been hacked! Pay 99$ to my master__ [Himanshu](https://t.me/H1M4N5HU0P) __to release your account__😏"
             )
         else:
-            jnl = (
-                "`Warning!! `"
-                "[{}](tg://user?id={})"
-                "` 𝙂𝘽𝘼𝙉𝙉𝙀𝘿 By Admin...\n\n`"
-                "**Person's Name: ** __{}__\n"
-                "**ID : ** `{}`\n"
-            ).format(firstname, idd, firstname, idd)
+            jnl = f"`Warning!! `[{firstname}](tg://user?id={idd})` 𝙂𝘽𝘼𝙉𝙉𝙀𝘿 By Admin...\n\n`**Person's Name: ** __{firstname}__\n**ID : ** `{idd}`\n"
+
             if usname is None:
                 jnl += "**Victim Nigga's username: ** `Doesn't own a username!`\n"
             elif usname != "None":
-                jnl += "**Victim Nigga's username** : @{}\n".format(usname)
+                jnl += f"**Victim Nigga's username** : @{usname}\n"
             if len(gbunVar) > 0:
-                gbunm = "`{}`".format(gbunVar)
-                gbunr = "**Reason: **" + gbunm
+                gbunm = f"`{gbunVar}`"
+                gbunr = f"**Reason: **{gbunm}"
                 jnl += gbunr
             else:
                 no_reason = "__Reason: Madarchod Saala"

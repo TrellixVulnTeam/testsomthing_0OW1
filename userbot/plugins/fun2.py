@@ -198,7 +198,7 @@ async def pressf(f):
         for line in F_LENGTHS:
             c = max(round(line / len(arg)), 1)
             out += (arg * c) + "\n"
-        await edit_or_reply("`" + out + "`")
+        await edit_or_reply(f"`{out}`")
 
 
 @bot.on(admin_cmd(pattern="session$", outgoing=True))

@@ -32,10 +32,9 @@ async def _(event):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     await event.client.send_message(
         Config.REBELBOT_ID,
-        "Created New Telegraph account {} for the current session. \n**Do not give this url to anyone, even if they say they are from Telegram!**".format(
-            auth_url
-        ),
+        f"Created New Telegraph account {auth_url} for the current session. \n**Do not give this url to anyone, even if they say they are from Telegram!**",
     )
+
     optional_title = event.pattern_match.group(2)
     if event.reply_to_msg_id:
         start = datetime.now()
@@ -49,17 +48,16 @@ async def _(event):
             ms = (end - start).seconds
             await edit_or_reply(
                 event,
-                "Downloaded to {} in {} seconds. \nMaking Telegraph Link.....".format(
-                    downloaded_file_name, ms
-                ),
+                f"Downloaded to {downloaded_file_name} in {ms} seconds. \nMaking Telegraph Link.....",
             )
+
             if downloaded_file_name.endswith((".webp")):
                 resize_image(downloaded_file_name)
             try:
                 start = datetime.now()
                 media_urls = upload_file(downloaded_file_name)
             except exceptions.TelegraphException as exc:
-                await edit_or_reply(event, "ERROR: " + str(exc))
+                await edit_or_reply(event, f"ERROR: {str(exc)}")
                 os.remove(downloaded_file_name)
             else:
                 end = datetime.now()
@@ -67,11 +65,10 @@ async def _(event):
                 os.remove(downloaded_file_name)
                 await edit_or_reply(
                     event,
-                    "✓ **YOUR FILE :-** https://telegra.ph{} \n✓ **Time Taken :-** `{}` secs \n✓ **By :- [{}](tg://user?id={})**".format(
-                        media_urls[0], (ms + ms_two), REBEL_NAME, h1m4n5hu0p
-                    ),
+                    f"✓ **YOUR FILE :-** https://telegra.ph{media_urls[0]} \n✓ **Time Taken :-** `{ms + ms_two}` secs \n✓ **By :- [{REBEL_NAME}](tg://user?id={h1m4n5hu0p})**",
                     link_preview=True,
                 )
+
         elif input_str == "t":
             user_object = await borg.get_entity(r_message.sender_id)
             title_of_page = user_object.first_name  # + " " + user_object.last_name

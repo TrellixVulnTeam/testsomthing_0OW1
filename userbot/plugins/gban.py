@@ -71,7 +71,7 @@ async def gban(userbot):
         "`🔥BETA BAAP SAAA PANAGA NAHI ABB DEKHO KYA HOO GAAA TERA. ABBB TERI KALLI GAND KO FAR DUU GA`"
     )
 
-    my_mention = "[{}](tg://user?id={})".format(hum.first_name, hum.id)
+    my_mention = f"[{hum.first_name}](tg://user?id={hum.id})"
     f"@{hum.username}" if hum.username else my_mention
     await userbot.get_chat()
     a = b = 0
@@ -141,7 +141,7 @@ async def gunban(userbot):
         REBELBOT = await edit_or_reply(ids, "`Ungban in progress...`")
     hum = await userbot.client.get_me()
     await REBELBOT.edit("`RUKO JARA SABAR KARO KAR RAHA HU...`")
-    my_mention = "[{}](tg://user?id={})".format(hum.first_name, hum.id)
+    my_mention = f"[{hum.first_name}](tg://user?id={hum.id})"
     f"@{hum.username}" if hum.username else my_mention
     await userbot.get_chat()
     a = b = 0

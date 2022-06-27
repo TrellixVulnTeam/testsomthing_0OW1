@@ -12,8 +12,7 @@ async def REBELBOT(event):
     if event.fwd_from:
         return
     """ .plinfo cmd """
-    args = event.pattern_match.group(1).lower()
-    if args:
+    if args := event.pattern_match.group(1).lower():
         if args in CMD_HELP:
             await event.edit(str(CMD_HELP[args]))
         else:
@@ -28,7 +27,7 @@ async def REBELBOT(event):
         for i in sayfa:
             string += "`▶️ `"
             for sira, a in enumerate(i):
-                string += "`" + str(a)
+                string += f"`{str(a)}"
                 string += "`" if sira == i.index(i[-1]) else "`, "
             string += "\n"
         await event.edit(["NEED_MODULE"] + "\n\n" + string)

@@ -10,7 +10,7 @@ from userbot.cmdhelp import CmdHelp
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "REBEL User"
 
 
-@bot.on(admin_cmd(pattern=f"indflag$", outgoing=True))
+@bot.on(admin_cmd(pattern="indflag$", outgoing=True))
 @bot.on(sudo_cmd(pattern="indflag$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -34,7 +34,7 @@ async def Ooo(e):
         return
     t = "yo"
     for _ in range(15):
-        t = t[:-1] + "oo"
+        t = f"{t[:-1]}oo"
         await e.edit(t)
 
 
@@ -67,7 +67,7 @@ async def _(event):
         await event.edit(animation_chars[i % 14])
 
 
-@bot.on(admin_cmd(pattern=f"evil$", outgoing=True))
+@bot.on(admin_cmd(pattern="evil$", outgoing=True))
 @bot.on(sudo_cmd(pattern="evil$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -259,7 +259,7 @@ async def _(event):
         await event.edit(animation_chars[i % 10])
 
 
-@bot.on(admin_cmd(pattern=f"hypno$", outgoing=True))
+@bot.on(admin_cmd(pattern="hypno$", outgoing=True))
 @bot.on(sudo_cmd(pattern="hypno$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -289,7 +289,7 @@ async def _(event):
         await event.edit(animation_chars[i % 15])
 
 
-@bot.on(admin_cmd(pattern=f"hypno$", outgoing=True))
+@bot.on(admin_cmd(pattern="hypno$", outgoing=True))
 @bot.on(sudo_cmd(pattern="hypno$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -352,7 +352,7 @@ async def _(event):
     await event.edit("EVERyBOdy iZ GangSTur UNtIL I ArRivE 🔥🔥🔥")
 
 
-@bot.on(admin_cmd(pattern=f"bigoof$", outgoing=True))
+@bot.on(admin_cmd(pattern="bigoof$", outgoing=True))
 @bot.on(sudo_cmd(pattern="bigoof$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
@@ -380,7 +380,7 @@ async def _(event):
 
 
 @bot.on(admin_cmd(pattern="charging$"))
-@bot.on(sudo_cmd(pattern=f"charging$", allow_sudo=True))
+@bot.on(sudo_cmd(pattern="charging$", allow_sudo=True))
 async def timer_blankx(e):
     if e.fwd_from:
         return

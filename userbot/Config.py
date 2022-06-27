@@ -6,7 +6,9 @@ ENV = bool(os.environ.get("ENV", False))
 if ENV:
     import os
 
-    class Config((object)):
+
+
+    class Config(object):
         LOGGER = True
         # Get this value from my.telegram.org! Please do not steal
         LOCATION = os.environ.get("LOCATION", None)
@@ -84,14 +86,9 @@ if ENV:
         # heroku
         HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
         HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
-        # send .get_id in any channel to forward all your NEW PMs to this group
-        REBELBOT_ID = os.environ.get("REBELBOT_ID", None)
-        if REBELBOT_ID:
+        if REBELBOT_ID := os.environ.get("REBELBOT_ID", None):
             REBELBOT_ID = int(REBELBOT_ID)
-        # send .get_id in your private channel to forward all your Private messages
-
-        TAG_LOGGER = os.environ.get("TAG_LOGGER", None)
-        if TAG_LOGGER:
+        if TAG_LOGGER := os.environ.get("TAG_LOGGER", None):
             TAG_LOGGER = int(TAG_LOGGER)
 
         # For Databases
@@ -145,7 +142,7 @@ if ENV:
         AUTH_TOKEN_DATA = os.environ.get("AUTH_TOKEN_DATA", None)
         if AUTH_TOKEN_DATA != None:
             os.makedirs(TMP_DOWNLOAD_DIRECTORY)
-            with open(TMP_DOWNLOAD_DIRECTORY + "auth_token.txt", "w") as t_file:
+            with open(f"{TMP_DOWNLOAD_DIRECTORY}auth_token.txt", "w") as t_file:
                 t_file.write(AUTH_TOKEN_DATA)
         CUSTOM_STICKER_PACK_NAME = os.environ.get("CUSTOM_STICKER_PACK_NAME", None)
         YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
@@ -177,6 +174,7 @@ if ENV:
         FORCE_CHANNEL_ID = int(os.environ.get("FORCE_CHANNEL_ID", False))
         EXTRA_REBELBOT = os.environ.get("EXTRA_REBELBOT", -1001221881562)
         PM_DATA = os.environ.get("PM_DATA", "ENABLE")
+
 
 else:
 

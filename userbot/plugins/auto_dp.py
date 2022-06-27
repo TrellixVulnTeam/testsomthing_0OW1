@@ -104,10 +104,10 @@ COLLECTION_STRING9 = [
 async def animeppbat():
     rnd = random.randint(0, len(COLLECTION_STRING1) - 1)
     pack = COLLECTION_STRING1[rnd]
-    pc = requests.get("http://getwallpapers.com/collection/" + pack).text
+    pc = requests.get(f"http://getwallpapers.com/collection/{pack}").text
     f = re.compile(r"/\w+/full.+.jpg")
     f = f.findall(pc)
-    fy = "http://getwallpapers.com" + random.choice(f)
+    fy = f"http://getwallpapers.com{random.choice(f)}"
     if not os.path.exists("f.ttf"):
         urllib.request.urlretrieve(
             "https://github.com/REBEL6969/mym/raw/master/REBEL-robot-Regular.ttf",
@@ -119,10 +119,10 @@ async def animeppbat():
 async def animeppthor():
     rnd = random.randint(0, len(COLLECTION_STRING2) - 1)
     pack = COLLECTION_STRING2[rnd]
-    pc = requests.get("http://getwallpapers.com/collection/" + pack).text
+    pc = requests.get(f"http://getwallpapers.com/collection/{pack}").text
     f = re.compile(r"/\w+/full.+.jpg")
     f = f.findall(pc)
-    fy = "http://getwallpapers.com" + random.choice(f)
+    fy = f"http://getwallpapers.com{random.choice(f)}"
     if not os.path.exists("f.ttf"):
         urllib.request.urlretrieve(
             "https://github.com/REBEL6969/mym/raw/master/REBEL-robot-Regular.ttf",
@@ -134,10 +134,10 @@ async def animeppthor():
 async def animeppactress():
     rnd = random.randint(0, len(COLLECTION_STRING3) - 1)
     pack = COLLECTION_STRING3[rnd]
-    pc = requests.get("http://getwallpapers.com/collection/" + pack).text
+    pc = requests.get(f"http://getwallpapers.com/collection/{pack}").text
     f = re.compile(r"/\w+/full.+.jpg")
     f = f.findall(pc)
-    fy = "http://getwallpapers.com" + random.choice(f)
+    fy = f"http://getwallpapers.com{random.choice(f)}"
     if not os.path.exists("f.ttf"):
         urllib.request.urlretrieve(
             "https://github.com/REBEL6969/mym/raw/master/REBEL-robot-Regular.ttf",
@@ -149,10 +149,10 @@ async def animeppactress():
 async def animepppoke():
     rnd = random.randint(0, len(COLLECTION_STRING4) - 1)
     pack = COLLECTION_STRING4[rnd]
-    pc = requests.get("http://getwallpapers.com/collection/" + pack).text
+    pc = requests.get(f"http://getwallpapers.com/collection/{pack}").text
     f = re.compile(r"/\w+/full.+.jpg")
     f = f.findall(pc)
-    fy = "http://getwallpapers.com" + random.choice(f)
+    fy = f"http://getwallpapers.com{random.choice(f)}"
     if not os.path.exists("f.ttf"):
         urllib.request.urlretrieve(
             "https://github.com/REBEL6969/mym/raw/master/REBEL-robot-Regular.ttf",
@@ -164,10 +164,10 @@ async def animepppoke():
 async def animeppaven():
     rnd = random.randint(0, len(COLLECTION_STRING5) - 1)
     pack = COLLECTION_STRING5[rnd]
-    pc = requests.get("http://getwallpapers.com/collection/" + pack).text
+    pc = requests.get(f"http://getwallpapers.com/collection/{pack}").text
     f = re.compile(r"/\w+/full.+.jpg")
     f = f.findall(pc)
-    fy = "http://getwallpapers.com" + random.choice(f)
+    fy = f"http://getwallpapers.com{random.choice(f)}"
     if not os.path.exists("f.ttf"):
         urllib.request.urlretrieve(
             "https://github.com/REBEL6969/mym/raw/master/REBEL-robot-Regular.ttf",
@@ -179,10 +179,10 @@ async def animeppaven():
 async def animeppgame():
     rnd = random.randint(0, len(COLLECTION_STRING6) - 1)
     pack = COLLECTION_STRING6[rnd]
-    pc = requests.get("http://getwallpapers.com/collection/" + pack).text
+    pc = requests.get(f"http://getwallpapers.com/collection/{pack}").text
     f = re.compile(r"/\w+/full.+.jpg")
     f = f.findall(pc)
-    fy = "http://getwallpapers.com" + random.choice(f)
+    fy = f"http://getwallpapers.com{random.choice(f)}"
     if not os.path.exists("f.ttf"):
         urllib.request.urlretrieve(
             "https://github.com/REBEL6969/mym/raw/master/REBEL-robot-Regular.ttf",
@@ -194,10 +194,10 @@ async def animeppgame():
 async def animepphack():
     rnd = random.randint(0, len(COLLECTION_STRING7) - 1)
     pack = COLLECTION_STRING7[rnd]
-    pc = requests.get("http://getwallpapers.com/collection/" + pack).text
+    pc = requests.get(f"http://getwallpapers.com/collection/{pack}").text
     f = re.compile(r"/\w+/full.+.jpg")
     f = f.findall(pc)
-    fy = "http://getwallpapers.com" + random.choice(f)
+    fy = f"http://getwallpapers.com{random.choice(f)}"
     if not os.path.exists("f.ttf"):
         urllib.request.urlretrieve(
             "https://github.com/REBEL6969/mym/raw/master/REBEL-robot-Regular.ttf",
@@ -209,10 +209,10 @@ async def animepphack():
 async def animeppspace():
     rnd = random.randint(0, len(COLLECTION_STRING8) - 1)
     pack = COLLECTION_STRING8[rnd]
-    pc = requests.get("http://getwallpapers.com/collection/" + pack).text
+    pc = requests.get(f"http://getwallpapers.com/collection/{pack}").text
     f = re.compile(r"/\w+/full.+.jpg")
     f = f.findall(pc)
-    fy = "http://getwallpapers.com" + random.choice(f)
+    fy = f"http://getwallpapers.com{random.choice(f)}"
     if not os.path.exists("f.ttf"):
         urllib.request.urlretrieve(
             "https://github.com/REBEL6969/mym/raw/master/REBEL-robot-Regular.ttf",
@@ -224,10 +224,10 @@ async def animeppspace():
 async def animeppwall():
     rnd = random.randint(0, len(COLLECTION_STRING9) - 1)
     pack = COLLECTION_STRING9[rnd]
-    pc = requests.get("http://getwallpapers.com/collection/" + pack).text
+    pc = requests.get(f"http://getwallpapers.com/collection/{pack}").text
     f = re.compile(r"/\w+/full.+.jpg")
     f = f.findall(pc)
-    fy = "http://getwallpapers.com" + random.choice(f)
+    fy = f"http://getwallpapers.com{random.choice(f)}"
     if not os.path.exists("f.ttf"):
         urllib.request.urlretrieve(
             "https://github.com/REBEL6969/mym/raw/master/REBEL-robot-Regular.ttf",

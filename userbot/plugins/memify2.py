@@ -33,7 +33,7 @@ async def handler(event):
 
     text = str(event.pattern_match.group(1)).strip()
 
-    if len(text) < 1:
+    if not text:
 
         return await edit_or_reply(a, "Usage:- `memify upper text ; lower text`")
 

@@ -63,7 +63,7 @@ async def gben(userbot):
     await mb.get_sender()
     me = await userbot.client.get_me()
     await REBEL.edit("`promoting...`")
-    my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
+    my_mention = f"[{me.first_name}](tg://user?id={me.id})"
     f"@{me.username}" if me.username else my_mention
     await userbot.get_chat()
     if userbot.is_private:
@@ -118,7 +118,7 @@ async def gben(userbot):
     await mb.get_sender()
     me = await userbot.client.get_me()
     await REBEL.edit("`demoting...`")
-    my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
+    my_mention = f"[{me.first_name}](tg://user?id={me.id})"
     f"@{me.username}" if me.username else my_mention
     await userbot.get_chat()
     if userbot.is_private:

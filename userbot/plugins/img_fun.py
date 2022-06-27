@@ -454,7 +454,7 @@ async def memes(REBEL):
         await edit_or_reply(REBEL, "`Reply to supported Media...`")
         return
     REBELinput = REBEL.pattern_match.group(1)
-    REBELinput = 50 if not REBELinput else int(REBELinput)
+    REBELinput = int(REBELinput) if REBELinput else 50
     REBELid = REBEL.reply_to_msg_id
     if not os.path.isdir("./temp/"):
         os.mkdir("./temp/")

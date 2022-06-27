@@ -4,6 +4,7 @@ Syntax:
 .rnupload file.name
 .rnstreamupload file.name
 By @Ck_ATR"""
+
 import os
 import subprocess
 import time
@@ -16,7 +17,7 @@ from telethon.tl.types import DocumentAttributeVideo
 
 from userbot.cmdhelp import CmdHelp
 
-thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
+thumb_image_path = f"{Config.TMP_DOWNLOAD_DIRECTORY}/thumb_image.jpg"
 
 
 def get_video_thumb(file, output=None, width=90):
@@ -28,10 +29,15 @@ def get_video_thumb(file, output=None, width=90):
             file,
             "-ss",
             str(
-                int((0, metadata.get("duration").seconds)[metadata.has("duration")] / 2)
+                int(
+                    (0, metadata.get("duration").seconds)[
+                        metadata.has("duration")
+                    ]
+                    / 2
+                )
             ),
             "-filter:v",
-            "scale={}:-1".format(width),
+            f"scale={width}:-1",
             "-vframes",
             "1",
             output,
@@ -39,6 +45,7 @@ def get_video_thumb(file, output=None, width=90):
         stdout=subprocess.PIPE,
         stderr=subprocess.DEVNULL,
     )
+
     if not p.returncode and os.path.lexists(file):
         return output
 
@@ -70,10 +77,11 @@ async def _(event):
         if os.path.exists(downloaded_file_name):
             await edit_or_reply(
                 event,
-                "Downloaded to `{}` in {} seconds.".format(downloaded_file_name, ms),
+                f"Downloaded to `{downloaded_file_name}` in {ms} seconds.",
             )
+
         else:
-            await edit_or_reply(event, "Error Occurred\n {}".format(input_str))
+            await edit_or_reply(event, f"Error Occurred\n {input_str}")
     else:
         await edit_or_reply(
             event, "Syntax // `.rename file.name` as reply to a Telegram media"
@@ -120,12 +128,11 @@ async def _(event):
             ms_two = (end_two - end).seconds
             await edit_or_reply(
                 event,
-                "Downloaded in {} seconds. Uploaded in {} seconds.".format(
-                    ms_one, ms_two
-                ),
+                f"Downloaded in {ms_one} seconds. Uploaded in {ms_two} seconds.",
             )
+
         else:
-            await edit_or_reply(event, "File Not Found {}".format(input_str))
+            await edit_or_reply(event, f"File Not Found {input_str}")
     else:
         await edit_or_reply(
             event, "Syntax // .rnupload file.name as reply to a Telegram media"
@@ -161,10 +168,9 @@ async def _(event):
             if not downloaded_file_name.endswith((".mkv", ".mp4", ".mp3", ".flac")):
                 await edit_or_reply(
                     event,
-                    "Sorry. But I don't think {} is a streamable file. Please try again.\n**Supported Formats**: MKV, MP4, MP3, FLAC".format(
-                        downloaded_file_name
-                    ),
+                    f"Sorry. But I don't think {downloaded_file_name} is a streamable file. Please try again.\n**Supported Formats**: MKV, MP4, MP3, FLAC",
                 )
+
                 return False
             if os.path.exists(thumb_image_path):
                 thumb = thumb_image_path
@@ -214,12 +220,11 @@ async def _(event):
                 ms_two = (end - end_one).seconds
                 await edit_or_reply(
                     event,
-                    "Downloaded in {} seconds. Uploaded in {} seconds.".format(
-                        ms_one, ms_two
-                    ),
+                    f"Downloaded in {ms_one} seconds. Uploaded in {ms_two} seconds.",
                 )
+
         else:
-            await edit_or_reply(event, "File Not Found {}".format(input_str))
+            await edit_or_reply(event, f"File Not Found {input_str}")
     else:
         await edit_or_reply(
             event, "Syntax // .rnsupload file.name as reply to a Telegram media"

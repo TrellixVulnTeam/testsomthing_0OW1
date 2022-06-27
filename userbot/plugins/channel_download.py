@@ -39,7 +39,7 @@ async def get_media(event):
     output = str(output)
     output = output.replace("b'", "")
     output = output.replace("\n'", "")
-    await event.edit("Downloaded " + output + " files.")
+    await event.edit(f"Downloaded {output} files.")
 
 
 @borg.on(admin_cmd(pattern=r"geta"))
@@ -68,7 +68,7 @@ async def get_media(event):
     output = str(output)
     output = output.replace("b'", "")
     output = output.replace("\n'", "")
-    await event.edit("Downloaded " + output + " files.")
+    await event.edit(f"Downloaded {output} files.")
 
 
 CmdHelp("channel_download").add_command(

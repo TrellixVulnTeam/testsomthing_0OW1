@@ -53,11 +53,7 @@ if Var.REBELBOT_ID is not None:
                     await PREV_REPLY_MESSAGE[chat.id].delete()
                     del PREV_REPLY_MESSAGE[chat.id]
                 pmpermit_sql.approve(chat.id, reason)
-                await event.edit(
-                    "Approved [{}](tg://user?id={}) to PM you.".format(
-                        firstname, chat.id
-                    )
-                )
+                await event.edit(f"Approved [{firstname}](tg://user?id={chat.id}) to PM you.")
                 await asyncio.sleep(3)
                 await event.delete()
         elif event.is_group:
@@ -70,10 +66,9 @@ if Var.REBELBOT_ID is not None:
                 firstname = replied_user.user.first_name
                 pmpermit_sql.approve(reply_s.sender_id, "Approved")
                 await event.edit(
-                    "Approved [{}](tg://user?id={}) to pm.".format(
-                        firstname, reply_s.sender_id
-                    )
+                    f"Approved [{firstname}](tg://user?id={reply_s.sender_id}) to pm."
                 )
+
                 await asyncio.sleep(3)
                 await event.delete()
             elif pmpermit_sql.is_approved(reply_s.sender_id):
@@ -112,10 +107,9 @@ if Var.REBELBOT_ID is not None:
         ):
             pmpermit_sql.disapprove(chat.id)
             await event.edit(
-                "Get lost retard.\nBlocked [{}](tg://user?id={})".format(
-                    firstname, chat.id
-                )
+                f"Get lost retard.\nBlocked [{firstname}](tg://user?id={chat.id})"
             )
+
             await asyncio.sleep(3)
             await event.client(functions.contacts.BlockRequest(chat.id))
         elif (
@@ -140,9 +134,7 @@ if Var.REBELBOT_ID is not None:
             firstname = replied_user.user.first_name
             if pmpermit_sql.is_approved(event.chat_id):
                 pmpermit_sql.disapprove(event.chat_id)
-            await event.edit(
-                "Blocked [{}](tg://user?id={})".format(firstname, reply_s.sender_id)
-            )
+            await event.edit(f"Blocked [{firstname}](tg://user?id={reply_s.sender_id})")
             await event.client(functions.contacts.BlockRequest(reply_s.sender_id))
             await asyncio.sleep(3)
             await event.delete()
@@ -160,11 +152,7 @@ if Var.REBELBOT_ID is not None:
                 await event.edit("Sorry, I Can't Disapprove My Master")
             elif pmpermit_sql.is_approved(chat.id):
                 pmpermit_sql.disapprove(chat.id)
-                await event.edit(
-                    "[{}](tg://user?id={}) disapproved to PM.".format(
-                        firstname, chat.id
-                    )
-                )
+                await event.edit(f"[{firstname}](tg://user?id={chat.id}) disapproved to PM.")
         elif event.is_group:
             reply_s = await event.get_reply_message()
             if not reply_s:
@@ -175,10 +163,9 @@ if Var.REBELBOT_ID is not None:
                 firstname = replied_user.user.first_name
                 pmpermit_sql.disapprove(reply_s.sender_id)
                 await event.edit(
-                    "Disapproved [{}](tg://user?id={}) to PM.".format(
-                        firstname, reply_s.sender_id
-                    )
+                    f"Disapproved [{firstname}](tg://user?id={reply_s.sender_id}) to PM."
                 )
+
                 await asyncio.sleep(3)
                 await event.delete()
             elif not pmpermit_sql.is_approved(reply_s.sender_id):

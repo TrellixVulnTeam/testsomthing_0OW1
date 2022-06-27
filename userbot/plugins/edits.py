@@ -101,7 +101,7 @@ SHRUG = [
 # ✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓✓
 
 
-@bot.on(admin_cmd(pattern=f"gendar$", outgoing=True))
+@bot.on(admin_cmd(pattern="gendar$", outgoing=True))
 @bot.on(sudo_cmd(pattern="gendar$", allow_sudo=True))
 async def metoo(e):
     if e.fwd_from:
@@ -110,7 +110,7 @@ async def metoo(e):
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"shrug$", outgoing=True))
+@bot.on(admin_cmd(pattern="shrug$", outgoing=True))
 @bot.on(sudo_cmd(pattern="shrug$", allow_sudo=True))
 async def metoo(e):
     if e.fwd_from:
@@ -119,7 +119,7 @@ async def metoo(e):
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"doge", outgoing=True))
+@bot.on(admin_cmd(pattern="doge", outgoing=True))
 @bot.on(sudo_cmd(pattern="doge", allow_sudo=True))
 async def metoo(e):
     if e.fwd_from:
@@ -128,7 +128,7 @@ async def metoo(e):
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"mesed$", outgoing=True))
+@bot.on(admin_cmd(pattern="mesed$", outgoing=True))
 @bot.on(sudo_cmd(pattern="mesed$", allow_sudo=True))
 async def metoo(e):
     if e.fwd_from:
@@ -137,7 +137,7 @@ async def metoo(e):
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"medead$", outgoing=True))
+@bot.on(admin_cmd(pattern="medead$", outgoing=True))
 @bot.on(sudo_cmd(pattern="medead$", allow_sudo=True))
 async def metoo(e):
     if e.fwd_from:
@@ -146,7 +146,7 @@ async def metoo(e):
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"confused$", outgoing=True))
+@bot.on(admin_cmd(pattern="confused$", outgoing=True))
 @bot.on(sudo_cmd(pattern="confused$", allow_sudo=True))
 async def metoo(e):
     if e.fwd_from:
@@ -155,7 +155,7 @@ async def metoo(e):
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"lobb$", outgoing=True))
+@bot.on(admin_cmd(pattern="lobb$", outgoing=True))
 @bot.on(sudo_cmd(pattern="lobb$", allow_sudo=True))
 async def metoo(e):
     if e.fwd_from:
@@ -164,7 +164,7 @@ async def metoo(e):
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"wut$", outgoing=True))
+@bot.on(admin_cmd(pattern="wut$", outgoing=True))
 @bot.on(sudo_cmd(pattern="wut$", allow_sudo=True))
 async def metoo(e):
     if e.fwd_from:
@@ -173,7 +173,7 @@ async def metoo(e):
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"wavee$", outgoing=True))
+@bot.on(admin_cmd(pattern="wavee$", outgoing=True))
 @bot.on(sudo_cmd(pattern="wavee$", allow_sudo=True))
 async def metoo(e):
     if e.fwd_from:
@@ -182,7 +182,7 @@ async def metoo(e):
     await edit_or_reply(e, txt)
 
 
-@bot.on(admin_cmd(pattern=f"hehe$", outgoing=True))
+@bot.on(admin_cmd(pattern="hehe$", outgoing=True))
 @bot.on(sudo_cmd(pattern="hehe$", allow_sudo=True))
 async def metoo(e):
     if e.fwd_from:

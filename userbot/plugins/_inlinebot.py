@@ -12,7 +12,6 @@ from userbot import *
 from userbot.cmdhelp import *
 from userbot.Config import Config
 
-REBEL_help_pic = Config.HELP_PIC
 REBEL_row = Config.BUTTONS_IN_HELP
 REBEL_emoji = Config.EMOJI_IN_HELP
 # thats how a lazy guy imports
@@ -24,9 +23,7 @@ USERID = bot.uid
 
 mention = f"[{DEFAULTUSER}](tg://user?id={USERID})"
 
-# username code
-
-if REBEL_help_pic:
+if REBEL_help_pic := Config.HELP_PIC:
     _file_to_replace = REBEL_help_pic
     REBEL_help_pic = REBEL_help_pic
 else:
@@ -48,12 +45,13 @@ def button(page, modules):
     buttons = [
         [
             custom.Button.inline(
-                f"{REBEL_emoji} " + pair, data=f"Information[{page}]({pair})"
+                f"{REBEL_emoji} {pair}", data=f"Information[{page}]({pair})"
             )
             for pair in pairs
         ]
         for pairs in pairs[page]
     ]
+
 
     buttons.append(
         [
@@ -168,10 +166,11 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         try:
             buttons = [
                 custom.Button.inline(
-                    "🔷" + cmd[0], data=f"commands[{commands}[{page}]]({cmd[0]})"
+                    f"🔷{cmd[0]}", data=f"commands[{commands}[{page}]]({cmd[0]})"
                 )
                 for cmd in CMD_HELP_BOT[commands]["commands"].items()
             ]
+
         except KeyError:
             return await event.answer(
                 "No Description is written for this plugin", cache_time=0, alert=True

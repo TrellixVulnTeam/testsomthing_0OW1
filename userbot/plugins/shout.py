@@ -13,13 +13,16 @@ async def shout(args):
     messagestr = messagestr[7:]
     text = " ".join(messagestr)
     result = [" ".join(list(text))]
-    for pos, symbol in enumerate(text[1:]):
-        result.append(symbol + " " + "  " * pos + symbol)
+    result.extend(
+        f"{symbol} " + "  " * pos + symbol
+        for pos, symbol in enumerate(text[1:])
+    )
+
     result = list("\n".join(result))
     result[0] = text[0]
     result = "".join(result)
     msg = "\n" + result
-    await args.edit("`" + msg + "`")
+    await args.edit(f"`{msg}`")
 
 
 CmdHelp("shout").add_command(

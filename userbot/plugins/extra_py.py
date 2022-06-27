@@ -28,16 +28,13 @@ async def install(event):
             load_module(shortname.replace(".py", ""))
             await borg.send_message(
                 event.chat_id,
-                "Installed Plugin `{}` successfully.".format(
-                    os.path.basename(downloaded_file_name)
-                ),
+                f"Installed Plugin `{os.path.basename(downloaded_file_name)}` successfully.",
             )
+
         else:
             await borg.send_message(
                 event.chat_id,
-                "Plugin `{}` has been pre-installed and cannot be installed.".format(
-                    os.path.basename(downloaded_file_name)
-                ),
+                f"Plugin `{os.path.basename(downloaded_file_name)}` has been pre-installed and cannot be installed.",
             )
 
 
@@ -65,16 +62,13 @@ async def install(event):
             logger.info(sed)
             await borg.send_message(
                 event.chat_id,
-                "Installed Plugin `{}` successfully.".format(
-                    os.path.basename(downloaded_file_name)
-                ),
+                f"Installed Plugin `{os.path.basename(downloaded_file_name)}` successfully.",
             )
+
         else:
             await borg.send_message(
                 event.chat_id,
-                "Plugin `{}` has been pre-installed and cannot be installed.".format(
-                    os.path.basename(downloaded_file_name)
-                ),
+                f"Plugin `{os.path.basename(downloaded_file_name)}` has been pre-installed and cannot be installed.",
             )
 
 

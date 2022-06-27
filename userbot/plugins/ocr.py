@@ -66,9 +66,7 @@ def ocr_space_url(url, overlay=False, api_key=Config.OCR_SPACE_API_KEY, language
 
 def progress(current, total):
     logger.info(
-        "Downloaded {} of {}\nCompleted {}".format(
-            current, total, (current / total) * 100
-        )
+        f"Downloaded {current} of {total}\nCompleted {current / total * 100}"
     )
 
 
@@ -131,17 +129,15 @@ async def parse_ocr_space_api(event):
     except Exception as e:
         await edit_or_reply(
             event,
-            "Errors.\n `{}`\nReport This to @REBELBOT_SUPPORT\n\n`{}`".format(
-                str(e), json.dumps(test_file, sort_keys=True, indent=4)
-            ),
+            f"Errors.\n `{str(e)}`\nReport This to @REBELBOT_SUPPORT\n\n`{json.dumps(test_file, sort_keys=True, indent=4)}`",
         )
+
     else:
         await edit_or_reply(
             event,
-            "Read Document in {} seconds. \n{}".format(
-                ProcessingTimeInMilliseconds, ParsedText
-            ),
+            f"Read Document in {ProcessingTimeInMilliseconds} seconds. \n{ParsedText}",
         )
+
     os.remove(downloaded_file_name)
     await edit_or_reply(event, ParsedText)
 

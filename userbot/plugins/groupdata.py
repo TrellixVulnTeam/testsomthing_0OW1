@@ -192,8 +192,8 @@ async def fetch_info(chat, event):
         if hasattr(chat_obj_info, "verified") and chat_obj_info.verified
         else "No"
     )
-    username = "@{}".format(username) if username else None
-    creator_username = "@{}".format(creator_username) if creator_username else None
+    username = f"@{username}" if username else None
+    creator_username = f"@{creator_username}" if creator_username else None
     # end of spaghetti block
 
     if admins is None:
@@ -309,7 +309,7 @@ async def get_admin(show):
             else:
                 mentions += f"\nDeleted Account <code>{user.id}</code>"
     except ChatAdminRequiredError as err:
-        mentions += " " + str(err) + "\n"
+        mentions += f" {str(err)}" + "\n"
     await edit_or_reply(show, mentions, parse_mode="html")
 
 
@@ -323,29 +323,29 @@ async def get_users(show):
         return
     info = await show.client.get_entity(show.chat_id)
     title = info.title or "this chat"
-    mentions = "Users in {}: \n".format(title)
+    mentions = f"Users in {title}: \n"
     try:
         if not show.pattern_match.group(1):
             async for user in show.client.iter_participants(show.chat_id):
-                if not user.deleted:
-                    mentions += (
-                        f"\n[{user.first_name}](tg://user?id={user.id}) `{user.id}`"
-                    )
-                else:
-                    mentions += f"\nDeleted Account `{user.id}`"
+                mentions += (
+                    f"\nDeleted Account `{user.id}`"
+                    if user.deleted
+                    else f"\n[{user.first_name}](tg://user?id={user.id}) `{user.id}`"
+                )
+
         else:
             searchq = show.pattern_match.group(1)
             async for user in show.client.iter_participants(
                 show.chat_id, search=f"{searchq}"
             ):
-                if not user.deleted:
-                    mentions += (
-                        f"\n[{user.first_name}](tg://user?id={user.id}) `{user.id}`"
-                    )
-                else:
-                    mentions += f"\nDeleted Account `{user.id}`"
+                mentions += (
+                    f"\nDeleted Account `{user.id}`"
+                    if user.deleted
+                    else f"\n[{user.first_name}](tg://user?id={user.id}) `{user.id}`"
+                )
+
     except ChatAdminRequiredError as err:
-        mentions += " " + str(err) + "\n"
+        mentions += f" {str(err)}" + "\n"
     try:
         await edit_or_reply(show, mentions)
     except MessageTooLongError:
@@ -357,9 +357,10 @@ async def get_users(show):
         await show.client.send_file(
             show.chat_id,
             "userslist.txt",
-            caption="Users in {}".format(title),
+            caption=f"Users in {title}",
             reply_to=show.id,
         )
+
         remove("userslist.txt")
 
 

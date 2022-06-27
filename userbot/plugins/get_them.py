@@ -23,7 +23,7 @@ async def _(event):
     to_write_chat = await event.get_input_chat()
     chat = None
     if input_str:
-        mentions_heading = "Admins in {} Group: \n".format(input_str)
+        mentions_heading = f"Admins in {input_str} Group: \n"
         mentions = mentions_heading
         try:
             chat = await event.client.get_entity(input_str)
@@ -40,21 +40,17 @@ async def _(event):
             chat, filter=ChannelParticipantsAdmins
         ):
             if not x.deleted and isinstance(x.participant, ChannelParticipantCreator):
-                mentions += "\n 🔰 [{}](tg://user?id={}) `{}`".format(
-                    x.first_name, x.id, x.id
-                )
+                mentions += f"\n 🔰 [{x.first_name}](tg://user?id={x.id}) `{x.id}`"
         mentions += "\n"
         async for x in event.client.iter_participants(
             chat, filter=ChannelParticipantsAdmins
         ):
             if x.deleted:
-                mentions += "\n `{}`".format(x.id)
+                mentions += f"\n `{x.id}`"
             elif isinstance(x.participant, ChannelParticipantAdmin):
-                mentions += "\n 🔸 [{}](tg://user?id={}) `{}`".format(
-                    x.first_name, x.id, x.id
-                )
+                mentions += f"\n 🔸 [{x.first_name}](tg://user?id={x.id}) `{x.id}`"
     except Exception as e:
-        mentions += " " + str(e) + "\n"
+        mentions += f" {str(e)}" + "\n"
     if reply_message:
         await reply_message.reply(mentions)
     else:
@@ -74,7 +70,7 @@ async def _(event):
     if not input_str:
         chat = to_write_chat
     else:
-        mentions = "Bots in {} group: \n".format(input_str)
+        mentions = f"Bots in {input_str} group: \n"
         try:
             chat = await borg.get_entity(input_str)
         except Exception as e:
@@ -83,15 +79,11 @@ async def _(event):
     try:
         async for x in borg.iter_participants(chat, filter=ChannelParticipantsBots):
             if isinstance(x.participant, ChannelParticipantAdmin):
-                mentions += "\n ⚜️ [{}](tg://user?id={}) `{}`".format(
-                    x.first_name, x.id, x.id
-                )
+                mentions += f"\n ⚜️ [{x.first_name}](tg://user?id={x.id}) `{x.id}`"
             else:
-                mentions += "\n [{}](tg://user?id={}) `{}`".format(
-                    x.first_name, x.id, x.id
-                )
+                mentions += f"\n [{x.first_name}](tg://user?id={x.id}) `{x.id}`"
     except Exception as e:
-        mentions += " " + str(e) + "\n"
+        mentions += f" {str(e)}" + "\n"
     await event.edit(mentions)
 
 
@@ -106,18 +98,16 @@ async def _(event):
         if r_msg.media:
             bot_api_file_id = pack_bot_file_id(r_msg.media)
             await event.edit(
-                "🔸 **Current Chat ID:** `{}`\n\n🔰 **From User ID:** `{}`\n\n🤖 **Bot API File ID:** `{}`".format(
-                    str(event.chat_id), str(r_msg.sender_id), bot_api_file_id
-                )
+                f"🔸 **Current Chat ID:** `{str(event.chat_id)}`\n\n🔰 **From User ID:** `{str(r_msg.sender_id)}`\n\n🤖 **Bot API File ID:** `{bot_api_file_id}`"
             )
+
         else:
             await event.edit(
-                "🔸 **Current Chat ID:** `{}`\n\n🔰 **From User ID:** `{}`".format(
-                    str(event.chat_id), str(r_msg.sender_id)
-                )
+                f"🔸 **Current Chat ID:** `{str(event.chat_id)}`\n\n🔰 **From User ID:** `{str(r_msg.sender_id)}`"
             )
+
     else:
-        await event.edit("🔸 **Current Chat ID:** `{}`".format(str(event.chat_id)))
+        await event.edit(f"🔸 **Current Chat ID:** `{str(event.chat_id)}`")
 
 
 CmdHelp("get_them").add_command(
