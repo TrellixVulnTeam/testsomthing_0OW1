@@ -15,7 +15,7 @@ from pathlib import Path
 from time import gmtime, strftime
 from typing import Tuple
 from telethon import functions, types
-from userbot import LOGS
+from userbot import *
 from telethon import events
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
