@@ -23,7 +23,7 @@ from userbot.helpers.tools import media_type
 
 from var import Var
 
-from userbot import CMD_LIST, LOAD_PLUG, LOGS, SUDO_LIST, bot
+from userbot import CMD_LIST, LOAD_PLUG, SUDO_LIST, bot
 from userbot.helpers.exceptions import CancelProcess
 from userbot.Config import Config
 
