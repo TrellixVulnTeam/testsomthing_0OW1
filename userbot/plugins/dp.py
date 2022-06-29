@@ -1,8 +1,5 @@
 # Made By @Legend_Mr_Hacker Keep Credits If You Are Goanna Kang This Lol
 
-# And Thanks To The Creator Of Autopic This Script Was Made from Snippets From That Script
-
-# Usage .actressdp Im Not Responsible For Any Ban caused By This
 import asyncio
 import os
 import random
