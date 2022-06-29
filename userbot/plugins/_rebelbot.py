@@ -4,7 +4,7 @@ from REBELBOT.utils import *
 
 from userbot import *
 from userbot import CMD_HELP
-
+from userbot.Config import Config
 
 @bot.on(admin_cmd(pattern="helps(?: |$)(.*)", outgoing=True))
 @bot.on(sudo_cmd(pattern="helps(?: |$)(.*)", allow_sudo=True))
