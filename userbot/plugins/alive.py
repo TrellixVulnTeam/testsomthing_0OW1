@@ -9,6 +9,7 @@ from userbot import ALIVE_NAME, REBELversion
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
 from userbot.utils import admin_cmd, sudo_cmd
+from userbot import *
 
 # 🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "ᖇᗴᗷᗴᒪᗷOT ᗰᗩՏTᗴᖇ"
