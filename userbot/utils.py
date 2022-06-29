@@ -150,7 +150,8 @@ def admin_cmd(pattern=None, command=None, **args):
 
     # add blacklist chats, UB should not respond in these chats
     args["blacklist_chats"] = True
-    if black_list_chats := list(Config.UB_BLACK_LIST_CHAT):
+    black_list_chats = list(Config.UB_BLACK_LIST_CHAT)
+    if black_list_chats:
         args["chats"] = black_list_chats
 
     # add blacklist chats, UB should not respond in these chats
