@@ -206,7 +206,7 @@ async def autopic(event):
             
 
 
-CmdHelp("actiondp").add_command(
-    "actiondp", None, "Starts autodp of Action Hero & Some Actress Pic").add_command(
-    "actressdp").add_command("actressdp", None, "Starts autodp of Actress
-).add()
+# CmdHelp("actiondp").add_command(
+ #   "actiondp", None, "Starts autodp of Action Hero & Some Actress Pic").add_command(
+   # "actressdp").add_command("actressdp", None, "Starts autodp of Actress
+# ).add()
