@@ -5,6 +5,7 @@ modified by :- @veryhelpful
  """
 
 from REBELBOT.utils import admin_cmd
+from userbot.Config import Config
 
 normiefont = [
     "a",
