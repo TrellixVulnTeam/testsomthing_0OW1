@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw, ImageFont
 from pySmartDL import SmartDL
 from REBELBOT.utils import admin_cmd
 from telethon.tl import functions
-
+from userbot.Config import Config
 from userbot.cmdhelp import CmdHelp
 
 FONT_FILE_TO_USE = "./userbot/helpers/styles/Voice In My Head_080621160753.otf"
