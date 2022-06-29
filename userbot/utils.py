@@ -30,8 +30,9 @@ from userbot.Config import Config
 ENV = bool(os.environ.get("ENV", False))
 if ENV:
     from userbot.Config import Config
-elif os.path.exists("config.py"):
-    from config import Development as Config
+else:
+    if os.path.exists("config.py"):
+        from config import Development as Config
 
 
 
@@ -118,7 +119,7 @@ def admin_cmd(pattern=None, command=None, **args):
                 CMD_LIST.update({file_test: [cmd]})
         else:
             if len(Config.COMMAND_HAND_LER) == 2:
-                REBELreg = f"^{Config.COMMAND_HAND_LER}"
+                REBELreg = "^" + Config.COMMAND_HAND_LER
                 reg = Config.COMMAND_HAND_LER[1]
             elif len(Config.COMMAND_HAND_LER) == 1:
                 REBELreg = "^\\" + Config.COMMAND_HAND_LER
