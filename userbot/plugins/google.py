@@ -11,9 +11,7 @@ from userbot.cmdhelp import CmdHelp
 
 
 def progress(current, total):
-    logger.info(
-        f"Downloaded {current} of {total}\nCompleted {current / total * 100}"
-    )
+    logger.info(f"Downloaded {current} of {total}\nCompleted {current / total * 100}")
 
 
 @bot.on(admin_cmd(pattern="google (.*)", outgoing=True))
@@ -46,9 +44,7 @@ async def _(event):
     )
 
     await asyncio.sleep(5)
-    await edit_or_reply(
-        event, f"Google: {input_str}\n{output_str}", link_preview=False
-    )
+    await edit_or_reply(event, f"Google: {input_str}\n{output_str}", link_preview=False)
 
 
 @bot.on(admin_cmd(pattern="image (.*)", outgoing=True))

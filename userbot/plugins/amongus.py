@@ -9,7 +9,6 @@ from REBELBOT.utils import *
 
 from userbot import *
 from userbot.cmdhelp import CmdHelp
-from userbot.Config import Config
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "REBEL User"
 

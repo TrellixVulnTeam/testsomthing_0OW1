@@ -1006,7 +1006,9 @@ class googleimagesdownload:
                     )
 
                 download_status = "success"
-                download_message = f"Completed Image Thumbnail ====> {return_image_name}"
+                download_message = (
+                    f"Completed Image Thumbnail ====> {return_image_name}"
+                )
 
                 # image size parameter
                 if print_size:
@@ -1150,7 +1152,6 @@ class googleimagesdownload:
                         )
                     ]
 
-
                 # prefix name in image
                 prefix = f"{prefix} " if prefix else ""
                 if no_numbering:
@@ -1185,7 +1186,9 @@ class googleimagesdownload:
                 # return image name back to calling method to use it for
                 # thumbnail downloads
                 download_status = "success"
-                download_message = f"Completed Image ====> {prefix}{str(count)}.{image_name}"
+                download_message = (
+                    f"Completed Image ====> {prefix}{str(count)}.{image_name}"
+                )
                 return_image_name = prefix + str(count) + "." + image_name
 
                 # image size parameter

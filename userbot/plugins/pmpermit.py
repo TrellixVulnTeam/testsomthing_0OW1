@@ -53,7 +53,9 @@ if Var.REBELBOT_ID is not None:
                     await PREV_REPLY_MESSAGE[chat.id].delete()
                     del PREV_REPLY_MESSAGE[chat.id]
                 pmpermit_sql.approve(chat.id, reason)
-                await event.edit(f"Approved [{firstname}](tg://user?id={chat.id}) to PM you.")
+                await event.edit(
+                    f"Approved [{firstname}](tg://user?id={chat.id}) to PM you."
+                )
                 await asyncio.sleep(3)
                 await event.delete()
         elif event.is_group:
@@ -152,7 +154,9 @@ if Var.REBELBOT_ID is not None:
                 await event.edit("Sorry, I Can't Disapprove My Master")
             elif pmpermit_sql.is_approved(chat.id):
                 pmpermit_sql.disapprove(chat.id)
-                await event.edit(f"[{firstname}](tg://user?id={chat.id}) disapproved to PM.")
+                await event.edit(
+                    f"[{firstname}](tg://user?id={chat.id}) disapproved to PM."
+                )
         elif event.is_group:
             reply_s = await event.get_reply_message()
             if not reply_s:

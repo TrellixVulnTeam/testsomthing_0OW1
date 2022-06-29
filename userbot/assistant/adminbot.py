@@ -85,7 +85,7 @@ async def ban(event):
         return
     # Helps ban group join spammers more easily
     try:
-        reply = await event.get_reply_message()
+        await event.get_reply_message()
     except BadRequestError:
         await event.reply(
             "`I dont have message nuking rights! But still he was banned!`"

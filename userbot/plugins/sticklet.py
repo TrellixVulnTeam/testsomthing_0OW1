@@ -57,7 +57,6 @@ async def sticklet(event):
         reply_to=event.message.reply_to_msg_id,
     )
 
-
     # cleanup
     try:
         os.remove(FONT_FILE)

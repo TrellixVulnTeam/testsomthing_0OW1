@@ -75,7 +75,6 @@ async def _(event):
             f"{required_file_name}.opus",
         ]
 
-
         try:
 
             t_response = subprocess.check_output(

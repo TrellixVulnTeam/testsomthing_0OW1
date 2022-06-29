@@ -3,7 +3,7 @@ import asyncio
 import time
 
 from REBELBOT.utils import admin_cmd
-from userbot.Config import Config
+
 from userbot.cmdhelp import CmdHelp
 
 

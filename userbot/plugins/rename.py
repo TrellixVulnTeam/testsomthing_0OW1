@@ -29,12 +29,7 @@ def get_video_thumb(file, output=None, width=90):
             file,
             "-ss",
             str(
-                int(
-                    (0, metadata.get("duration").seconds)[
-                        metadata.has("duration")
-                    ]
-                    / 2
-                )
+                int((0, metadata.get("duration").seconds)[metadata.has("duration")] / 2)
             ),
             "-filter:v",
             f"scale={width}:-1",

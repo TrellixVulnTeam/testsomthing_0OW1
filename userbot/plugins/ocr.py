@@ -65,9 +65,7 @@ def ocr_space_url(url, overlay=False, api_key=Config.OCR_SPACE_API_KEY, language
 
 
 def progress(current, total):
-    logger.info(
-        f"Downloaded {current} of {total}\nCompleted {current / total * 100}"
-    )
+    logger.info(f"Downloaded {current} of {total}\nCompleted {current / total * 100}")
 
 
 @bot.on(admin_cmd(pattern="ocrlang", outgoing=True))

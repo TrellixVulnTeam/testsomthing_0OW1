@@ -6,8 +6,6 @@ ENV = bool(os.environ.get("ENV", False))
 if ENV:
     import os
 
-
-
     class Config(object):
         LOGGER = True
         # Get this value from my.telegram.org! Please do not steal
@@ -174,7 +172,6 @@ if ENV:
         FORCE_CHANNEL_ID = int(os.environ.get("FORCE_CHANNEL_ID", False))
         EXTRA_REBELBOT = os.environ.get("EXTRA_REBELBOT", -1001221881562)
         PM_DATA = os.environ.get("PM_DATA", "ENABLE")
-
 
 else:
 

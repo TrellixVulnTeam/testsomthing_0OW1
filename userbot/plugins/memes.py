@@ -651,9 +651,7 @@ async def stretch(stret):
         return
 
     count = random.randint(3, 10)
-    reply_text = re.sub(
-        r"([aeiouAEIOUａｅｉｏｕＡＥＩＯＵаеиоуюяыэё])", (r"\1" * count), message
-    )
+    reply_text = re.sub(r"([aeiouAEIOUａｅｉｏｕＡＥＩＯＵаеиоуюяыэё])", (r"\1" * count), message)
     await edit_or_reply(stret, reply_text)
 
 

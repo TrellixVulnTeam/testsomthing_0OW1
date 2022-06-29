@@ -46,7 +46,9 @@ async def _(event):
     if event.fwd_from:
         return
     input_str = event.pattern_match.group(1)
-    sample_url = f'https://da.gd/s?url=https://www.altnews.in/?s={input_str.replace(" ", "+")}'
+    sample_url = (
+        f'https://da.gd/s?url=https://www.altnews.in/?s={input_str.replace(" ", "+")}'
+    )
 
     if response_api := requests.get(sample_url).text:
         await edit_or_reply(

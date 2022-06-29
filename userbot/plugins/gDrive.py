@@ -252,9 +252,7 @@ async def create_directory(http, directory_name, parent_id):
     file = drive_service.files().insert(body=file_metadata).execute()
     file_id = file.get("id")
     drive_service.permissions().insert(fileId=file_id, body=permissions).execute()
-    logger.info(
-        f'Created Gdrive Folder:\nName: {file.get("title")}\nID: {file_id} '
-    )
+    logger.info(f'Created Gdrive Folder:\nName: {file.get("title")}\nID: {file_id} ')
 
     return file_id
 

@@ -47,9 +47,7 @@ from requests import get
 
 # Bot Logs setup:
 if bool(ENV):
-    if CONSOLE_LOGGER_VERBOSE := sb(
-        os.environ.get("CONSOLE_LOGGER_VERBOSE", "False")
-    ):
+    if CONSOLE_LOGGER_VERBOSE := sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False")):
         basicConfig(
             format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
             level=DEBUG,

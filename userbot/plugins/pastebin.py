@@ -23,9 +23,7 @@ logging.basicConfig(
 
 
 def progress(current, total):
-    logger.info(
-        f"Downloaded {current} of {total}\nCompleted {current / total * 100}"
-    )
+    logger.info(f"Downloaded {current} of {total}\nCompleted {current / total * 100}")
 
 
 DOGBIN_URL = "https://del.dog/"

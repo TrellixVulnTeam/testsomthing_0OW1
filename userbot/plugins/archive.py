@@ -295,7 +295,9 @@ async def _(event):
         else:
             end = datetime.now()
             ms = (end - start).seconds
-            await mone.edit(f"Stored the zip to `{downloaded_file_name}` in {ms} seconds.")
+            await mone.edit(
+                f"Stored the zip to `{downloaded_file_name}` in {ms} seconds."
+            )
 
         with zipfile.ZipFile(downloaded_file_name, "r") as zip_ref:
             zip_ref.extractall(extracted)
@@ -388,7 +390,9 @@ async def _(event):
         else:
             end = datetime.now()
             ms = (end - start).seconds
-            await mone.edit(f"Stored the rar to `{downloaded_file_name}` in {ms} seconds.")
+            await mone.edit(
+                f"Stored the rar to `{downloaded_file_name}` in {ms} seconds."
+            )
 
         patoolib.extract_archive(downloaded_file_name, outdir=extracted)
         filename = sorted(get_lst_of_files(extracted, []))
@@ -484,7 +488,9 @@ async def _(event):
         else:
             end = datetime.now()
             ms = (end - start).seconds
-            await mone.edit(f"Stored the tar to `{downloaded_file_name}` in {ms} seconds.")
+            await mone.edit(
+                f"Stored the tar to `{downloaded_file_name}` in {ms} seconds."
+            )
         with tarfile.TarFile.open(downloaded_file_name, "r") as tar_file:
             tar_file.extractall(path=extracted)
         # tf = tarfile.open(downloaded_file_name)

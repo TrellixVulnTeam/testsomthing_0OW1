@@ -6,7 +6,6 @@ from telethon.tl.functions.users import GetFullUserRequest
 
 from userbot import *
 from userbot.cmdhelp import CmdHelp
-from userbot.Config import Config
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "REBEL User"
 
@@ -1174,6 +1173,7 @@ async def _(event):
     )
     await asyncio.sleep(6)
 
+
 @bot.on(admin_cmd(pattern="phub$", outgoing=True))
 @bot.on(sudo_cmd(pattern="phub$", allow_sudo=True))
 async def _(event):
@@ -1418,7 +1418,6 @@ async def payf(event):
     await edit_or_reply(event, pay)
 
 
-
 CmdHelp("animations1").add_command("indflag", None, "🇮🇳🇮🇳🇮🇳").add_command(
     "stupid", None, "Use and see"
 ).add_command("bombs", None, "Use and see").add_command(
@@ -1448,10 +1447,14 @@ CmdHelp("animations1").add_command("indflag", None, "🇮🇳🇮🇳🇮🇳").
 ).add_command(
     "gnt", None, "Cool Good Night Animation"
 ).add_command(
-    "muth", None, "Fapping✊" 
-).add_command("boxs", None, "Use and see").add_command(
+    "muth", None, "Fapping✊"
+).add_command(
+    "boxs", None, "Use and see"
+).add_command(
     "rain", None, "Use and see"
-).add_command("deploy", None, "Use and see").add_command(
+).add_command(
+    "deploy", None, "Use and see"
+).add_command(
     "dump", None, "Use and see"
 ).add_command(
     "fleaveme", None, "Use and see"
@@ -1479,7 +1482,9 @@ CmdHelp("animations1").add_command("indflag", None, "🇮🇳🇮🇳🇮🇳").
     "padmin", None, "Prank promote a user"
 ).add_command(
     "kiler", "<text>", "Cool killing animation with name"
-).add_command("eye", None, "Use and see").add_command(
+).add_command(
+    "eye", None, "Use and see"
+).add_command(
     "thinking", None, "Use and see"
 ).add_command(
     "snake", None, "Use and see"
@@ -1497,9 +1502,13 @@ CmdHelp("animations1").add_command("indflag", None, "🇮🇳🇮🇳🇮🇳").
     "music", None, "Use and see"
 ).add_command(
     "squ", None, "Use and see"
-).add_command("phub", None, "Animated PORNHUB Typing").add_command(
+).add_command(
+    "phub", None, "Animated PORNHUB Typing"
+).add_command(
     "amore", None, "Animated AMORE Typing"
-).add_command("sexy", None, "Animated SEXY Typing").add_command(
+).add_command(
+    "sexy", None, "Animated SEXY Typing"
+).add_command(
     "unoob", None, "Animated text calling them noob🚶"
 ).add_command(
     "menoob", None, "Animated text claiming you noob"

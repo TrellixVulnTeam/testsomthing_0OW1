@@ -52,7 +52,6 @@ def button(page, modules):
         for pairs in pairs[page]
     ]
 
-
     buttons.append(
         [
             custom.Button.inline(

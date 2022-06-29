@@ -28,7 +28,9 @@ Answers: \n""".format(
         if closed_status:
             results = media.results
             for i, result in enumerate(results.results):
-                edit_caption += f"{result.option}> {answers[i].text}    {result.voters}\n"
+                edit_caption += (
+                    f"{result.option}> {answers[i].text}    {result.voters}\n"
+                )
             edit_caption += f"Total Voters: {results.total_voters}"
         else:
             for answer in answers:

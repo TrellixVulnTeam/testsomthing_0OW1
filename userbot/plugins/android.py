@@ -44,7 +44,6 @@ async def kakashi(magisk):
                 f"{magisk_repo}canary/" + data["uninstaller"]["link"]
             )
 
-
         releases += (
             f'{name}: [ZIP v{data["magisk"]["version"]}]({data["magisk"]["link"]}) | '
             f'[APK v{data["app"]["version"]}]({data["app"]["link"]}) | '
@@ -117,8 +116,7 @@ async def codename_info(request):
     if results := [
         i
         for i in devices
-        if i["name"].lower() == device.lower()
-        or i["model"].lower() == device.lower()
+        if i["name"].lower() == device.lower() or i["model"].lower() == device.lower()
     ]:
         reply = f"**Search results for {brand} {device}**:\n\n"
         if len(results) > 8:

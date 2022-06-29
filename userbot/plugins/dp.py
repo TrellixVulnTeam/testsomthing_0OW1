@@ -11,9 +11,6 @@ from pySmartDL import SmartDL
 from REBELBOT.utils import admin_cmd
 from telethon.tl import functions
 
-from userbot.Config import Config
-from userbot.cmdhelp import CmdHelp
-
 FONT_FILE_TO_USE = "./userbot/helpers/styles/Voice In My Head_080621160753.otf"
 
 # Add telegraph media links of profile pics that are to be used
@@ -105,10 +102,9 @@ async def autopic(event):
             await asyncio.sleep(60)
         except:
             return
-            
 
 
-# actressdp 
+# actressdp
 
 FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 
@@ -202,11 +198,9 @@ async def autopic(event):
             await asyncio.sleep(60)
         except:
             return
-            
-            
 
 
 # CmdHelp("actiondp").add_command(
- #   "actiondp", None, "Starts autodp of Action Hero & Some Actress Pic").add_command(
-   # "actressdp").add_command("actressdp", None, "Starts autodp of Actress
+#   "actiondp", None, "Starts autodp of Action Hero & Some Actress Pic").add_command(
+# "actressdp").add_command("actressdp", None, "Starts autodp of Actress
 # ).add()
