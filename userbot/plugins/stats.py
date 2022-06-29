@@ -7,6 +7,7 @@ from telethon.tl.types import Channel, Chat, User
 
 from userbot.cmdhelp import CmdHelp
 from userbot.Config import Config
+from userbot import *
 
 @bot.on(admin_cmd(pattern="stats$"))
 @bot.on(sudo_cmd(pattern="stats$", allow_sudo=True))
