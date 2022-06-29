@@ -17,7 +17,7 @@ from pathlib import Path
 from time import gmtime, strftime
 from typing import Tuple
 from telethon import functions, types
-from userbot import LOGS
+from userbot import *
 from telethon import events
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
@@ -25,7 +25,7 @@ from userbot.helpers.tools import media_type
 
 from var import Var
 
-from userbot import CMD_LIST, LOAD_PLUG, LOGS, SUDO_LIST, bot
+from userbot import CMD_LIST, LOAD_PLUG, SUDO_LIST, bot
 from userbot.helpers.exceptions import CancelProcess
 from userbot.Config import Config
 
