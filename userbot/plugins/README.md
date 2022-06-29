@@ -12,6 +12,7 @@ Now I will show a short script to show the formation of the desired script.
 ```python3
 from REBELBOT.utils import admin_cmd, sudo_cmd, edit_or_reply as eor
 from REBELBOT import CmdHelp
+from userbot.Config import Config
 
 @bot.on(admin_cmd(pattern="hello$", outgoing=True))
 @bot.on(sudo_cmd(pattern="hello$", allow_sudo=True))
