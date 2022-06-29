@@ -8,7 +8,7 @@ import wikipedia
 from REBELBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 from userbot.cmdhelp import CmdHelp
-
+from userbot import *
 
 @bot.on(admin_cmd(pattern="wikipedia (.*)"))
 @bot.on(sudo_cmd(pattern="wikipedia (.*)", allow_sudo=True))
