@@ -2,7 +2,7 @@ import time
 
 from REBELBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
 
-from userbot import ALIVE_NAME, StartTime
+from userbot import ALIVE_NAME, ALIVE_PIC, StartTime
 from userbot.Config import Config
 
 
