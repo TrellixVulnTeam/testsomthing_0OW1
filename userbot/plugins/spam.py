@@ -8,7 +8,7 @@ import asyncio
 
 from REBELBOT.Config import Config
 from REBELBOT.utils import admin_cmd, sudo_cmd
-
+from userbot.Config import Config
 from userbot.cmdhelp import CmdHelp
 
 LOGGER = Config.PLUGIN_CHANNEL
