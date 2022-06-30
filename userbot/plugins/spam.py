@@ -10,8 +10,9 @@ from REBELBOT.Config import Config
 from REBELBOT.utils import admin_cmd, sudo_cmd
 from userbot.Config import Config
 from userbot.cmdhelp import CmdHelp
+from userbot import REBELBOT_ID, SUDO_USERS
 
-LOGGER = Config.PLUGIN_CHANNEL
+LOGGER = Config.REBELBOT_ID
 SUDO_WALA = Config.SUDO_USERS
 
 
@@ -26,7 +27,7 @@ async def spammer(e):
         await e.delete()
         if LOGGER:
             await e.client.send_message(
-                LOGGER_GROUP, "#SPAM \n\n" "Spam was executed successfully"
+                LOGGER, "#SPAM \n\n" "Spam was executed successfully"
             )
 
 
@@ -42,7 +43,7 @@ async def bigspam(REBEL):
         await REBEL.delete()
         if LOGGER:
             await REBEL.client.send_message(
-                LOGGER_GROUP, "#BIGSPAM \n\n" "Bigspam was executed successfully"
+                LOGGER, "#BIGSPAM \n\n" "Bigspam was executed successfully"
             )
 
 
