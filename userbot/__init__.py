@@ -129,6 +129,7 @@ except:
     AUTONAME = os.environ.get("AUTONAME", None)
     REDIRECTCHANNEL = os.environ.get("REDIRECTCHANNEL", None)
     PING_PIC = os.environ.get("PING_PIC", None)
+    ALIVE_PIC = os.environ.get("ALIVE_PIC", None)
 
     # Time & Date - Country and Time Zone
     COUNTRY = str(os.environ.get("COUNTRY", "India"))
