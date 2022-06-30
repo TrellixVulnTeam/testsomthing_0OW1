@@ -130,6 +130,9 @@ except:
     REDIRECTCHANNEL = os.environ.get("REDIRECTCHANNEL", None)
     PING_PIC = os.environ.get("PING_PIC", None)
     ALIVE_PIC = os.environ.get("ALIVE_PIC", None)
+    
+    # SUDO   
+    SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "").split()}
 
     # Time & Date - Country and Time Zone
     COUNTRY = str(os.environ.get("COUNTRY", "India"))
