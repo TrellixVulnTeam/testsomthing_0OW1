@@ -26,7 +26,6 @@ gitpython
 google-api-python-client
 google-auth-oauthlib
 google_images_download
-googletrans
 geopy
 gsearch
 hachoir
@@ -69,5 +68,10 @@ git+https://github.com/LonamiWebs/Telethon@v1.24
 html-telegraph-poster
 urbandict
 validators
-wikipedia
 tswift
+
+
+git+https://github.com/HellBoy-OP/py-googletrans
+git+https://github.com/HellBoy-OP/Wikipedia
+git+https://github.com/HellBoy-OP/yt-fork
+git+https://github.com/HellBoy-OP/yt-search-python
