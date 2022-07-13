@@ -3,9 +3,9 @@ import asyncio
 from REBELBOT.utils import admin_cmd, sudo_cmd
 from userbot.smex.DARK_Config import Config
 from userbot.cmdhelp import CmdHelp
-from userbot import REBELBOT_ID, SUDO_USERS
+from userbot import DARKWEB_ID, SUDO_USERS
 
-LOGGER = Config.REBELBOT_ID
+LOGGER = Config.DARKWEB_ID
 SUDO_WALA = Config.SUDO_USERS
 
 
