@@ -1,6 +1,3 @@
-#    Copyright (C) @S
-# Help Pic feature added by 𝐌𝐀𝐅𝐈𝐀 𝐎𝐖𝐍𝐄𝐑 = @H1M4N5HU0P
-
 from math import ceil
 from re import compile
 
@@ -14,8 +11,6 @@ from userbot.smex.DARK_Config import Config
 
 REBEL_row = Config.BUTTONS_IN_HELP
 REBEL_emoji = Config.EMOJI_IN_HELP
-# thats how a lazy guy imports
-# REBELBOT
 
 DEFAULTUSER = ALIVE_NAME or "ᖇᗴᗷᗴᒪ ᗰᗩՏTᗴᖇ"
 
@@ -68,7 +63,7 @@ def button(page, modules):
     return [max_pages, buttons]
 
 
-if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
+if Var.BOT_USERNAME is not None and tgbot is not None:
 
     @tgbot.on(InlineQuery)  # pylint:disable=E0602
     async def inline_handler(event):
@@ -232,7 +227,3 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             ],
             link_preview=False,
         )
-
-
-# Ask owner before using it in your codes
-# Kangers like LB stay away...
