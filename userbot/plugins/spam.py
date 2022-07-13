@@ -1,14 +1,8 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.b (the "License");
-# you may not use this file except in compliance with the License.
-#
-
 import asyncio
 
 from REBELBOT.Config import Config
 from REBELBOT.utils import admin_cmd, sudo_cmd
-from userbot.Config import Config
+from userbot.smex.DARK_Config import Config
 from userbot.cmdhelp import CmdHelp
 from userbot import REBELBOT_ID, SUDO_USERS
 
