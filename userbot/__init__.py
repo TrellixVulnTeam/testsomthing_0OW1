@@ -5,7 +5,7 @@ import time
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 
-from userbot.Config import Config
+from userbot.smex.DARK_Config import Config
 from userbot.helpers import functions as simpdef
 from var import Var
 
