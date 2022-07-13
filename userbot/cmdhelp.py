@@ -2,7 +2,7 @@ import os
 
 from userbot import CMD_HELP, CMD_HELP_BOT
 
-COMMAND_HAND_LER = os.environ.get("COMMAND_HAND_LER", r".")
+HNDLR = os.environ.get("COMMAND_HAND_LER", r".")
 
 #################################################################################################################
 
