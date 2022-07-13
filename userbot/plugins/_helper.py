@@ -1,7 +1,7 @@
 from REBELBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
 
 from userbot import CMD_LIST
-from userbot.Config import Config
+from userbot.smex.DARK_Config import Config
 from userbot import *
 
 @bot.on(admin_cmd(pattern="help ?(.*)", outgoing=True))
