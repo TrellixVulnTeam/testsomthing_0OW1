@@ -1,4 +1,3 @@
-# credits to @mrconfused 
 
 import asyncio
 import datetime
@@ -18,7 +17,7 @@ from time import gmtime, strftime
 from typing import Tuple
 from telethon import functions, types
 from userbot import *
-from userbot.Config import Config
+from userbot.Config.DARK_Config import Config
 from telethon import events
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
@@ -31,9 +30,9 @@ from userbot.helpers.exceptions import CancelProcess
 
 ENV = bool(os.environ.get("ENV", False))
 if ENV:
-    from userbot.Config import Config
+    from userbot.Config.DARK_Config import Config
 else:
-    if os.path.exists("config.py"):
+    if os.path.exists("DARK_Config.py"):
         from config import Development as Config
 
 
@@ -120,12 +119,12 @@ def admin_cmd(pattern=None, command=None, **args):
             except BaseException:
                 CMD_LIST.update({file_test: [cmd]})
         else:
-            if len(Config.COMMAND_HAND_LER) == 2:
-                REBELreg = "^" + Config.COMMAND_HAND_LER
-                reg = Config.COMMAND_HAND_LER[1]
-            elif len(Config.COMMAND_HAND_LER) == 1:
-                REBELreg = "^\\" + Config.COMMAND_HAND_LER
-                reg = Config.COMMAND_HAND_LER
+            if len(Config.HNDLR) == 2:
+                REBELreg = "^" + Config.HNDLR
+                reg = Config.HNDLR[1]
+            elif len(Config.HNDLR) == 1:
+                REBELreg = "^\\" + Config.HNDLR
+                reg = Config.HNDLR
             args["pattern"] = re.compile(REBELreg + pattern)
             if command is not None:
                 cmd = reg + command
@@ -185,12 +184,12 @@ def sudo_cmd(pattern=None, command=None, **args):
             except BaseException:
                 SUDO_LIST.update({file_test: [cmd]})
         else:
-            if len(Config.SUDO_COMMAND_HAND_LER) == 2:
-                REBELreg = "^" + Config.SUDO_COMMAND_HAND_LER
-                reg = Config.SUDO_COMMAND_HAND_LER[1]
-            elif len(Config.SUDO_COMMAND_HAND_LER) == 1:
-                REBELreg = "^\\" + Config.SUDO_COMMAND_HAND_LER
-                reg = Config.COMMAND_HAND_LER
+            if len(Config.SUDO_HNDLR) == 2:
+                REBELreg = "^" + Config.SUDO_HNDLR
+                reg = Config.SUDO_HNDLR[1]
+            elif len(Config.SUDO_HNDLR) == 1:
+                REBELreg = "^\\" + Config.SUDO_HNDLR
+                reg = Config.HNDLR
             args["pattern"] = re.compile(REBELreg + pattern)
             if command is not None:
                 cmd = reg + command
