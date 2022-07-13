@@ -10,7 +10,7 @@ from telethon.sync import custom
 
 from userbot import *
 from userbot.cmdhelp import *
-from userbot.Config import Config
+from userbot.smex.DARK_Config import Config
 
 REBEL_row = Config.BUTTONS_IN_HELP
 REBEL_emoji = Config.EMOJI_IN_HELP
