@@ -6,7 +6,7 @@ from telethon.tl.custom import Dialog
 from telethon.tl.types import Channel, Chat, User
 
 from userbot.cmdhelp import CmdHelp
-from userbot.Config import Config
+from userbot.smex.DARK_Config import Config
 from userbot import *
 
 @bot.on(admin_cmd(pattern="stats$"))
