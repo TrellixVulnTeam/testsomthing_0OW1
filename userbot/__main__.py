@@ -5,7 +5,7 @@ from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 import os
 from telethon import TelegramClient
 from var import Var
-from userbot.Config.DARK_Config import Config
+from userbot.smex.DARK_Config import Config
 from userbot import *
 from userbot.utils import load_module
 from userbot import LOAD_PLUG, REBELversion
