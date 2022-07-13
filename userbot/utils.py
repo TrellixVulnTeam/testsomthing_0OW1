@@ -30,7 +30,7 @@ from userbot.helpers.exceptions import CancelProcess
 
 ENV = bool(os.environ.get("ENV", False))
 if ENV:
-    from userbot.Config.DARK_Config import Config
+    from userbot.smex.DARK_Config import Config
 else:
     if os.path.exists("DARK_Config.py"):
         from config import Development as Config
