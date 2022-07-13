@@ -5,15 +5,16 @@ import time
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 
-from userbot.Config import Config
+from userbot.Config.DARK_Config import Config
 from userbot.helpers import functions as simpdef
 from var import Var
 
 StartTime = time.time()
-REBELversion = "3.2"
-botversion = "3.2"
+REBELversion = "1.0"
+botversion = "1.0"
 
 os.system("pip install --upgrade pip")
+
 if Var.STRING_SESSION:
     session_name = str(Var.STRING_SESSION)
     bot = TelegramClient(StringSession(session_name), Var.APP_ID, Var.API_HASH)
@@ -84,14 +85,12 @@ except:
         pass
 
     # Userbot logging feature switch.
-    BOTLOG = sb(os.environ.get("BOTLOG", "False"))
-    LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "False"))
-    COMMAND_HAND_LER = os.environ.get("COMMAND_HAND_LER", r".")
+    HNDLR = os.environ.get("HNDLR", r".")
 
     # Bleep Blop, this is a bot ;)
     PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
 
-    REBELBOT_ID = os.environ.get("REBELBOT_ID", None)
+    DARKWEB_ID = os.environ.get("DARKWEB_ID", None)
 
     # Console verbose logging
     CONSOLE_LOGGER_VERBOSE = sb(os.environ.get("CONSOLE_LOGGER_VERBOSE", "False"))
@@ -143,7 +142,7 @@ except:
     CLEAN_WELCOME = sb(os.environ.get("CLEAN_WELCOME", "True"))
 
     # Custom Module
-    CUSTOM_PMPERMIT = os.environ.get("CUSTOM_PMPERMIT", None)
+    PM_MASSAGE = os.environ.get("PM_MASSAGE", None)
     CUSTOM_AFK = os.environ.get("CUSTOM_AFK", None)
 
     # Upstream Repo
