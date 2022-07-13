@@ -1,6 +1,5 @@
 import asyncio
 
-from REBELBOT.Config import Config
 from REBELBOT.utils import admin_cmd, sudo_cmd
 from userbot.smex.DARK_Config import Config
 from userbot.cmdhelp import CmdHelp
