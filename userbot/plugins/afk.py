@@ -10,7 +10,7 @@ from telethon.tl import functions, types
 
 from userbot import ALIVE_NAME
 from userbot.cmdhelp import CmdHelp
-from userbot.Config import Config
+from userbot.smex.DARK_Config import Config
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "ᖇᗴᗷᗴᒪ ᗰᗩՏTᗴᖇ"
 
