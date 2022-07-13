@@ -1,8 +1,5 @@
 import os
 
-ENV = bool(os.environ.get("ENV", False))
-
-
 class Var(object):
     APP_ID = int(os.environ.get("APP_ID", 6))
     # 6 is a placeholder
@@ -13,24 +10,19 @@ class Var(object):
     LOGGER = True
     GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
     GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
-    # Here for later purposes
     SUDO_USERS = {int(x) for x in os.environ.get("SUDO_USERS", "1418571871").split()}
-
     WHITELIST_USERS = {int(x) for x in os.environ.get("WHITELIST_USERS", "").split()}
-
     BLACKLIST_USERS = {int(x) for x in os.environ.get("BLACKLIST_USERS", "").split()}
-
     DEVLOPERS = {int(x) for x in os.environ.get("DEVLOPERS", "").split()}
     OWNER_ID = {int(x) for x in os.environ.get("OWNER_ID", "").split()}
     SUPPORT_USERS = {int(x) for x in os.environ.get("SUPPORT_USERS", "").split()}
-    PLUGIN_CHANNEL = int(os.environ.get("REBELBOT_ID", None))
+    PLUGIN_CHANNEL = int(os.environ.get("DARKWEB_ID", None))
     LYDIA_API_KEY = os.environ.get("LYDIA_API_KEY", None)
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
-    TG_BOT_TOKEN_BF_HER = os.environ.get("TG_BOT_TOKEN_BF_HER", None)
-    TG_BOT_USER_NAME_BF_HER = os.environ.get("TG_BOT_USER_NAME_BF_HER", None)
+    BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
     DOWNLOAD_PFP_URL_CLOCK = os.environ.get("DOWNLOAD_PFP_URL_CLOCK", None)
-    PM_PERMIT_GROUP_ID = os.environ.get("PM_PERMIT_GROUP_ID", None)
     G_DRIVE_CLIENT_ID = os.environ.get("G_DRIVE_CLIENT_ID", None)
     G_DRIVE_CLIENT_SECRET = os.environ.get("G_DRIVE_CLIENT_SECRET", None)
     GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", "root")
@@ -39,15 +31,14 @@ class Var(object):
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
         with open(f"{TEMP_DOWNLOAD_DIRECTORY}auth_token.txt", "w") as t_file:
             t_file.write(AUTH_TOKEN_DATA)
-    REBELBOT_ID = os.environ.get("REBELBOT_ID", None)
-    if REBELBOT_ID != None:
+    DARKWEB_ID = os.environ.get("DARKWEB_ID", None)
+    if DARKWEB_ID != None:
         try:
-            REBELBOT_ID = int(REBELBOT_ID)
+            DARKWEB_ID = int(DARKWEB_ID)
         except ValueError:
             raise ValueError(
                 "Invalid Private Group ID. Make sure your ID is starts with -100 and make sure that it is only numbers."
             )
-
 
 class Development(Var):
     LOGGER = True
