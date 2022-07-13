@@ -2,7 +2,7 @@ import os
 
 from userbot import CMD_HELP, CMD_HELP_BOT
 
-HNDLR = os.environ.get("COMMAND_HAND_LER", r".")
+HNDLR = os.environ.get("HNDLR", r".")
 
 #################################################################################################################
 
@@ -17,7 +17,7 @@ class CmdHelp:
     FILE_AUTHOR = ""
     IS_OFFICIAL = True
     COMMANDS = {}
-    PREFIX = COMMAND_HAND_LER
+    PREFIX = HNDLR
     WARNING = ""
     INFO = ""
 
@@ -81,16 +81,16 @@ class CmdHelp:
             command = self.COMMANDS[command]
             if command["params"] is None:
                 result += (
-                    f"**🛠 Command :** `{COMMAND_HAND_LER[:1]}{command['command']}`\n"
+                    f"**🛠 Command :** `{HNDLR[:1]}{command['command']}`\n"
                 )
             else:
-                result += f"**🛠 Command :** `{COMMAND_HAND_LER[:1]}{command['command']} {command['params']}`\n"
+                result += f"**🛠 Command :** `{HNDLR[:1]}{command['command']} {command['params']}`\n"
 
             if command["example"] is None:
                 result += f"**💬 Details :** `{command['usage']}`\n\n"
             else:
                 result += f"**💬 Details :** `{command['usage']}`\n"
-                result += f"**⌨️ For Example :** `{COMMAND_HAND_LER[:1]}{command['example']}`\n\n"
+                result += f"**⌨️ For Example :** `{HNDLR[:1]}{command['example']}`\n\n"
         return result
 
     def add(self):
