@@ -10,7 +10,7 @@ from userbot.helpers import functions as simpdef
 from var import Var
 
 StartTime = time.time()
-REBELversion = "1.0"
+Darkversion = "1.0"
 botversion = "1.0"
 
 os.system("pip install --upgrade pip")
