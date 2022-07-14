@@ -7,7 +7,7 @@ from telethon import version
 
 from userbot import ALIVE_NAME, REBELversion
 from userbot.cmdhelp import CmdHelp
-from userbot.Config import Config
+from userbot.smex.DARK_Config import Config
 from userbot.utils import admin_cmd, sudo_cmd
 from userbot import *
 
