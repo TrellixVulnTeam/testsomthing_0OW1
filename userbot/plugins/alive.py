@@ -15,7 +15,7 @@ ludosudo = Config.SUDO_USERS
 
 sudou = "True" if ludosudo else "False"
 REBEL = bot.uid
-
+"""
  buttonss = [
                 [
                     Button.url(
@@ -27,7 +27,7 @@ REBEL = bot.uid
                 ],
 
             ],
-
+"""
 edit_time = 1
 """ =======================CONSTANTS====================== """
 file1 = "https://telegra.ph/file/76dd5605de7340568a904.mp4"
