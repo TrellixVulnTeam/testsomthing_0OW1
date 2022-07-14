@@ -56,6 +56,7 @@ if ENV:
         STRING_SESSION = os.environ.get("STRING_SESSION", None)
         BOT_MODE = os.environ.get("BOT_MODE", "ON")
         PM_DATA = os.environ.get("PM_DATA", "ENABLE")
+        PM_PIC = os.environ.get("PM_PIC", None)
 
 else:
 
