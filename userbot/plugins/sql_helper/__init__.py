@@ -6,7 +6,7 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 
 # the secret configuration specific things
 from var import Var
-from userbot.Config import Config
+from DarkWeb.smex.DARK_Config  import Config
 
 DB_URI = os.environ.get("DATABASE_URL", None)
 
