@@ -16,7 +16,7 @@ ludosudo = Config.SUDO_USERS
 sudou = "True" if ludosudo else "False"
 REBEL = bot.uid
 
- BUTTON = "[
+ DARK = "[
                 [
                     Button.url(
                         "SUPPORT CHAT", f"t.me/DARK_WEB_BOT_SUPPORT")
@@ -54,10 +54,10 @@ pm_caption += " [🔥𝚁𝙴𝙿𝙾🔥](https://github.com/TEAMREBELS/REBELBO
 async def amireallyalive(alive):
     await alive.get_chat()
     await alive.delete()
-    on = await borg.send_file(alive.chat_id, file=file1, caption=pm_caption, Button=BUTTON)
+    on = await borg.send_file(alive.chat_id, file=file1, caption=pm_caption, Button=DARK)
 
     """ For .alive command, check if the bot is running.  """
-    await borg.send_file(alive.chat_id, caption=pm_caption)
+    await borg.send_file(alive.chat_id, caption=pm_caption, Button=DARK)
     await alive.delete()
 
 
