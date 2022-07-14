@@ -8,7 +8,7 @@ from var import Var
 from userbot.smex.DARK_Config import Config
 from userbot import *
 from userbot.utils import load_module
-from userbot import LOAD_PLUG, REBELversion
+from userbot import LOAD_PLUG, Darkversion
 from pathlib import Path
 import asyncio
 import telethon.utils
