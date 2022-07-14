@@ -1,36 +1,42 @@
-# Thanks to @D3_krish
-# Porting in REBELUSERBOT by REBEL75
-
 import asyncio
-
 from telethon import version
-
+from telethon.events import InlineQuery
+from telethon.sync import custom
+from telethon import events, Button
 from userbot import ALIVE_NAME, REBELversion
 from userbot.cmdhelp import CmdHelp
 from userbot.smex.DARK_Config import Config
 from userbot.utils import admin_cmd, sudo_cmd
 from userbot import *
 
-# 🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔🤔
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "ᖇᗴᗷᗴᒪᗷOT ᗰᗩՏTᗴᖇ"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "DARK WEB"
 
 ludosudo = Config.SUDO_USERS
 
 sudou = "True" if ludosudo else "False"
 REBEL = bot.uid
 
-edit_time = 4
+ buttonss = [
+                [
+                    Button.url(
+                        "SUPPORT CHAT", f"t.me/DARK_WEB_BOT_SUPPORT")
+                ],
+                [
+                    Button.url(
+                        "CHANNEL", f"t.me/DARK_WEB_UB")
+                ],
+
+            ],
+
+edit_time = 1
 """ =======================CONSTANTS====================== """
 file1 = "https://telegra.ph/file/76dd5605de7340568a904.mp4"
-file2 = "https://telegra.ph/file/b765c0daec4a63c286e34.mp4"
-file3 = "https://telegra.ph/file/956883ad3a92d3f816040.mp4"
-file4 = "https://telegra.ph/file/b765c0daec4a63c286e34.mp4"
 """ =======================CONSTANTS====================== """
 pm_caption = "  __**🔥🔥𝐑𝐄𝐁𝐄𝐋 𝐁𝐎𝐓  𝐈𝐒 𝐀𝐋𝐈𝐕𝐄🔥🔥**__\n\n" + "**━━━━━━━━━━━━━━━━━━━━━━**\n\n"
 
 
 pm_caption += (
-    f"                🔰ᗰᗩՏTᗴᖇ🔰\n      **『😈[{DEFAULTUSER}](tg://user?id={REBEL})😈』**\n\n"
+    f"                🔰ᗰᗩՏTᗴᖇ🔰\n      **『[{DEFAULTUSER}](tg://user?id={REBEL})』**\n\n"
 )
 pm_caption += "┏━━━━━━━━━━━━━\n"
 pm_caption += f"┣•➳➠  `ᴛᴇʟᴇᴛʜᴏɴ:` `{version.__version__}` \n"
@@ -48,19 +54,7 @@ pm_caption += " [🔥𝚁𝙴𝙿𝙾🔥](https://github.com/TEAMREBELS/REBELBO
 async def amireallyalive(alive):
     await alive.get_chat()
     await alive.delete()
-    on = await borg.send_file(alive.chat_id, file=file1, caption=pm_caption)
-
-    await asyncio.sleep(edit_time)
-    ok = await borg.edit_message(alive.chat_id, on, file=file2)
-
-    await asyncio.sleep(edit_time)
-    ok2 = await borg.edit_message(alive.chat_id, ok, file=file3)
-
-    await asyncio.sleep(edit_time)
-    ok3 = await borg.edit_message(alive.chat_id, ok2, file=file1)
-
-    await asyncio.sleep(edit_time)
-    ok4 = await borg.edit_message(alive.chat_id, ok3, file=file3)
+    on = await borg.send_file(alive.chat_id, file=file1, caption=pm_caption, Button=buttonss)
 
     """ For .alive command, check if the bot is running.  """
     await borg.send_file(alive.chat_id, caption=pm_caption)
