@@ -16,7 +16,7 @@ ludosudo = Config.SUDO_USERS
 sudou = "True" if ludosudo else "False"
 REBEL = bot.uid
 """
- BUTTON = [
+ BUTTON = "[
                 [
                     Button.url(
                         "SUPPORT CHAT", f"t.me/DARK_WEB_BOT_SUPPORT")
@@ -26,7 +26,7 @@ REBEL = bot.uid
                         "CHANNEL", f"t.me/DARK_WEB_UB")
                 ],
 
-            ],
+            ],"
 """
 edit_time = 1
 """ =======================CONSTANTS====================== """
