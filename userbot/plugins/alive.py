@@ -1,8 +1,5 @@
 import asyncio
 from telethon import version
-from telethon.events import InlineQuery
-from telethon.sync import custom
-from telethon import events, Button
 from userbot import ALIVE_NAME, REBELversion
 from userbot.cmdhelp import CmdHelp
 from userbot.smex.DARK_Config import Config
@@ -15,18 +12,6 @@ ludosudo = Config.SUDO_USERS
 
 sudou = "True" if ludosudo else "False"
 REBEL = bot.uid
-
- DARK = [
-                [
-                    Button.url(
-                        "SUPPORT CHAT", f"t.me/DARK_WEB_BOT_SUPPORT")
-                ],
-                [
-                    Button.url(
-                        "CHANNEL", f"t.me/DARK_WEB_UB")
-                ],
-
-            ],
 
 edit_time = 1
 """ =======================CONSTANTS====================== """
@@ -54,10 +39,10 @@ pm_caption += " [🔥𝚁𝙴𝙿𝙾🔥](https://github.com/TEAMREBELS/REBELBO
 async def amireallyalive(alive):
     await alive.get_chat()
     await alive.delete()
-    on = await borg.send_file(alive.chat_id, file=file1, caption=pm_caption, Button=DARK)
+    on = await borg.send_file(alive.chat_id, file=file1, caption=pm_caption)
 
     """ For .alive command, check if the bot is running.  """
-    await borg.send_file(alive.chat_id, caption=pm_caption, Button=DARK)
+    await borg.send_file(alive.chat_id, caption=pm_caption)
     await alive.delete()
 
 
