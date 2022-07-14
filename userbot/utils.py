@@ -66,12 +66,15 @@ def load_module(shortname):
         mod.Config = Config
         mod.borg = bot
         mod.REBELBOT = bot
+        mod.Dark = bot
         mod.edit_or_reply = edit_or_reply
         mod.delete_REBEL = delete_REBEL
         mod.media_type = media_type
         # support for REBELBOT originals
         sys.modules["REBELBOT.utils"] = userbot.utils
         sys.modules["REBELBOT"] = userbot
+        sys.modules["Dark.utils"] = userbot.utils
+        sys.modules["DarkWeb"] = userbot
         # support for paperplaneextended
         sys.modules["userbot.events"] = userbot.utils
         spec.loader.exec_module(mod)
