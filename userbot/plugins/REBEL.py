@@ -1,9 +1,8 @@
 import time
 
-from REBELBOT.utils import admin_cmd, edit_or_reply, sudo_cmd
-
-from userbot import ALIVE_NAME, StartTime
-from userbot.smex.DARK_Config import Config
+from DarkWeb.utils import admin_cmd, edit_or_reply, sudo_cmd
+from DarkWeb import ALIVE_NAME, StartTime
+from DarkWeb.smex.DARK_Config import Config
 
 
 async def reply_id(event):
@@ -15,12 +14,10 @@ async def reply_id(event):
     return reply_to_id
 
 
-DEFAULTUSER = ALIVE_NAME or "ᖇᗴᗷᗴᒪᗷOT ᗰᗩՏTᗴᖇ"
-REBEL_IMG = Config.ALIVE_PIC
-CUSTOM_ALIVE_TEXT = Config.ALIVE_MSG or "𝕃𝕖𝕘𝕖𝕟𝕕𝕒𝕣𝕪_𝔸𝔽_ℝ𝔼𝔹𝔼𝕃𝔹𝕆𝕋"
-
+DEFAULTUSER = ALIVE_NAME or "DARK WEB"
+DARK_IMG = Config.ALIVE_PIC
+CUSTOM_ALIVE_TEXT = Config.ALIVE_MSG or "LEGENDARY AF DARK WEB"
 USERID = bot.uid
-
 mention = f"[{DEFAULTUSER}](tg://user?id={USERID})"
 
 
@@ -52,8 +49,8 @@ def get_readable_time(seconds: int) -> str:
 uptime = get_readable_time((time.time() - StartTime))
 
 
-@bot.on(admin_cmd(outgoing=True, pattern="rebel$"))
-@bot.on(sudo_cmd(pattern="rebel$", allow_sudo=True))
+@Dark.on(admin_cmd(outgoing=True, pattern="rebel$"))
+@Dark.on(sudo_cmd(pattern="rebel$", allow_sudo=True))
 async def amireallyalive(alive):
     if alive.fwd_from:
         return
@@ -68,7 +65,7 @@ async def amireallyalive(alive):
         REBEL_caption += f"**➪ ᴜᴘᴛɪᴍᴇ   :** `{uptime}\n`"
         REBEL_caption += f"**➪ ᴍᴀsᴛᴇʀ    :** {mention}\n"
         await alive.client.send_file(
-            alive.chat_id, REBEL_IMG, caption=REBEL_caption, reply_to=reply_to_id
+            alive.chat_id, DARK_IMG, caption=REBEL_caption, reply_to=reply_to_id
         )
         await alive.delete()
     else:
