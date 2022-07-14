@@ -56,7 +56,7 @@ async def amireallyalive(alive):
         return
     reply_to_id = await reply_id(alive)
 
-    if REBEL_IMG:
+    if DARK_IMG:
         REBEL_caption = f"**{CUSTOM_ALIVE_TEXT}**\n\n"
         REBEL_caption += "≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈\n"
         REBEL_caption += "__**ʙᴏᴛ sᴛᴀᴛᴜs**__\n\n"
