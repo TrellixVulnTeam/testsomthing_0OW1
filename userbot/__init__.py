@@ -5,8 +5,8 @@ import time
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 
-from userbot.smex.DARK_Config import Config
-from userbot.helpers import functions as simpdef
+from DarkWeb.smex.DARK_Config import Config
+from DarkWeb.helpers import functions as simpdef
 from var import Var
 
 StartTime = time.time()
@@ -78,7 +78,7 @@ except:
         quit(1)
 
     # Logging channel/group configuration.
-    BOTLOG_CHATID = os.environ.get("BOTLOG_CHATID", None)
+    BOTLOG_CHATID = os.environ.get("DARKWEB_ID", None)
     try:
         BOTLOG_CHATID = int(BOTLOG_CHATID)
     except:
@@ -150,7 +150,7 @@ except:
         "UPSTREAM_REPO_URL", "https://github.com/TEAMREBELS/REBELBOTSS.git"
     )
 
-    # Last.fm Module
+ 
     BIO_PREFIX = os.environ.get("BIO_PREFIX", None)
     BIO_MSG = os.environ.get("BIO_MSG", None)
 
@@ -176,11 +176,9 @@ except:
     GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", None)
     TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TEMP_DOWNLOAD_DIRECTORY", "./downloads")
 else:
-    # Put your ppe vars here if you are using local hosting
+  
     PLACEHOLDER = None
 
-# Setting Up CloudMail.ru and MEGA.nz extractor binaries,
-# and giving them correct perms to work properly.
 if not os.path.exists("bin"):
     os.mkdir("bin")
 
@@ -205,6 +203,6 @@ AFKREASON = None
 SUDO_LIST = {}
 
 
-from userbot.cmdhelp import CmdHelp
-from userbot.helpers import *
-from userbot.helpers import functions as REBELdef
+from DarkWeb.cmdhelp import CmdHelp
+from DarkWeb.helpers import *
+from DarkWeb.helpers import functions as REBELdef
