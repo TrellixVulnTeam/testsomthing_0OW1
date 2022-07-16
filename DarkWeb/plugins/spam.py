@@ -1,9 +1,3 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.b (the "License");
-# you may not use this file except in compliance with the License.
-#
-
 import asyncio
 import base64
 import os
@@ -12,8 +6,8 @@ from telethon import functions, types
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
 from Dark.utils import admin_cmd, sudo_cmd, edit_or_reply
+from DarkWeb.smex.DARK_Config import Config
 from DarkWeb.cmdhelp import CmdHelp
-from DarkWeb.Config import Config
 
 LOGGER = Config.DARKWEB_ID
 SUDO_WALA = Config.SUDO_USERS
@@ -94,7 +88,14 @@ async def tiny_pic_spam(e):
             f"**Error**\nUsage `!mspam <count> reply to a sticker/gif/photo/video`"
         )
 
-
+@Dark.on(admin_cmd(pattern="spmsg (.*)"))
+@Dark.on(sudo_cmd(pattern="spmsg (.*)", allow_sudo=True))
+async def _(event):
+    name = event.pattern_match.group(1)
+    if event.fwd_from:
+        return
+    await event.edit(f"{name} {name} {name} {name} {name} {name} {name}\n {name} {name} {name} {name} {name} {name} {name}\n {name} {name} {name} {name} {name} {name}{name}\n{name} {name} {name} {name} {name} {name} {name}\n {name} {name} {name} {name} {name} {name}\n {name} {name} {name} {name} {name} {name} {name}\n{name} {name}{name} {name} {name} {name} {name}\n{name} {name} {name} {name} {name} {name} {name}\n{name} {name} {name} {name} {name} {name} {name}\n{name} {name} {name} {name}{name} {name} {name}\n{name} {name} {name} {name} {name} {name} {name}\n{name} {name} {name} {name} {name} {name} {name}\n{name} {name} {name} {name} {name} {name}{name}\n{name} {name} {name} {name} {name} {name} {name}\n{name} {name} {name} {name} {name} {name} {name}\n{name} {name} {name} {name} {name} {name} {name}\n{name}{name} {name} {name} {name} {name} {name}\n{name} {name} {name} {name} {name} {name} {name}\n{name} {name} {name} {name} {name} {name} {name}\n{name} {name} {name}{name} {name} {name} {name}\n{name} {name} {name} {name} {name} {name} {name}\n{name} {name} {name} {name} {name} {name} {name}\n{name} {name} {name} {name} {name} {name} {name}\n{name} {name} {name} {name} {name} {name} {name}\n{name} {name} {name} {name} {name} {name} {name}\n{name} {name} {name} {name} {name} {name} {name}")
+    
 CmdHelp("spam").add_command(
   "spam", "<number> <text>", "Sends the text 'X' number of times.", ".spam 99 Hello"
 ).add_command(
@@ -103,4 +104,6 @@ CmdHelp("spam").add_command(
   "dspam", "<delay> <spam count> <text>", "Sends the text 'X' number of times in 'Y' seconds of delay", ".dspam 5 100 Hello"
 ).add_command(
   "bigspam", "<count> <text>", "Sends the text 'X' number of times. This what DarkWeb iz known for. The Best BigSpam Ever", ".bigspam 5000 Hello"
+.add_command(
+   "spmsg", "<massage>", "massage type long"
 ).add()
