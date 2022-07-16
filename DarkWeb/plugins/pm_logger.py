@@ -20,29 +20,7 @@ logging.basicConfig(
 
 NO_PM_LOG_USERS = []
 
-BOTLOG = True
 BOTLOG_CHATID = Config.DARKWEB_ID
-
-
-@Dark.on(admin_cmd(pattern=r"save(?: |$)([\s\S]*)", outgoing=True))
-async def log(log_text):
-    """ For .log command, forwards a message or the command argument to the bot logs group """
-    if BOTLOG:
-        if log_text.reply_to_msg_id:
-            reply_msg = await log_text.get_reply_message()
-            await reply_msg.forward_to(BOTLOG_CHATID)
-        elif log_text.pattern_match.group(1):
-            user = f"#LOG / Chat ID: {log_text.chat_id}\n\n"
-            textx = user + log_text.pattern_match.group(1)
-            await bot.send_message(BOTLOG_CHATID, textx)
-        else:
-            await log_text.edit("`What am I supposed to save?`")
-            return
-        await log_text.edit("`Saved Successfully`")
-    else:
-        await log_text.edit("`This feature requires Logging to be enabled!`")
-    await sleep(2)
-    await log_text.delete()
 
 
 @Dark.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
@@ -88,8 +66,6 @@ async def set_no_log_p_m(event):
                 await event.delete()
 
 CmdHelp("pm_logger").add_command(
-  "save", "<reply>", "Saves the replied message to your pm logger group/channel"
-).add_command(
   "elog", "<chat>", "Enables logging pm messages from the selected chat."
 ).add_command(
   "nlog", "<chat>", "Disables logging pm messages from the selected chat. Use .elog to enable it again."
