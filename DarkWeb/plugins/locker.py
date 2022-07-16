@@ -2,7 +2,7 @@ from telethon.tl.functions.messages import EditChatDefaultBannedRightsRequest
 from telethon.tl.types import ChatBannedRights
 
 from DarkWeb import ALIVE_NAME, CMD_HELP
-from userbot.events import errors_handler, register
+from Dark.utils import errors_handler, register
 from Dark.utils import admin_cmd, sudo_cmd, edit_or_reply
 from DarkWeb.cmdhelp import CmdHelp
 
