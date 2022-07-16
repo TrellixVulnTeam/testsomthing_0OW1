@@ -13,7 +13,7 @@ from telethon.tl.types import (
     MessageMediaPhoto,
 )
 
-from DarkWeb import CMD_HELP, ALIVE_NAME
+from DarkWeb import CMD_HELP
 from DarkWeb.smex.DARK_Config import Config
 from Dark.utils import *
 from DarkWeb.cmdhelp import CmdHelp
