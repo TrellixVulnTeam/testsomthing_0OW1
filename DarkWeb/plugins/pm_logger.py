@@ -9,7 +9,7 @@ from asyncio import sleep
 
 from telethon import events
 
-from DarkWeb import BOTLOG, BOTLOG_CHATID, bot
+from DarkWeb import bot
 from DarkWeb.smex.DARK_Config import Config
 from Dark.utils import admin_cmd, register
 from DarkWeb.cmdhelp import CmdHelp
