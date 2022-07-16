@@ -30,8 +30,6 @@ from telethon.tl.types import (
 )
 from telethon.utils import get_input_location
 
-from DarkWeb import BOTLOG, BOTLOG_CHATID
-
 from Dark.utils import admin_cmd, sudo_cmd, edit_or_reply
 from DarkWeb.cmdhelp import CmdHelp
 from DarkWeb.smex.DARK_Config import Config
@@ -64,6 +62,8 @@ UNBAN_RIGHTS = ChatBannedRights(
 MUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=True)
 
 UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
+
+BOTLOG_CHATID = Config.DARKWEB_ID
 # ================================================
 
 
@@ -116,7 +116,7 @@ async def rm_deletedacc(show):
         del_status = f"Cleaned **{del_u}** deleted account(s) \
         \n**{del_a}** deleted admin accounts are not removed"
     await edit_or_reply(event, del_status)
-    if BOTLOG:
+    if BOTLOG_CHATID:
         await show.client.send_message(
             BOTLOG_CHATID,
             f"#CLEANUP\
