@@ -8,7 +8,7 @@ import random
 
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
-from uniborg.util import admin_cmd, sudo_cmd, edit_or_reply
+from Dark.utils import admin_cmd, sudo_cmd, edit_or_reply
 from DarkWeb.cmdhelp import CmdHelp
 
 from DarkWeb import ALIVE_NAME
