@@ -190,14 +190,6 @@ async def make_qr(makeqr):
     await makeqr.delete()
 
 
-import asyncio
-import json
-from datetime import datetime
-
-import requests
-from telethon import events
-from uniborg.util import admin_cmd
-
 
 @Dark.on(admin_cmd(pattern="cal (.*)"))
 @Dark.on(sudo_cmd(pattern="cal (.*)", allow_sudo=True))
