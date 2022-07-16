@@ -4,7 +4,7 @@ import telethon.utils
 from telethon import events
 from Dark.utils import admin_cmd, sudo_cmd, edit_or_reply
 from DarkWeb.cmdhelp import CmdHelp
-from uniborg.util import re
+from Dark.util import re
 
 
 async def get_target_message(event):
