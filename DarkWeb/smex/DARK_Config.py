@@ -10,6 +10,7 @@ if ENV:
         LOGGER = True
         LOCATION = os.environ.get("LOCATION", None)
         SUDO_HNDLR = os.environ.get("SUDO_HNDLR", r"\.")
+        OPEN_LOAD_LOGIN = os.environ.get("OPEN_LOAD_LOGIN", r"\.")
         TMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/")
         TELEGRAPH_SHORT_NAME = os.environ.get("TELEGRAPH_SHORT_NAME", "DARKWEB")
         OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
