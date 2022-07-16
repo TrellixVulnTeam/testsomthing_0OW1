@@ -39,19 +39,19 @@ def load_module(shortname):
     if shortname.startswith("__"):
         pass
     elif shortname.endswith("_"):
-        import userbot.utils
+        import DarkWeb.utils
 
-        path = Path(f"userbot/plugins/{shortname}.py")
-        name = "userbot.plugins.{}".format(shortname)
+        path = Path(f"DarkWeb/plugins/{shortname}.py")
+        name = "DarkWeb.plugins.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
         LOGS.info("Successfully imported " + shortname)
     else:
-        import userbot.utils
+        import DarkWeb.utils
 
-        path = Path(f"userbot/plugins/{shortname}.py")
-        name = "userbot.plugins.{}".format(shortname)
+        path = Path(f"DarkWeb/plugins/{shortname}.py")
+        name = "DarkWeb.plugins.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.bot = bot
@@ -59,8 +59,6 @@ def load_module(shortname):
         mod.Var = Var
         mod.command = command
         mod.logger = logging.getLogger(shortname)
-        # support for uniborg
-        sys.modules["uniborg.util"] = userbot.utils
         mod.Config = Config
         mod.borg = bot
         mod.DarkBOT = bot
@@ -68,17 +66,13 @@ def load_module(shortname):
         mod.edit_or_reply = edit_or_reply
         mod.delete_Dark = delete_Dark
         mod.media_type = media_type
-        # support for DarkBOT originals
-        sys.modules["DarkBOT.utils"] = userbot.utils
-        sys.modules["DarkBOT"] = userbot
-        sys.modules["Dark.utils"] = userbot.utils
-        sys.modules["DarkWeb"] = userbot
-        # support for paperplaneextended
-        sys.modules["userbot.events"] = userbot.utils
+        sys.modules["Dark.utils"] = DarkWeb.utils
+        sys.modules["DarkWeb"] = DarkWeb
+        sys.modules["DarkWeb.events"] = DarkWeb.utils
         spec.loader.exec_module(mod)
         # for imports
-        sys.modules["userbot.plugins." + shortname] = mod
-        LOGS.info("🔰𝚁𝙴𝙱𝙴𝙻𝙱𝙾𝚃 𝚂𝚄𝙲𝙲𝙴𝚂𝚂𝙵𝚄𝙻𝙻𝚈 𝙸𝙼𝙿𝙾𝚁𝚃𝙴𝙳🔰 " + shortname)
+        sys.modules["DarkWeb.plugins." + shortname] = mod
+        LOGS.info("🔰𝚂𝚄𝙲𝙲𝙴𝚂𝚂𝙵𝚄𝙻𝙻𝚈 𝙸𝙼𝙿𝙾𝚁𝚃𝙴𝙳🔰 " + shortname)
 
 
 def remove_plugin(shortname):
@@ -89,7 +83,7 @@ def remove_plugin(shortname):
             del LOAD_PLUG[shortname]
 
         except BaseException:
-            name = f"userbot.plugins.{shortname}"
+            name = f"DarkWeb.plugins.{shortname}"
 
             for i in reversed(range(len(bot._event_builders))):
                 ev, cb = bot._event_builders[i]
@@ -338,7 +332,7 @@ def errors_handler(func):
                 'date': datetime.datetime.now()
             }
 
-            text = "**USERBOT CRASH REPORT**\n\n"
+            text = "**DarkWeb CRASH REPORT**\n\n"
 
             link = "[here](https://t.me/sn12384)"
             text += "If you wanna you can report it"
@@ -351,7 +345,7 @@ def errors_handler(func):
             ftext += "\nyou may not report this error if you've"
             ftext += "\nany confidential data here, no one will see your data\n\n"
 
-            ftext += "--------BEGIN USERBOT TRACEBACK LOG--------"
+            ftext += "--------BEGIN DarkWeb TRACEBACK LOG--------"
             ftext += "\nDate: " + date
             ftext += "\nGroup ID: " + str(errors.chat_id)
             ftext += "\nSender ID: " + str(errors.sender_id)
@@ -361,7 +355,7 @@ def errors_handler(func):
             ftext += str(traceback.format_exc())
             ftext += "\n\nError text:\n"
             ftext += str(sys.exc_info()[1])
-            ftext += "\n\n--------END USERBOT TRACEBACK LOG--------"
+            ftext += "\n\n--------END DarkWeb TRACEBACK LOG--------"
 
             command = "git log --pretty=format:\"%an: %s\" -5"
 
