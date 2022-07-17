@@ -1,3 +1,6 @@
+# credits to @mrconfused 
+
+import asyncio
 import datetime
 import importlib
 import inspect
@@ -14,23 +17,22 @@ from pathlib import Path
 from time import gmtime, strftime
 from typing import Tuple
 from telethon import functions, types
-from DarkWeb import *
-from DarkWeb.smex.DARK_Config import Config
 from telethon import events
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
-from DarkWeb.helpers.tools import media_type
+from userbot.helpers.tools import media_type
 
 from var import Var
 
-from DarkWeb import CMD_LIST, LOAD_PLUG, SUDO_LIST, bot
-from DarkWeb.helpers.exceptions import CancelProcess
-
+from userbot import CMD_LIST, LOAD_PLUG, SUDO_LIST, bot
+from userbot.helpers.exceptions import CancelProcess
+from userbot.Config import Config
+from userbot import *
 ENV = bool(os.environ.get("ENV", False))
 if ENV:
-    from DarkWeb.smex.DARK_Config import Config
+    from userbot.Config import Config
 else:
-    if os.path.exists("DARK_Config.py"):
+    if os.path.exists("config.py"):
         from config import Development as Config
 
 
@@ -39,19 +41,19 @@ def load_module(shortname):
     if shortname.startswith("__"):
         pass
     elif shortname.endswith("_"):
-        import DarkWeb.utils
+        import userbot.utils
 
-        path = Path(f"DarkWeb/plugins/{shortname}.py")
-        name = "DarkWeb.plugins.{}".format(shortname)
+        path = Path(f"userbot/plugins/{shortname}.py")
+        name = "userbot.plugins.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
         LOGS.info("Successfully imported " + shortname)
     else:
-        import DarkWeb.utils
+        import userbot.utils
 
-        path = Path(f"DarkWeb/plugins/{shortname}.py")
-        name = "DarkWeb.plugins.{}".format(shortname)
+        path = Path(f"userbot/plugins/{shortname}.py")
+        name = "userbot.plugins.{}".format(shortname)
         spec = importlib.util.spec_from_file_location(name, path)
         mod = importlib.util.module_from_spec(spec)
         mod.bot = bot
@@ -59,21 +61,23 @@ def load_module(shortname):
         mod.Var = Var
         mod.command = command
         mod.logger = logging.getLogger(shortname)
+        # support for uniborg
+        sys.modules["uniborg.util"] = userbot.utils
         mod.Config = Config
         mod.borg = bot
-        mod.DarkBOT = bot
-        mod.Dark = bot
+        mod.REBELBOT = bot
         mod.edit_or_reply = edit_or_reply
-        mod.delete_Dark = delete_Dark
+        mod.delete_REBEL = delete_REBEL
         mod.media_type = media_type
-        sys.modules["Dark.utils"] = DarkWeb.utils
-        sys.modules["Dark.util"] = DarkWeb.utils
-        sys.modules["DarkWeb"] = DarkWeb
-        sys.modules["DarkWeb.events"] = DarkWeb.utils
+        # support for REBELBOT originals
+        sys.modules["REBELBOT.utils"] = userbot.utils
+        sys.modules["REBELBOT"] = userbot
+        # support for paperplaneextended
+        sys.modules["userbot.events"] = userbot.utils
         spec.loader.exec_module(mod)
         # for imports
-        sys.modules["DarkWeb.plugins." + shortname] = mod
-        LOGS.info("🔰𝚂𝚄𝙲𝙲𝙴𝚂𝚂𝙵𝚄𝙻𝙻𝚈 𝙸𝙼𝙿𝙾𝚁𝚃𝙴𝙳🔰 " + shortname)
+        sys.modules["userbot.plugins." + shortname] = mod
+        LOGS.info("🔰𝚁𝙴𝙱𝙴𝙻𝙱𝙾𝚃 𝚂𝚄𝙲𝙲𝙴𝚂𝚂𝙵𝚄𝙻𝙻𝚈 𝙸𝙼𝙿𝙾𝚁𝚃𝙴𝙳🔰 " + shortname)
 
 
 def remove_plugin(shortname):
@@ -84,7 +88,7 @@ def remove_plugin(shortname):
             del LOAD_PLUG[shortname]
 
         except BaseException:
-            name = f"DarkWeb.plugins.{shortname}"
+            name = f"userbot.plugins.{shortname}"
 
             for i in reversed(range(len(bot._event_builders))):
                 ev, cb = bot._event_builders[i]
@@ -115,13 +119,13 @@ def admin_cmd(pattern=None, command=None, **args):
             except BaseException:
                 CMD_LIST.update({file_test: [cmd]})
         else:
-            if len(Config.HNDLR) == 2:
-                Darkreg = "^" + Config.HNDLR
-                reg = Config.HNDLR[1]
-            elif len(Config.HNDLR) == 1:
-                Darkreg = "^\\" + Config.HNDLR
-                reg = Config.HNDLR
-            args["pattern"] = re.compile(Darkreg + pattern)
+            if len(Config.COMMAND_HAND_LER) == 2:
+                REBELreg = "^" + Config.COMMAND_HAND_LER
+                reg = Config.COMMAND_HAND_LER[1]
+            elif len(Config.COMMAND_HAND_LER) == 1:
+                REBELreg = "^\\" + Config.COMMAND_HAND_LER
+                reg = Config.COMMAND_HAND_LER
+            args["pattern"] = re.compile(REBELreg + pattern)
             if command is not None:
                 cmd = reg + command
             else:
@@ -180,13 +184,13 @@ def sudo_cmd(pattern=None, command=None, **args):
             except BaseException:
                 SUDO_LIST.update({file_test: [cmd]})
         else:
-            if len(Config.SUDO_HNDLR) == 2:
-                Darkreg = "^" + Config.SUDO_HNDLR
-                reg = Config.SUDO_HNDLR[1]
-            elif len(Config.SUDO_HNDLR) == 1:
-                Darkreg = "^\\" + Config.SUDO_HNDLR
-                reg = Config.HNDLR
-            args["pattern"] = re.compile(Darkreg + pattern)
+            if len(Config.SUDO_COMMAND_HAND_LER) == 2:
+                REBELreg = "^" + Config.SUDO_COMMAND_HAND_LER
+                reg = Config.SUDO_COMMAND_HAND_LER[1]
+            elif len(Config.SUDO_COMMAND_HAND_LER) == 1:
+                REBELreg = "^\\" + Config.SUDO_COMMAND_HAND_LER
+                reg = Config.COMMAND_HAND_LER
+            args["pattern"] = re.compile(REBELreg + pattern)
             if command is not None:
                 cmd = reg + command
             else:
@@ -285,13 +289,13 @@ async def edit_or_reply(
     await event.delete()
     os.remove(file_name)
 
-async def delete_Dark(event, text, time=None, parse_mode=None, link_preview=None):
+async def delete_REBEL(event, text, time=None, parse_mode=None, link_preview=None):
     parse_mode = parse_mode or "md"
     link_preview = link_preview or False
     time = time or 5
     if event.sender_id in Config.SUDO_USERS:
         reply_to = await event.get_reply_message()
-        Darkevent = (
+        REBELevent = (
             await reply_to.reply(text, link_preview=link_preview, parse_mode=parse_mode)
             if reply_to
             else await event.reply(
@@ -299,11 +303,11 @@ async def delete_Dark(event, text, time=None, parse_mode=None, link_preview=None
             )
         )
     else:
-        Darkevent = await event.edit(
+        REBELevent = await event.edit(
             text, link_preview=link_preview, parse_mode=parse_mode
         )
     await asyncio.sleep(time)
-    return await Darkevent.delete()
+    return await REBELevent.delete()
 
 # from paperplaneextended
 on = bot.on
@@ -333,7 +337,7 @@ def errors_handler(func):
                 'date': datetime.datetime.now()
             }
 
-            text = "**DarkWeb CRASH REPORT**\n\n"
+            text = "**USERBOT CRASH REPORT**\n\n"
 
             link = "[here](https://t.me/sn12384)"
             text += "If you wanna you can report it"
@@ -346,7 +350,7 @@ def errors_handler(func):
             ftext += "\nyou may not report this error if you've"
             ftext += "\nany confidential data here, no one will see your data\n\n"
 
-            ftext += "--------BEGIN DarkWeb TRACEBACK LOG--------"
+            ftext += "--------BEGIN USERBOT TRACEBACK LOG--------"
             ftext += "\nDate: " + date
             ftext += "\nGroup ID: " + str(errors.chat_id)
             ftext += "\nSender ID: " + str(errors.sender_id)
@@ -356,7 +360,7 @@ def errors_handler(func):
             ftext += str(traceback.format_exc())
             ftext += "\n\nError text:\n"
             ftext += str(sys.exc_info()[1])
-            ftext += "\n\n--------END DarkWeb TRACEBACK LOG--------"
+            ftext += "\n\n--------END USERBOT TRACEBACK LOG--------"
 
             command = "git log --pretty=format:\"%an: %s\" -5"
 
@@ -630,14 +634,14 @@ def run_async(loop, coro):
     return asyncio.run_coroutine_threadsafe(coro, loop).result()
 
 
-async def unsavegif(event, R3b3l0p):
+async def unsavegif(event, h1m4n5hu0p):
     try:
         await event.client(
             functions.messages.SaveGifRequest(
                 id=types.InputDocument(
-                    id=R3b3l0p.media.document.id,
-                    access_hash=R3b3l0p.media.document.access_hash,
-                    file_reference=R3b3l0p.media.document.file_reference,
+                    id=h1m4n5hu0p.media.document.id,
+                    access_hash=h1m4n5hu0p.media.document.access_hash,
+                    file_reference=h1m4n5hu0p.media.document.file_reference,
                 ),
                 unsave=True,
             )
