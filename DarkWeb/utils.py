@@ -67,6 +67,7 @@ def load_module(shortname):
         mod.delete_Dark = delete_Dark
         mod.media_type = media_type
         sys.modules["Dark.utils"] = DarkWeb.utils
+        sys.modules["Dark.util"] = DarkWeb.utils
         sys.modules["DarkWeb"] = DarkWeb
         sys.modules["DarkWeb.events"] = DarkWeb.utils
         spec.loader.exec_module(mod)
